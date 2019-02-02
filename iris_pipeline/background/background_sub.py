@@ -1,9 +1,9 @@
 import math
 import numpy as np
 
-from .. import datamodels
+from jwst import datamodels
 from . import subtract_images
-from ..assign_wcs.util import create_grism_bbox
+from jwst.assign_wcs.util import create_grism_bbox
 from astropy.stats import sigma_clip
 
 import logging

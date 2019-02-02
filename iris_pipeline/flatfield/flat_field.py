@@ -7,10 +7,10 @@ import math
 
 import numpy as np
 
-from .. import datamodels
-from .. datamodels import dqflags
-from .. lib import reffile_utils
-from .. assign_wcs import nirspec       # for NIRSpec IFU data
+from jwst import datamodels
+from jwst.datamodels import dqflags
+from jwst.lib import reffile_utils
+from jwst.assign_wcs import nirspec       # for NIRSpec IFU data
 
 log = logging.getLogger(__name__)
 log.setLevel(logging.DEBUG)

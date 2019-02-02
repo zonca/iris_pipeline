@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 
-from ..stpipe import Step
-from .. import datamodels
+from jwst.stpipe import Step
+from jwst import datamodels
 from . import subtract_images
 
 class SubtractImagesStep(Step):
