@@ -85,7 +85,7 @@ class Image2Pipeline(Pipeline):
         """Process an exposure found in the association product
 
         Parameters
-        ---------
+        ----------
         exp_product: dict
             A Level2b association product.
 
