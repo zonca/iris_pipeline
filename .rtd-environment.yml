@@ -6,9 +6,6 @@ channels:
 dependencies:
     - python>=3.6
     - astropy
-    - Cython
-    - matplotlib
-    - numpy
     - pip:
       - sphinx-astropy
       - git+https://github.com/zonca/jwst.git@iris_devel
