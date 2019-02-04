@@ -37,8 +37,8 @@ env:
         
         # List runtime dependencies for the package that are available as conda
         # packages here.
-        - CONDA_DEPENDENCIES=''
-        - CONDA_DEPENDENCIES_DOC='sphinx-astropy'
+        - CONDA_DEPENDENCIES='jwst'
+        - CONDA_DEPENDENCIES_DOC='jwst sphinx-astropy'
         
         # List other runtime dependencies for the package that are available as
         # pip packages here.
@@ -49,7 +49,7 @@ env:
         # are in astropy-ci-extras. If your package uses either of these,
         # add the channels to CONDA_CHANNELS along with any other channels
         # you want to use.
-        - CONDA_CHANNELS='astropy-ci-extras astropy'
+        - CONDA_CHANNELS='astropy-ci-extras astropy http://ssb.stsci.edu/astroconda-dev'
 
         # If there are matplotlib or other GUI tests, uncomment the following
         # line to use the X virtual framebuffer.
@@ -98,7 +98,7 @@ matrix:
         # time.
 
         - os: linux
-          env: PYTHON_VERSION=3.5 NUMPY_VERSION=1.12
+          env: PYTHON_VERSION=3.6 NUMPY_VERSION=1.12
         - os: linux
           env: PYTHON_VERSION=3.6 NUMPY_VERSION=1.13
         - os: linux
