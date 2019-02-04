@@ -38,13 +38,17 @@ therefore you need to install my fork::
     cd jwst
     python setup.py install
 
-Then you need to download the ``CRDS`` cache::
+Then you need to download the ``CRDS`` cache:
+
+.. code-block:: bash
 
     git clone https://github.com/oirlab/tmt-crds-cache $HOME/crds_cache
 
 the ``CRDS`` cache contains metadata for IRIS, the calibration files, flat fields,
-and a set of `rules on how to choose the right calibration file given a set of metadata<https://github.com/oirlab/tmt-crds-cache/blob/master/mappings/tmt/tmt_iris_flat_0001.rmap>`_,
-you can browse `the content on Github<https://github.com/oirlab/tmt-crds-cache>`_.
+and a set of rules_ on how to choose the right calibration file given a set of metadata,
+you can browse the content on `Github <https://github.com/oirlab/tmt-crds-cache>`_.
+
+.. _rules: https://github.com/oirlab/tmt-crds-cache/blob/master/mappings/tmt/tmt_iris_flat_0001.rmap
 
 Development install
 ===================
