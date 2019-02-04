@@ -45,23 +45,21 @@ class BackgroundStep(Step):
 
                 # Get the reference file names
                 bkg_name = self.get_reference_file(input_model, "wfssbkg")
-                wlrange_name = self.get_reference_file(input_model,
-                                                       "wavelengthrange")
-                self.log.info('Using WFSSBKG reference file %s', bkg_name)
-                self.log.info('Using WavelengthRange reference file %s',
-                              wlrange_name)
+                wlrange_name = self.get_reference_file(input_model, "wavelengthrange")
+                self.log.info("Using WFSSBKG reference file %s", bkg_name)
+                self.log.info("Using WavelengthRange reference file %s", wlrange_name)
 
                 # Do the background subtraction for WFSS/GRISM data
                 result = background_sub.subtract_wfss_bkg(
-                                input_model, bkg_name, wlrange_name)
-                result.meta.cal_step.back_sub = 'COMPLETE'
+                    input_model, bkg_name, wlrange_name
+                )
+                result.meta.cal_step.back_sub = "COMPLETE"
 
             else:
                 # Do the background subtraction
-                result = background_sub.background_sub(input_model,
-                                                       bkg_list,
-                                                       self.sigma,
-                                                       self.maxiters)
-                result.meta.cal_step.back_sub = 'COMPLETE'
+                result = background_sub.background_sub(
+                    input_model, bkg_list, self.sigma, self.maxiters
+                )
+                result.meta.cal_step.back_sub = "COMPLETE"
 
         return result

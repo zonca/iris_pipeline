@@ -4,6 +4,7 @@ from jwst.stpipe import Step
 from jwst import datamodels
 from . import subtract_images
 
+
 class SubtractImagesStep(Step):
     """
     SubtractImagesStep:  Subtract two exposures from one
@@ -37,11 +38,11 @@ class SubtractImagesStep(Step):
         model1 = datamodels.open(input1)
 
         if isinstance(model1, datamodels.CubeModel):
-            self.log.debug('Input is a CubeModel')
+            self.log.debug("Input is a CubeModel")
         elif isinstance(model1, datamodels.ImageModel):
-            self.log.debug('Input is an ImageModel')
+            self.log.debug("Input is an ImageModel")
         elif isinstance(model1, datamodels.MultiSlitModel):
-            self.log.debug('Input is a MultiSlitModel')
+            self.log.debug("Input is a MultiSlitModel")
 
         # Assume that the second input model is always an ImageModel
         model2 = datamodels.ImageModel(input2)
@@ -50,7 +51,7 @@ class SubtractImagesStep(Step):
         result = subtract_images.subtract(model1, model2)
 
         # Set the step status indicator in the output model
-        result.meta.cal_step.back_sub = 'COMPLETE'
+        result.meta.cal_step.back_sub = "COMPLETE"
 
         # We're done. Close the models and return the result.
         model1.close()
