@@ -1,7 +1,6 @@
 name: iris_pipeline
 
 channels:
-    - astropy
     - http://ssb.stsci.edu/astroconda-dev
     - defaults
 
@@ -13,4 +12,4 @@ dependencies:
     - numpy
     - jwst
     - pip:
-        - sphinx-astropy
+      - sphinx-astropy
