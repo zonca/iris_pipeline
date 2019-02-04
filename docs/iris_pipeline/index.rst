@@ -50,6 +50,12 @@ you can browse the content on `Github <https://github.com/oirlab/tmt-crds-cache>
 
 .. _rules: https://github.com/oirlab/tmt-crds-cache/blob/master/mappings/tmt/tmt_iris_flat_0001.rmap
 
+Finally, we need a custom version of the ``CRDS`` library that contains some modules specific to TMT::
+
+    git clone https://github.com/oirlab/tmt-crds.git
+    cd tmt-crds
+    pip install .
+
 Development install
 ===================
 
