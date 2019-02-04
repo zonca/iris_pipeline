@@ -1,7 +1,7 @@
 name: iris_pipeline
 
 channels:
-    - http://ssb.stsci.edu/astroconda-dev
+    - astropy
 
 dependencies:
     - python>=3.6
@@ -9,6 +9,6 @@ dependencies:
     - Cython
     - matplotlib
     - numpy
-    - jwst
     - pip:
       - sphinx-astropy
+      - git+https://github.com/zonca/jwst.git@iris_devel
