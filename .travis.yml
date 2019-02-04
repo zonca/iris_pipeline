@@ -37,19 +37,19 @@ env:
         
         # List runtime dependencies for the package that are available as conda
         # packages here.
-        - CONDA_DEPENDENCIES='jwst'
-        - CONDA_DEPENDENCIES_DOC='jwst sphinx-astropy'
+        - CONDA_DEPENDENCIES=''
+        - CONDA_DEPENDENCIES_DOC='sphinx-astropy'
         
         # List other runtime dependencies for the package that are available as
         # pip packages here.
-        - PIP_DEPENDENCIES=''
+        - PIP_DEPENDENCIES='git+https://github.com/zonca/jwst.git@iris_devel'
 
         # Conda packages for affiliated packages are hosted in channel
         # "astropy" while builds for astropy LTS with recent numpy versions
         # are in astropy-ci-extras. If your package uses either of these,
         # add the channels to CONDA_CHANNELS along with any other channels
         # you want to use.
-        - CONDA_CHANNELS='astropy-ci-extras astropy http://ssb.stsci.edu/astroconda-dev'
+        - CONDA_CHANNELS='astropy'
 
         # If there are matplotlib or other GUI tests, uncomment the following
         # line to use the X virtual framebuffer.
