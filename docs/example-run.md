@@ -117,3 +117,5 @@ here is the output log:
 We can also notice that `stpipe` accesses the Calibration Reference Data System cache to retrieve the appropriate flat file.
 After completion, the reduced science frame `test_iris_subtract_bg_flat_cal.fits` is written to disk, it includes all the metadata
 it had initially and additional details about the processing steps that were executed.
+
+See the [Getting started](getting-started) page to download the example and run it on your machine.
