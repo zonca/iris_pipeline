@@ -7,7 +7,7 @@ Here is an example of what it takes to configure and run a pipeline with flat-fi
 
 First we configure our pipeline using a INI-style configuration file, `image2_iris.cfg`:
 
-```
+```ini
 name = "Image2Pipeline"
 class = "iris_pipeline.pipeline.Image2Pipeline"
 save_results = True
@@ -28,7 +28,7 @@ first we specify that we want to execute the pipeline defined in `iris_pipeline.
 configure each of the steps, for example skip some of them.
 Also we can import the configuration of a step from another file, in this case `flat_field.cfg`:
 
-```
+```ini
 name = "flat_field" 
 class = "jwst.flatfield.FlatFieldStep"
 
@@ -48,7 +48,7 @@ an association, see [the JWST documentation](https://jwst-docs.stsci.edu/display
 In our example we need to specify a input raw science frame ad a background to be subtracted,
 see `asn_subtract_bg_flat.json`:
 
-```
+```json
 {
     "asn_rule": "Asn_Lv2Image",
     "asn_pool": "pool",
@@ -80,7 +80,7 @@ We can use `strun` from a terminal to execute the pipeline:
 
 here is the output log:
 
-```
+```bash
 2019-02-19 22:26:55,846 - stpipe.Image2Pipeline - INFO - Image2Pipeline instance created.
 2019-02-19 22:26:55,847 - stpipe.Image2Pipeline.bkg_subtract - INFO - BackgroundStep instance created.
 2019-02-19 22:26:55,849 - stpipe.Image2Pipeline.assign_wcs - INFO - AssignWcsStep instance created.
