@@ -207,3 +207,13 @@ source_parsers = {
             }
 
 source_suffix = ['.rst', '.md']
+
+from recommonmark.transform import AutoStructify
+
+def setup(app):
+    app.add_config_value('recommonmark_config', {
+            'auto_toc_tree_section': 'Contents',
+            'enable_inline_math' : True,
+            'enable_math' : True,
+            }, True)
+    app.add_transform(AutoStructify)
