@@ -43,6 +43,14 @@ Design
 
    design
 
+Algorithms
+==========
+
+.. toctree::
+   :maxdepth: 1
+
+   algorithms
+
 Reference/API
 =============
 
