@@ -8,5 +8,5 @@ dependencies:
     - astropy
     - pip:
       - sphinx-astropy
-      - https://github.com/rtfd/recommonmark/archive/fix-math.zip
+      - recommonmark
       - git+https://github.com/zonca/jwst.git@iris_devel
