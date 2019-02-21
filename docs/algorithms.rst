@@ -163,12 +163,12 @@ Flux calibration
   aperture size is determined, the flux is integrated the flux for a
   given band to produce the flux of the star in DN. Aperture corrections
   will be applied based PSF and the seeing. For relative photometry,
-  :math:`m_1-m_2=-2.5log_{10}(\dfrac{f_1}{f_2})`, where m1 and m2 are
+  :math:`m_1-m_2=-2.5log_{10}\left(i \dfrac{f_1}{f_2}\right)`, where m1 and m2 are
   magnitudes of the sources and f1 and f1 are fluxes of the sources.
   This can be performed with a single source or the entire field with
   known sources to scale image. The zeropoints of the image can be
   determined from the known sources integrated flux and magnitude, (i.e.
-  :math:`m=-2.5log_{10}(\dfrac{DN}{exptime})+zeropoint`). On sky tests
+  :math:`m=-2.5log_{10}\left( \dfrac{DN}{exptime}\right)+zeropoint`). On sky tests
   will be required to determine the extinction corrected instrumental
   zeropoints. IFS: To convert from DN to flux units (erg/s/cm^2/Ang) a
   standard star needs to be observed in the same instrument
