@@ -5,12 +5,8 @@ channels:
 
 dependencies:
     - python>=3.6
-    - sphinx=1.7
     - astropy
-    - mock
-    - pillow
-    - sphinx_rtd_theme
     - pip:
       - sphinx-astropy
-      - recommonmark
+      - https://github.com/rtfd/recommonmark/archive/fix-math.zip
       - git+https://github.com/zonca/jwst.git@iris_devel
