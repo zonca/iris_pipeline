@@ -217,3 +217,5 @@ def setup(app):
             'enable_math' : True,
             }, True)
     app.add_transform(AutoStructify)
+
+intersphinx_mapping = {'jwst': ('https://jwst-pipeline.readthedocs.io/en/latest', None)}
