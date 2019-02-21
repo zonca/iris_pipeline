@@ -7,6 +7,9 @@ dependencies:
     - python>=3.6
     - sphinx=1.7
     - astropy
+    - mock
+    - pillow
+    - sphinx_rtd_theme
     - pip:
       - sphinx-astropy
       - recommonmark
