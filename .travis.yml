@@ -38,7 +38,7 @@ env:
         # List runtime dependencies for the package that are available as conda
         # packages here.
         - CONDA_DEPENDENCIES=''
-        - CONDA_DEPENDENCIES_DOC='sphinx-astropy recommonmark '
+        - CONDA_DEPENDENCIES_DOC='sphinx=1.7 sphinx-astropy recommonmark '
         
         # List other runtime dependencies for the package that are available as
         # pip packages here.
