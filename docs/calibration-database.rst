@@ -9,6 +9,8 @@ Auxiliary data used in DRP algorithms are called calibration data. This includes
 daytime calibration frames, such as arc lamp spectra, white light flat field images, and pinhole grids for measuring distortion. 
 The following table summarizes the required calibration files necessary for the Data Reduction Software.
 
+Notes about the table: Note: * = SPEC only, PTG = pointing, D-Map = Distortion Map, Env = Environmental, DTC = Daytime calibration, NTC = Nightime calibration.
+
 .. csv-table:: Calibration frames
    :header: "Name", "Reference Type", "Source", "Algorithms"
    :widths: 30,20,20,20
@@ -26,6 +28,20 @@ The following table summarizes the required calibration files necessary for the 
    "Pinhole Grid (D-Map)",    "CAL (2D)",    "IRIS DTC (NSCU)",       "Field distortion correction"
    "PSF metadata",            "Metadata ",   "ESW, FITS header",      "PSF calibration"
    "PSF star",                "CAL (2D, 3D)","IRIS on-sky ",          "PSF calibration"
+   "Sky frame",               "CAL (2D, 3D)","IRIS on-sky",           "Sky-subtraction"
+   "Telescope config PTG",    "Metadata ",   "ESW, FITS header",      "All "
+
+.. csv-table:: Real time Calibration frames
+   :header: "Name", "Reference Type", "Source", "Algorithms"
+   :widths: 30,20,20,20
+
+   "Atm. Dispersion Residual","Metadata",    "IRIS ADC",              "Atmospheric Correction"
+   "Arc lamp spectra*",       "CAL (2D)",    "IRIS DTC (NSCU)",       "Wavelength solution "
+   "Bad pixel map",           "CAL (2D)",    "IRIS DTC",              "Correction of detector artifacts"
+   "Dark Frame",              "CAL (2D)",    "IRIS DTC and NTC",      "Dark subtraction "
+   "Env metadata",            "Metadata",    "ESW, FITS header",      "All"
+   "Instrument config",       "Metadata",    "ESW, FITS header",      "All"
+   "NFIRAOS config",          "Metadata",    "ESW, FITS header",      "All"
    "Sky frame",               "CAL (2D, 3D)","IRIS on-sky",           "Sky-subtraction"
    "Telescope config PTG",    "Metadata ",   "ESW, FITS header",      "All "
 
