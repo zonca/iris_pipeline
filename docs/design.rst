@@ -57,36 +57,5 @@ science frame with flat-fielding and background subtraction.
 Access calibration files via the Calibration Reference Data System (CRDS)
 =========================================================================
 
-The `Calibration Reference Data System
-(CRDS) <https://hst-crds.stsci.edu/static/users_guide/overview.html>`_
-is a set of tools developed by Space Telescope to organize and retrieve
-calibration reference files, e.g. flat frames, dark frames, for JWST and
-HST. When ``stpipe`` is executing a pipeline, it can automatically
-connect to the JWST CRDS server and get the right flat based on the
-metadata in the header of the data FITS files. The logic necessary to
-choose the right file is encoded in text files. Those configuration
-files and the actual calibration FITS files are also cached locally so
-that the CRDS client library works even without any connection to a
-central server.
+See `the section about Calibration <calibration-database>`_
 
-We have created a CRDS cache folder in the Github repository
-https://github.com/oirlab/tmt-crds-cache,
-this includes in the ``mappings/tmt``
-`folder <https://github.com/oirlab/tmt-crds-cache/tree/master/mappings/tmt>`_
-the metadata for IRIS and the rules to choose the right flat-field
-frame, for now there is only a dummy rule but this can be easily
-customize querying the metadata in the input file.
-
-Currently we do not have any CRDS server running, but the users can
-download the CRDS cache locally and use it anyway, see the `Getting
-started <getting-started>`_ documentation.
-
-Also, the CRDS client library needs to have minimal knowledge about
-metadata for TMT, therefore we maintain a fork of that library which
-simply adds a submodule dedicated to IRIS, https://github.com/oirlab/tmt-crds, it is quite
-easy to upgrade this to newer releases of CRDS by Space Telescope.
-
-If TMT decided to use CRDS as their Data Management System, it would
-leverage the extensive set of tools and documentation available and
-would not require modifications to ``stpipe``; otherwise, we will
-implement support for the DMS API into (our own fork of) ``stpipe``.

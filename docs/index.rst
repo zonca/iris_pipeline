@@ -43,6 +43,14 @@ Design
 
    design
 
+Calibration
+===========
+
+.. toctree::
+   :maxdepth: 2
+
+   calibration-database
+
 Algorithms
 ==========
 
