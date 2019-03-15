@@ -59,3 +59,22 @@ Access calibration files via the Calibration Reference Data System (CRDS)
 
 See `the section about Calibration <calibration-database>`_
 
+Metadata
+========
+
+`iris_pipeline` requires a set of metadata from TMT and from other subsystems to process the data,
+see the `list of required metadata <https://github.com/tmt-icd/IRIS-Model-Files/blob/master/drs/drs-assembly/subscribe-model.conf>`_.
+
+Moreover, `iris_pipeline` will add to the header of processed FITS files categorizing the data in:
+
+===================  ==================================  ======================================
+OBSTYPE              OBSNAME                             Description
+===================  ==================================  ======================================
+Calibration (CAL)    IMG1-NFF, SLI-NFF                   Flat field
+                     LEN-SPX                             Lenslet Spectral Extraction
+                     IMG1-DRK, SLI-DRK, LEN-DRK          Master dark
+                     IMG1-TEL, SLI-TEL, LEN-TEL          Telluric Star
+Engineering (ENG)    SLI-IDP, LEN-IDP                    Instrumental dispersion
+Science (SCI)        IMG1-SCI, LEN-SCI, SLI-SCI          Science
+                     IMG1-SKY, LEN-SKY, SLI-SKY          Sky
+===================  ==================================  ======================================
