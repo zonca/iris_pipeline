@@ -1,8 +1,8 @@
 IRIS Data Reduction System design
 =================================
 
-Introduction
-============
+Purpose
+=======
 
 The IRIS Data Reduction System is planned to perform:
 
@@ -46,6 +46,12 @@ We leverage this effort by:
 -  starting from JWST processing modules and customizing them for IRIS
    and publishing them on the ``iris_pipeline``
    repository https://github.com/oirlab/iris_pipeline.
+
+File format
+===========
+
+All data will be stored in FITS file format, following as closest as possible
+the conventions by JWST, see https://jwst-docs.stsci.edu/display/JDAT/Working+with+FITS+Files.
 
 Example run
 ===========
