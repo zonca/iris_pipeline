@@ -32,3 +32,4 @@ if not _ASTROPY_SETUP_:
 from .flatfield import *
 from .background import *
 from .pipeline import *
+from .dq_init import *
