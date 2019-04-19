@@ -2,16 +2,15 @@ import logging
 
 import numpy as np
 
-from .. import datamodels
-from ..lib import reffile_utils
+from jwst import datamodels
+from jwst.lib import reffile_utils
 
 log = logging.getLogger(__name__)
 log.setLevel(logging.DEBUG)
 
 
-# FGS guide star mode exposure types
-guider_list = ['FGS_ID-IMAGE', 'FGS_ID-STACK', 'FGS_ACQ1', 'FGS_ACQ2',
-               'FGS_TRACK', 'FGS_FINEGUIDE']
+# exposure types that only have a `dq` array instead of pixeldq and groupdq
+guider_list = []
 
 
 def correct_model(input_model, mask_model):

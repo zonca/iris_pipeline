@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 
-from ..stpipe import Step
-from .. import datamodels
+from jwst.stpipe import Step
+from jwst import datamodels
 from . import dq_initialization
 
 
@@ -37,7 +37,7 @@ class DQInitStep(Step):
 
         # Try to open the input as a regular RampModel
         try:
-            input_model = datamodels.RampModel(input)
+            input_model = datamodels.TMTRampModel(input)
 
             # Check to see if it's Guider raw data
             if input_model.meta.exposure.type in dq_initialization.guider_list:
@@ -71,7 +71,7 @@ class DQInitStep(Step):
             return result
 
         # Load the reference file
-        mask_model = datamodels.MaskModel(self.mask_filename)
+        mask_model = datamodels.TMTMaskModel(self.mask_filename)
 
         # Apply the step
         result = dq_initialization.correct_model(input_model, mask_model)
