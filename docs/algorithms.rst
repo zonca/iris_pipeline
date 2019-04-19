@@ -72,6 +72,9 @@ of several science and calibration frames. In order to properly mitigate
 CRs in the median case, one needs 3 or more frames in multiples of odd
 numbers (i.e. 3, 5, 7…).
 
+* See details about creating and using a bad pixel map in :doc:`the documentation about data quality initialization <dq_init/description.rst>`.
+* See an `example notebook on how to inizialize the bad pixel mask <https://gist.github.com/zonca/e15620ff5d26652bc201b180ec00cdce>`_.
+
 Flat Fielding
 -------------
 

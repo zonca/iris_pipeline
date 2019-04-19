@@ -12,4 +12,4 @@ Data Quality (DQ) Initialization
    reference_files.rst
 
 
-.. automodapi:: jwst.dq_init
+.. automodapi:: iris_pipeline.dq_init
