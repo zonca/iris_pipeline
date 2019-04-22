@@ -1,7 +1,7 @@
 from .model_base import DataModel
 
 
-__all__ = ['TMTRampModel']
+__all__ = ["TMTRampModel"]
 
 
 class TMTRampModel(DataModel):
@@ -32,6 +32,7 @@ class TMTRampModel(DataModel):
          table of times for each integration
 
     """
+
     schema_url = "tmt_ramp.schema.yaml"
 
     def __init__(self, init=None, **kwargs):

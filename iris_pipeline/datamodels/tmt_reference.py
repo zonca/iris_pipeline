@@ -6,7 +6,7 @@ from .model_base import DataModel
 from jwst.datamodels.dynamicdq import dynamic_mask
 from jwst.datamodels.validate import ValidationWarning
 
-__all__ = ['TMTReferenceFileModel']
+__all__ = ["TMTReferenceFileModel"]
 
 
 class TMTReferenceFileModel(DataModel):
@@ -14,6 +14,7 @@ class TMTReferenceFileModel(DataModel):
     A data model for reference tables
 
     """
+
     schema_url = "referencefile.schema.yaml"
 
     def __init__(self, init=None, **kwargs):
@@ -28,7 +29,7 @@ class TMTReferenceFileModel(DataModel):
         """
         try:
             assert self.meta.description is not None
-            assert self.meta.telescope == 'TMT'
+            assert self.meta.telescope == "TMT"
             assert self.meta.reftype is not None
             assert self.meta.author is not None
             assert self.meta.pedigree is not None
@@ -63,6 +64,7 @@ class TMTReferenceImageModel(TMTReferenceFileModel):
     err : numpy float32 array
          Error array
     """
+
     schema_url = "referenceimage.schema.yaml"
 
     def __init__(self, init=None, **kwargs):
@@ -72,7 +74,7 @@ class TMTReferenceImageModel(TMTReferenceFileModel):
         self.dq = self.dq
         self.err = self.err
 
-        if self.hasattr('dq_def'):
+        if self.hasattr("dq_def"):
             self.dq = dynamic_mask(self)
 
 
@@ -91,6 +93,7 @@ class TMTReferenceCubeModel(TMTReferenceFileModel):
     err : numpy float32 array
          Error array
     """
+
     schema_url = "referencecube.schema.yaml"
 
     def __init__(self, init=None, **kwargs):
@@ -99,6 +102,7 @@ class TMTReferenceCubeModel(TMTReferenceFileModel):
         # Implicitly create arrays
         self.dq = self.dq
         self.err = self.err
+
 
 class TMTReferenceQuadModel(TMTReferenceFileModel):
     """
@@ -115,6 +119,7 @@ class TMTReferenceQuadModel(TMTReferenceFileModel):
     err : numpy float32 array
          Error array
     """
+
     schema_url = "referencequad.schema.yaml"
 
     def __init__(self, init=None, **kwargs):
