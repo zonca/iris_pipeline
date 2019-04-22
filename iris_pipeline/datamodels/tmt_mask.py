@@ -1,10 +1,10 @@
-from .reference import ReferenceFileModel
-from .dynamicdq import dynamic_mask
+from .tmt_reference import TMTReferenceFileModel
+from jwst.datamodels.dynamicdq import dynamic_mask
 
 __all__ = ['TMTMaskModel']
 
 
-class TMTMaskModel(ReferenceFileModel):
+class TMTMaskModel(TMTReferenceFileModel):
     """
     A data model for 2D masks.
 

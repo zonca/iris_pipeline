@@ -1,4 +1,4 @@
-from jwst.model_base import DataModel
+from .model_base import DataModel
 
 
 __all__ = ['IRISImageModel']
