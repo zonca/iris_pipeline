@@ -18,7 +18,10 @@ The H4RG detecors are readout in non-destructive reads and sampling algorithms a
 - Multi Correlated Double Sampling
 - Up-the-Ramp Sampling
  
-
+Requirements
+------------
+The sampling algorithms use the drsrop_clib module.
+https://github.com/arunsurya77/drsrop_clib
 
 Running the Examples
 ---------------------
