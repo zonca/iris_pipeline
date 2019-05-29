@@ -33,3 +33,5 @@ from .flatfield import *
 from .background import *
 from .pipeline import *
 from .dq_init import *
+
+from .datamodels import  monkeypatch_jwst_datamodels

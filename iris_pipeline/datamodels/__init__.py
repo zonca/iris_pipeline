@@ -24,3 +24,8 @@ __all__ = [
 _all_models = __all__
 _local_dict = locals()
 _defined_models = {k: _local_dict[k] for k in _all_models}
+
+def monkeypatch_jwst_datamodels():
+    import jwst.datamodels
+
+    jwst.datamodels._defined_models.update(_defined_models)
