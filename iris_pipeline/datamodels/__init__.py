@@ -21,6 +21,6 @@ __all__ = [
     "TMTReferenceFileModel",
 ]
 
-_all_models = __all__[1:]
+_all_models = __all__
 _local_dict = locals()
 _defined_models = {k: _local_dict[k] for k in _all_models}

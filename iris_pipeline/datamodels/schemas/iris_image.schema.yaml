@@ -33,8 +33,6 @@ allOf:
       fits_hdu: PATHLOSS_POINTSOURCE
       default: 1.0
       datatype: float32
-    relsens:
-      $ref: relsens.schema.yaml
     relsens2d:
       title: Sensitivity array
       fits_hdu: RELSENS2D

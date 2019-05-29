@@ -1,10 +1,10 @@
-from .model_base import DataModel
+from .model_base import TMTDataModel
 
 
 __all__ = ["IRISImageModel"]
 
 
-class IRISImageModel(DataModel):
+class IRISImageModel(TMTDataModel):
     """
     A data model for 2D images.
 

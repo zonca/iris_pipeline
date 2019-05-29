@@ -2,14 +2,14 @@ import warnings
 import sys
 import traceback
 
-from .model_base import DataModel
+from .model_base import TMTDataModel
 from jwst.datamodels.dynamicdq import dynamic_mask
 from jwst.datamodels.validate import ValidationWarning
 
 __all__ = ["TMTReferenceFileModel"]
 
 
-class TMTReferenceFileModel(DataModel):
+class TMTReferenceFileModel(TMTDataModel):
     """
     A data model for reference tables
 

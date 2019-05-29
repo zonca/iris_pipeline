@@ -1,10 +1,10 @@
-from .model_base import DataModel
+from .model_base import TMTDataModel
 
 
 __all__ = ["TMTRampModel"]
 
 
-class TMTRampModel(DataModel):
+class TMTRampModel(TMTDataModel):
     """
     A data model for 4D ramps.
 
