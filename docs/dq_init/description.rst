@@ -31,7 +31,7 @@ Then we can create the 2D array and set some flag value::
 
 check the content of the flag::
 
-    >>> np.histogram(f.dq, bins=3)
+    np.histogram(f.dq, bins=3)
     (array([16777196,       10,       10]),
      array([   0.        ,  682.66666667, 1365.33333333, 2048.        ]))
 
