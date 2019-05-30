@@ -2,6 +2,7 @@ import math
 import numpy as np
 
 from jwst import datamodels
+import iris_pipeline
 from . import subtract_images
 from jwst.assign_wcs.util import create_grism_bbox
 from astropy.stats import sigma_clip
@@ -76,11 +77,11 @@ def average_background(bkg_list, sigma, maxiters):
     # Loop over the images to be used as background
     for i, bkg_file in enumerate(bkg_list):
         log.debug(" Accumulate bkg from {}".format(bkg_file))
-        bkg_model = datamodels.ImageModel(bkg_file)
+        bkg_model = iris_pipeline.datamodels.IRISImageModel(bkg_file)
 
         # Initialize the avg_bkg model, if necessary
         if avg_bkg is None:
-            avg_bkg = datamodels.ImageModel(bkg_model.shape)
+            avg_bkg = iris_pipeline.datamodels.IRISImageModel(bkg_model.shape)
 
         if cdata is None:
             cdata = np.zeros(((num_bkg,) + bkg_model.shape))
