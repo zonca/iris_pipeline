@@ -1,5 +1,6 @@
 #! /usr/bin/env python
 
+import iris_pipeline
 from jwst.stpipe import Step
 from jwst import datamodels
 from . import flat_field
@@ -7,23 +8,7 @@ from . import flat_field
 # For the following types of data, it is OK -- and in some cases
 # required -- for the extract_2d step to have been run.  For all
 # other types of data, the extract_2d step must not have been run.
-EXTRACT_2D_IS_OK = ["NRS_LAMP", "NRS_BRIGHTOBJ", "NRS_FIXEDSLIT", "NRS_MSASPEC"]
-
-# NIRSpec imaging types (see exp_type2transform in assign_wcs/nirspec.py).
-NRS_IMAGING_MODES = [
-    "NRS_IMAGE",
-    "NRS_FOCUS",
-    "NRS_TACQ",
-    "NRS_MSATA",
-    "NRS_TASLIT",
-    "NRS_CONFIRM",
-    "NRS_TACONFIRM",
-    "NRS_MIMF",
-    "NRS_WATA",
-]
-# Supported NIRSpec spectrographic types.
-NRS_SPEC_MODES = ["NRS_BRIGHTOBJ", "NRS_FIXEDSLIT", "NRS_MSASPEC", "NRS_IFU"]
-
+EXTRACT_2D_IS_OK = []
 
 __all__ = ["FlatFieldStep"]
 
@@ -151,7 +136,7 @@ class FlatFieldStep(Step):
                 d_flat_model = datamodels.NirspecFlatModel(self.d_flat_filename)
         else:
             self.log.debug("Opening flat as FlatModel")
-            flat_model = datamodels.FlatModel(self.flat_filename)
+            flat_model = iris_pipeline.datamodels.TMTFlatModel(self.flat_filename)
             f_flat_model = None
             s_flat_model = None
             d_flat_model = None
