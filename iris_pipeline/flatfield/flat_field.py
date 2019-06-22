@@ -467,7 +467,7 @@ def populate_interpolated_flats(
     """
 
     if interpolated_flats is not None:
-        new_flat = datamodels.ImageModel(data=flat_2d, dq=flat_dq_2d)
+        new_flat = iris_pipeline.datamodels.IRISImageModel(data=flat_2d, dq=flat_dq_2d)
         interpolated_flats.slits.append(new_flat.copy())
         interpolated_flats.slits[k].err[...] = 1.0  # not realistic
         interpolated_flats.slits[k].name = slit.name
@@ -520,7 +520,7 @@ def NIRSpec_brightobj(
 
     # Create an output model for the interpolated flat fields.
     if flat_suffix is not None:
-        interpolated_flats = datamodels.ImageModel()
+        interpolated_flats = iris_pipeline.datamodels.IRISImageModel()
         interpolated_flats.update(output_model, only="PRIMARY")
         if got_wcs:
             interpolated_flats.meta.wcs = output_model.meta.wcs
@@ -787,7 +787,9 @@ def NIRSpec_IFU(output_model, f_flat_model, s_flat_model, d_flat_model, flat_suf
             interpolated_flats = None
         else:
             # Create an output model for the interpolated flat fields.
-            interpolated_flats = datamodels.ImageModel(data=flat, dq=flat_dq)
+            interpolated_flats = iris_pipeline.datamodels.IRISImageModel(
+                data=flat, dq=flat_dq
+            )
             interpolated_flats.update(output_model, only="PRIMARY")
     else:
         output_model.meta.cal_step.flat_field = "SKIPPED"
