@@ -2,7 +2,7 @@
 
 from jwst.stpipe import Step
 from jwst import datamodels
-from drsrop_clib import uptheramp_c,mcds_c,nonlin_c
+from ..drsrop_clib import uptheramp_c,mcds_c,nonlin_c
 import numpy as np
 from astropy.io import fits
 
