@@ -4,6 +4,7 @@ from .iris import IRISImageModel
 from .tmt_ramp import TMTRampModel
 from .tmt_mask import TMTMaskModel
 from .flat import TMTFlatModel
+from .dark import TMTDarkModel
 from .tmt_reference import (
     TMTReferenceImageModel,
     TMTReferenceCubeModel,
@@ -18,6 +19,7 @@ __all__ = [
     "TMTMaskModel",
     "TMTReferenceImageModel",
     "TMTFlatModel",
+    "TMTDarkModel",
     "TMTReferenceCubeModel",
     "TMTReferenceQuadModel",
     "TMTReferenceFileModel",
