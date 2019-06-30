@@ -1,5 +1,6 @@
-from ..stpipe import Step
-from .. import datamodels
+from jwst.stpipe import Step
+from jwst import datamodels
+from ..datamodels import TMTDarkModel
 from . import dark_sub
 
 
@@ -13,7 +14,7 @@ class DarkCurrentStep(Step):
     """
 
     spec = """
-        dark_output = output_file(default = None) # Dark model or averaged dark subtracted
+        dark_output = output_file(default = None) # Dark model subtracted
     """
 
     reference_file_types = ['dark']
@@ -21,7 +22,7 @@ class DarkCurrentStep(Step):
     def process(self, input):
 
         # Open the input data model
-        with datamodels.RampModel(input) as input_model:
+        with datamodels.open(input) as input_model:
 
             # Get the name of the dark reference file to use
             self.dark_name = self.get_reference_file(input_model, 'dark')
@@ -43,7 +44,7 @@ class DarkCurrentStep(Step):
                 )
 
             # Open the dark ref file data model - based on Instrument
-            dark_model = datamodels.DarkModel(self.dark_name)
+            dark_model = TMTDarkModel(self.dark_name)
 
             # Do the dark correction
             result = dark_sub.do_correction(

@@ -4,7 +4,7 @@
 
 import numpy as np
 import logging
-from .. import datamodels
+from jwst import datamodels
 
 log = logging.getLogger(__name__)
 log.setLevel(logging.DEBUG)
@@ -95,26 +95,6 @@ def do_correction(input_model, dark_model, dark_output=None):
         if dark_output is not None:
             log.info('Writing dark current data to %s', dark_output)
             dark_model.save(dark_output)
-
-    else:
-
-        # Create a frame-averaged version of the dark data to match
-        # the nframes and groupgap settings of the science data.
-
-        averaged_dark = average_dark_frames(
-            dark_model, sci_ngroups, sci_nframes, sci_groupgap
-        )
-
-        # Save the frame-averaged dark data that was just created,
-        # if requested by the user
-        if dark_output is not None:
-            log.info('Writing dark current data to %s', dark_output)
-            averaged_dark.save(dark_output)
-
-        # Subtract the frame-averaged dark data from the science data
-        output_model = subtract_dark(input_model, averaged_dark)
-
-        averaged_dark.close()
 
     output_model.meta.cal_step.dark_sub = 'COMPLETE'
 
