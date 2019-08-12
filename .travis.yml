@@ -38,12 +38,10 @@ env:
         # List runtime dependencies for the package that are available as conda
         # packages here.
         - CONDA_DEPENDENCIES=''
-        - CONDA_DEPENDENCIES_DOC=''
         
         # List other runtime dependencies for the package that are available as
         # pip packages here.
         - PIP_DEPENDENCIES='git+https://github.com/spacetelescope/jwst#0.13.7'
-        - PIP_DEPENDENCIES_DOC='git+https://github.com/spacetelescope/jwst#0.13.7 sphinx-astropy'
 
         # Conda packages for affiliated packages are hosted in channel
         # "astropy" while builds for astropy LTS with recent numpy versions
@@ -75,13 +73,6 @@ matrix:
         # Try MacOS X
         - os: osx
           env: SETUP_CMD='test'
-
-        # Check for sphinx doc build warnings - we do this first because it
-        # may run for a long time
-        - os: linux
-          env: SETUP_CMD='build_docs -w'
-               CONDA_DEPENDENCIES=$CONDA_DEPENDENCIES_DOC
-               PIP_DEPENDENCIES=$PIP_DEPENDENCIES_DOC
 
         # Now try Astropy dev with the latest Python and LTS with Python 2.7 and 3.x.
         #- os: linux
