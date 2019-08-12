@@ -100,9 +100,9 @@ matrix:
         - os: linux
           env: PYTHON_VERSION=3.6 NUMPY_VERSION=1.12
         - os: linux
-          env: PYTHON_VERSION=3.6 NUMPY_VERSION=1.16
+          env: PYTHON_VERSION=3.6 NUMPY_VERSION=1.15
         - os: linux
-          env: NUMPY_VERSION=1.17
+          env: NUMPY_VERSION=1.16
 
         # Try numpy pre-release
         - os: linux
