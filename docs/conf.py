@@ -198,24 +198,4 @@ github_issues_url = 'https://github.com/{0}/issues/'.format(setup_cfg['github_pr
 #     target = target.strip()
 #     nitpick_ignore.append((dtype, six.u(target)))
 
-# Support markdown
-
-from recommonmark.parser import CommonMarkParser
-
-source_parsers = {
-            '.md': CommonMarkParser,
-            }
-
-source_suffix = ['.rst', '.md']
-
-from recommonmark.transform import AutoStructify
-
-def setup(app):
-    app.add_config_value('recommonmark_config', {
-            'auto_toc_tree_section': 'Contents',
-            'enable_inline_math' : True,
-            'enable_math' : True,
-            }, True)
-    app.add_transform(AutoStructify)
-
 intersphinx_mapping = {'jwst': ('https://jwst-pipeline.readthedocs.io/en/latest', None)}
