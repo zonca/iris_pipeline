@@ -119,6 +119,8 @@ package_info = get_package_info()
 # Add the project-global data
 package_info["package_data"].setdefault(PACKAGENAME, [])
 package_info["package_data"][PACKAGENAME].append("data/*")
+package_info["package_data"][PACKAGENAME].append("tests/data/*")
+package_info["package_data"][PACKAGENAME].append("datamodels/schemas/*.yaml")
 
 # Define entry points for command-line scripts
 entry_points = dict(
