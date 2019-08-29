@@ -1,8 +1,10 @@
+import json
 import pytest
 import numpy as np
 import warnings
 import os
 from astropy.utils import data
+from jwst.associations import load_asn
 
 import iris_pipeline
 
@@ -30,7 +32,15 @@ def get_data_from_url(filename):
     return local_path
 
 def test_image2():
-    iris_pipeline.pipeline.Image2Pipeline.call("iris_pipeline/tests/data/asn_subtract_bg_flat.json", config_file="iris_pipeline/tests/data/image2_iris.cfg")
+    with open("iris_pipeline/tests/data/asn_subtract_bg_flat.json") as fp:
+        asn = load_asn(fp)
+    raw_science_filename = get_data_from_url("raw_science_frame_sci.fits")
+    raw_background_filename = get_data_from_url("raw_background_frame_cal.fits")
+    asn["products"][0]["members"][0]["expname"] = raw_science_filename
+    asn["products"][0]["members"][1]["expname"] = raw_background_filename
+    with open("test_asn.json", "w") as out_asn:
+        json.dump(asn, out_asn)
+    iris_pipeline.pipeline.Image2Pipeline.call("test_asn.json", config_file="iris_pipeline/tests/data/image2_iris.cfg")
     ref_filename = get_data_from_url("reference_test_iris_subtract_bg_flat_cal.fits")
     with iris_pipeline.datamodels.IRISImageModel("test_iris_subtract_bg_flat_cal.fits") as out, \
          iris_pipeline.datamodels.IRISImageModel(ref_filename) as ref:
