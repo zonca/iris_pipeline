@@ -129,7 +129,7 @@ install:
     # section if they are needed before setting up conda) to install any
     # other dependencies.
 
-    - git clone --depth 1 https://github.com/oirlab/tmt-crds-cache ~/crds-cache
+    - git clone --depth 1 https://github.com/oirlab/tmt-crds-cache $HOME/crds_cache
     - source setup_local_crds.sh
 
 script:
