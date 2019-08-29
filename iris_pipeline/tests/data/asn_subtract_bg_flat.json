@@ -1,0 +1,21 @@
+{
+    "asn_rule": "Asn_Lv2Image",
+    "asn_pool": "pool",
+    "program": "82600",
+    "asn_type": "image2",
+    "products": [
+        {
+            "name": "test_iris_subtract_bg_flat",
+            "members": [
+                {
+                    "expname": "iris_pipeline/tests/data/raw_science_frame_sci.fits",
+                    "exptype": "science"
+                },
+                {
+                    "expname": "iris_pipeline/tests/data/raw_background_frame_cal.fits",
+                    "exptype": "background"
+                }
+            ]
+        }
+    ]
+}
