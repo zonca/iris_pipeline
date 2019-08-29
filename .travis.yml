@@ -41,7 +41,7 @@ env:
         
         # List other runtime dependencies for the package that are available as
         # pip packages here.
-        - PIP_DEPENDENCIES='git+https://github.com/oirlab/tmt-crds.git git+https://github.com/spacetelescope/jwst#0.13.7'
+        - PIP_DEPENDENCIES='https://github.com/oirlab/tmt-crds/archive/master.zip https://github.com/spacetelescope/jwst/archive/0.13.7.zip'
 
         # Conda packages for affiliated packages are hosted in channel
         # "astropy" while builds for astropy LTS with recent numpy versions
