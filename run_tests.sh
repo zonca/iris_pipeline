@@ -1,3 +1,3 @@
 cd iris_pipeline/tests
-py.test --nbval-lax
+py.test --current-env --nbval-lax
 cd ../..
