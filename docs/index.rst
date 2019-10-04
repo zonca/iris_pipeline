@@ -5,10 +5,11 @@ iris_pipeline Documentation
 The IRIS Data Reduction System is based on the ``stpipe`` package released by Space Telescope
 for the James Webb Space Telescope.
 
-With ``stpipe`` we can define a pipeline using JSON and CFG (text based .INI style files) and
-custom analysis steps defined as classes in the current repository ``iris_pipeline``
+With ``stpipe`` we can configure each step of a pipeline through one or more text based .INI style files,
+then we provide one input FITS file or a set of multiple inputs defined in JSON (named `Associations <https://jwst-pipeline.readthedocs.io/en/latest/jwst/associations/overview.html>`_).
+Custom analysis steps and pipelines for IRIS are defined as classes in the current repository ``iris_pipeline``
 
-Then execute the pipeline from the command line using the ``strun`` executable or using
+Then execute the pipeline from the command line using the ``tmtrun`` executable or using
 directly the Python library.
 
 The pipeline also dynamically interfaces to the ``CRDS`` the Calibration References Data System,
