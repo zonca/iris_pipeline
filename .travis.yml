@@ -30,7 +30,6 @@ env:
         - PYTHON_VERSION=3.6
         - NUMPY_VERSION=1.16
         - ASTROPY_VERSION=3.2.1
-        - MAIN_CMD='python setup.py'
         - SETUP_CMD='test'
         - EVENT_TYPE='pull_request push'
 
@@ -72,7 +71,6 @@ matrix:
     include:
         # Try MacOS X
         - os: osx
-          env: MAIN_CMD='python setup.py install && bash run_tests.sh' SETUP_CMD=''
 
         # Now try Astropy dev with the latest Python and LTS with Python 2.7 and 3.x.
         #- os: linux
@@ -87,22 +85,12 @@ matrix:
         # time.
 
         - os: linux
-          env: NUMPY_VERSION=1.16 MAIN_CMD='python setup.py install && bash run_tests.sh' SETUP_CMD=''
+          env: NUMPY_VERSION=1.16
 
         # Try numpy pre-release
         - os: linux
           env: NUMPY_VERSION=prerelease
-               EVENT_TYPE='pull_request push cron' MAIN_CMD='python setup.py install && bash run_tests.sh' SETUP_CMD=''
-
-        # Do a PEP8 test with flake8
-        - os: linux
-          env: MAIN_CMD='flake8 iris_pipeline --count --show-source --statistics $FLAKE8_OPT' SETUP_CMD=''
-
-    allow_failures:
-        # Do a PEP8 test with flake8
-        # (allow to fail unless your code completely compliant)
-        - os: linux
-          env: MAIN_CMD='flake8 iris_pipeline --count --show-source --statistics $FLAKE8_OPT' SETUP_CMD=''
+               EVENT_TYPE='pull_request push cron'
 
 install:
 
@@ -133,7 +121,7 @@ install:
     - source setup_local_crds.sh
 
 script:
-   - $MAIN_CMD $SETUP_CMD
+   - python setup.py install && bash run_tests.sh
 
 after_success:
     # If coveralls.io is set up for this package, uncomment the line below.
