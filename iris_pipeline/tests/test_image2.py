@@ -25,4 +25,4 @@ def test_image2():
     ref_filename = get_data_from_url("17905553")
     with iris_pipeline.datamodels.IRISImageModel("test_iris_subtract_bg_flat_cal.fits") as out, \
          iris_pipeline.datamodels.IRISImageModel(ref_filename) as ref:
-        np.testing.assert_allclose(out.data, ref.data)
+        np.testing.assert_allclose(out.data, ref.data, rtol=1e-6)
