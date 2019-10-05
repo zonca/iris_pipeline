@@ -70,7 +70,7 @@ matrix:
 
     include:
         # Try MacOS X
-        - os: osx
+        # - os: osx
 
         # Now try Astropy dev with the latest Python and LTS with Python 2.7 and 3.x.
         #- os: linux
