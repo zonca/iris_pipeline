@@ -30,4 +30,4 @@ version = generate_version_py()
 # details.
 package_info = get_package_info()
 
-setup(version=version, cmdclass=cmdclass, **package_info)
+setup(version=version, cmdclass=cmdclass, **package_info, include_package_data=True)
