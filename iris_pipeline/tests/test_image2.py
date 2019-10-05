@@ -22,7 +22,7 @@ def test_image2():
     with open("test_asn.json", "w") as out_asn:
         json.dump(asn, out_asn)
     iris_pipeline.pipeline.Image2Pipeline.call("test_asn.json", config_file="data/image2_iris.cfg")
-    ref_filename = get_data_from_url("17903876")
+    ref_filename = get_data_from_url("17903981")
     with iris_pipeline.datamodels.IRISImageModel("test_iris_subtract_bg_flat_cal.fits") as out, \
          iris_pipeline.datamodels.IRISImageModel(ref_filename) as ref:
         np.testing.assert_allclose(out.data, ref.data)
