@@ -114,7 +114,6 @@ background to be subtracted, see ``asn_subtract_bg_flat.json``:
    {
        "asn_rule": "Asn_Lv2Image",
        "asn_pool": "pool",
-       "program": "82600",
        "asn_type": "image2",
        "products": [
            {
