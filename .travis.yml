@@ -72,7 +72,7 @@ matrix:
     include:
         # Try MacOS X
         - os: osx
-          env: MAIN_CMD='bash run_tests.sh' SETUP_CMD=''
+          env: MAIN_CMD='python setup.py install && bash run_tests.sh' SETUP_CMD=''
 
         # Now try Astropy dev with the latest Python and LTS with Python 2.7 and 3.x.
         #- os: linux
@@ -87,12 +87,12 @@ matrix:
         # time.
 
         - os: linux
-          env: NUMPY_VERSION=1.16 MAIN_CMD='bash run_tests.sh' SETUP_CMD=''
+          env: NUMPY_VERSION=1.16 MAIN_CMD='python setup.py install && bash run_tests.sh' SETUP_CMD=''
 
         # Try numpy pre-release
         - os: linux
           env: NUMPY_VERSION=prerelease
-               EVENT_TYPE='pull_request push cron' MAIN_CMD='bash run_tests.sh' SETUP_CMD=''
+               EVENT_TYPE='pull_request push cron' MAIN_CMD='python setup.py install && bash run_tests.sh' SETUP_CMD=''
 
         # Do a PEP8 test with flake8
         - os: linux
