@@ -3,7 +3,8 @@ from astropy.utils import data
 import warnings
 
 PREDEFINED_DATA_FOLDERS=["data/"]
-DATAURL="https://tmt-test-data.s3-us-west-1.amazonaws.com/iris_pipeline/"
+#DATAURL="https://tmt-test-data.s3-us-west-1.amazonaws.com/iris_pipeline/"
+DATAURL="https://ndownloader.figshare.com/files/"
 
 def get_data_from_url(filename):
     """Retrieves input templates from remote server,
