@@ -44,8 +44,8 @@ Design
 
    design
 
-Calibration
-===========
+Calibration and CRDS
+====================
 
 .. toctree::
    :maxdepth: 2
