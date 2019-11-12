@@ -60,6 +60,14 @@ Algorithms
 
    algorithms
 
+Available steps
+===============
+
+.. toctree::
+   :maxdepth: 1
+
+   package-index
+
 Reference/API
 =============
 
