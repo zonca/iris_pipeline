@@ -4,12 +4,9 @@ The background subtraction step performs
 image-from-image subtraction in order to accomplish subtraction of background
 signal. The step takes as input one target exposure, to which the
 subtraction will be applied, and a list of one or more background exposures.
-Two different approaches to background image subtraction are used, depending
-on the observing mode. Imaging and most spectroscopic modes use one method,
-while a special method is used for Wide-Field Slitless Spectroscopy (WFSS).
 
-Non-WFSS Modes
---------------
+Multiple background averaging
+-----------------------------
 If more than one background exposure is provided, they will be averaged
 together before being subtracted from the target exposure. Iterative sigma
 clipping is applied during the averaging process, to reject sources or other
@@ -48,29 +45,7 @@ subtracted from it. If the target exposure is in the form of a 3-D CubeModel
 (e.g. the result of a time series exposure), the background image
 is subtracted from each plane of the CubeModel.
 
-WFSS Mode
----------
-For Wide-Field Slitless Spectroscopy expsoures (NIS_WFSS and NRC_WFSS),
-a background reference image is subtracted from the target exposure.
-Before being subtracted, the background reference image is scaled to match the
-signal level of the target data within background (source-free) regions of the
-image. 
-
-The locations of source spectra are determined from a source catalog (specified
-by the primary header keyword SCATFILE), in conjunction with a reference file
-that gives the wavelength range (based on filter and grism) that is relavant
-to the target data. All regions of the image that are free of source spectra
-are used for scaling the background reference image. Robust mean values are
-obtained for the background regions in the target image and for the same
-regions in the background reference image, and the ratio of those two mean
-values is used to scale the background reference image. The robust mean is
-computed by excluding the lowest 25% and highest 25% of the data (using the
-numpy.percentile function), and taking a simple arithmetic mean of the
-remaining values.  Note that NaN values (if any) in the background
-reference image are currently set to zero.  If there are a lot of NaNs,
-it may be that more than 25% of the lowest values will need to be excluded.
-
-For both background methods the output results are always returned in a new
+The output results are always returned in a new
 data model, leaving the original input model unchanged.
 
 Upon successful completion of the step, the S_BKDSUB keyword will be set to

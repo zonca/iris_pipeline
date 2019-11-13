@@ -11,4 +11,4 @@ Background Image Subtraction
    arguments.rst
    reference_files.rst
 
-.. automodapi:: jwst.background
+.. automodapi:: iris_pipeline.background

@@ -5,3 +5,4 @@ Package Index
    :maxdepth: 2
 
    dq_init/index.rst
+   background/index.rst
