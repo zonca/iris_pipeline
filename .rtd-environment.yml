@@ -4,9 +4,9 @@ channels:
     - astropy
 
 dependencies:
-    - python>=3.6
+    - python==3.6
     - astropy
+    - pip
     - pip:
       - sphinx-astropy
-      - recommonmark
-      - git+https://github.com/zonca/jwst.git@iris_devel
+      - https://github.com/spacetelescope/jwst/archive/0.13.7.zip
