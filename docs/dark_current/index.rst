@@ -12,4 +12,4 @@ Dark Current Subtraction
    arguments.rst
 
 
-.. automodapi:: jwst.dark_current
+.. automodapi:: iris_pipeline.dark_current
