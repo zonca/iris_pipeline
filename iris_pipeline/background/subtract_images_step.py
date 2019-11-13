@@ -17,20 +17,20 @@ class SubtractImagesStep(Step):
     def process(self, input1, input2):
 
         """
-        Subtract the background signal from a JWST data model by
+        Subtract the background signal from a data model by
         subtracting a background image from it.
 
         Parameters
         ----------
-        input1: JWST data model
+        input1: data model
             input science data model to be background-subtracted
 
-        input2: JWST data model
+        input2: data model
             background data model
 
         Returns
         -------
-        result: JWST data model
+        result: data model
             background-subtracted science data model
         """
 
@@ -41,8 +41,6 @@ class SubtractImagesStep(Step):
             self.log.debug("Input is a CubeModel")
         elif isinstance(model1, datamodels.ImageModel):
             self.log.debug("Input is an ImageModel")
-        elif isinstance(model1, datamodels.MultiSlitModel):
-            self.log.debug("Input is a MultiSlitModel")
 
         # Assume that the second input model is always an ImageModel
         model2 = datamodels.ImageModel(input2)

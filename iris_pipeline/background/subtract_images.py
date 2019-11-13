@@ -15,15 +15,15 @@ def subtract(model1, model2):
 
     Parameters
     ----------
-    model1: JWST data model
+    model1: data model
         input data model on which subtraction will be performed
 
-    model2: JWST data model
+    model2: data model
         input data model that will be subtracted from the first model
 
     Returns
     -------
-    output: JWST data model
+    output: data model
         subtracted data model
     """
 
