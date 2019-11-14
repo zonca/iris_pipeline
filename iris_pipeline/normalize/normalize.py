@@ -49,6 +49,7 @@ def apply_norm(input, method):
     method: string
         name of numpy method to use for normalization, e.g.
         median (default) or mean
+        mode uses `scipy.stats.mode`
 
     Returns
     -------
@@ -62,8 +63,13 @@ def apply_norm(input, method):
     # Create output as a copy of the input science data model
     output = input.copy()
 
-    func = getattr(np, method)
+    if method == "mode":
+        import scipy.stats
+        norm_factor = scipy.stats.mode(input.data, axis=None)[0][0]
+    else:
+        norm_factor = getattr(np, method)(input.data)
+
     log.info("running normalize with method %s", method)
-    output.data /= func(output.data)
+    output.data /= norm_factor
 
     return output

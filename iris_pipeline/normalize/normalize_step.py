@@ -9,7 +9,7 @@ __all__ = ["NormalizeStep"]
 class NormalizeStep(Step):
     """
     NormalizeStep: Normalize a frame by dividing
-    by its own mean or median
+    by its own mean, median or mode
     """
 
     spec = """
