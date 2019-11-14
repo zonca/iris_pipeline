@@ -66,7 +66,7 @@ Available steps
 .. toctree::
    :maxdepth: 1
 
-   package-index
+   available-steps
 
 Reference/API
 =============
