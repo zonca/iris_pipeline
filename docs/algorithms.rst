@@ -418,7 +418,7 @@ combined flats.
 
 ::
 
-   normalize_flat = (np.median(flat) - dark)/np.median(flat)
+   normalize_flat = (flat - dark)/np.median(flat - dark)
 
 IFS slicer: The normalize flats algorithm takes the spectral flats and
 generates a normalized flat (values 1 or close to one) which are used to
@@ -428,3 +428,5 @@ normalize the spectral flats, the spectral response is fit with a
 polynomial and subtracted off each flat, and then divided by either
 their median or mode (depending on the distribution of pixel values on
 the detector).
+
+* See :doc:`the Normalize Step <normalize/description>`.
