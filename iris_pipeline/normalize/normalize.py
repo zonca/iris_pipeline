@@ -63,6 +63,7 @@ def apply_norm(input, method):
     output = input.copy()
 
     func = getattr(np, method)
+    log.info("running normalize with method %s", method)
     output.data /= func(output.data)
 
     return output
