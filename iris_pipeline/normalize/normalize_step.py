@@ -8,22 +8,18 @@ __all__ = ["NormalizeStep"]
 
 class NormalizeStep(Step):
     """
-    DarkCurrentStep: Performs dark current correction by subtracting
-    dark current reference data from the input science data model.
+    NormalizeStep: Normalize a frame by dividing
+    by its own mean or median
     """
 
     spec = """
-        dark_output = output_file(default = None) # Dark model subtracted
+        method = string(default='median')
     """
 
     def process(self, input):
 
-        method = "median"
-
         with datamodels.open(input) as input_model:
 
-            result = normalize.do_correction(
-                input_model, method=method
-            )
+            result = normalize.do_correction(input_model, method=self.method)
 
         return result
