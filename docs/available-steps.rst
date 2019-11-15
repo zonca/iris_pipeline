@@ -8,3 +8,4 @@ Package Index
    background/index.rst
    dark_current/index.rst
    normalize/index.rst
+   pipeline/index.rst
