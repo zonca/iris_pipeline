@@ -9,3 +9,4 @@ Package Index
    dark_current/index.rst
    normalize/index.rst
    pipeline/index.rst
+   flatfield/index.rst
