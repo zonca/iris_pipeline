@@ -8,5 +8,6 @@ Pipeline Modules
 
    main.rst
    image2.rst
+   preprocess_flatfield.rst
 
 .. automodapi:: iris_pipeline.pipeline
