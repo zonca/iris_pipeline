@@ -10,7 +10,7 @@ import iris_pipeline
 
 iris_pipeline.monkeypatch_jwst_datamodels()
 
-from .test_utils import get_data_from_url
+from iris_pipeline.tests.test_utils import get_data_from_url
 
 def test_image2():
     with open("data/asn_subtract_bg_flat.json") as fp:
@@ -26,3 +26,6 @@ def test_image2():
     with iris_pipeline.datamodels.IRISImageModel("test_iris_subtract_bg_flat_cal.fits") as out, \
          iris_pipeline.datamodels.IRISImageModel(ref_filename) as ref:
         np.testing.assert_allclose(out.data, ref.data, rtol=1e-6)
+
+if __name__ == "__main__":
+    test_image2()
