@@ -116,6 +116,20 @@ In production, scientists would just interface with the CRDS server and the loca
 automatically created and keep updated by synchronizing with the server. A Github repository with
 the CRDS Cache is just useful during the development phase.
 
+Retrieve files from the CRDS
+----------------------------
+
+Within ``iris_pipeline``, all the subclasses of :py:class:`jwst.Step` can recall a configuration file using the
+`self.get_reference_file` method and passing the input model (whose metadata will be used to find the right calibration file)
+and the type of calibration file requested.
+
+Or we could create a temporary :py:class:`jwst.Step` instance just to get the filename, for example::
+
+    > raw_science_frame = iris_pipeline.datamodels.IRISImageModel("raw_science_frame_sci.fits")
+    > full_dark_filename = jwst.stpipe.Step().get_reference_file(raw_science_frame, "dark")
+    > print(full_dark_filename)
+    '~/crds_cache/references/tmt/iris/tmt_iris_dark_0001.fits'
+
 Ingest new calibration files into CRDS
 --------------------------------------
 
