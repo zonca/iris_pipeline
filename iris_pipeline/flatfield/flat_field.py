@@ -7,6 +7,7 @@ import math
 
 import numpy as np
 
+from ..utils.subarray import get_subarray_model
 from jwst import datamodels
 from jwst.datamodels import dqflags
 from jwst.lib import reffile_utils
@@ -119,7 +120,7 @@ def apply_flat_field(science, flat):
         flat_dq = flat.dq
     else:
         log.info("Extracting matching subarray from flat")
-        sub_flat = reffile_utils.get_subarray_model(science, flat)
+        sub_flat = get_subarray_model(science, flat)
         flat_data = sub_flat.data.copy()
         flat_dq = sub_flat.dq.copy()
         sub_flat.close()
