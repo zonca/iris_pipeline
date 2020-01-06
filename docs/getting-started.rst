@@ -46,3 +46,10 @@ Then enter the root folder and create a development install
 with::
 
   pip install -e .
+  
+The development install doesn't add the ``tmtrun`` script to the path,
+so you should do that manually::
+
+  export PATH=$(pwd)/scripts/:$PATH
+
+or symlink the ``tmtrun`` script from the conda environment `bin/` folder.
