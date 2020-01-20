@@ -3,6 +3,8 @@ from jwst import datamodels
 from ..datamodels import TMTDarkModel
 from . import dark_sub
 
+from ..utils.subarray import get_subarray_model
+
 
 __all__ = ["DarkCurrentStep"]
 
@@ -17,7 +19,7 @@ class DarkCurrentStep(Step):
         dark_output = output_file(default = None) # Dark model subtracted
     """
 
-    reference_file_types = ['dark']
+    reference_file_types = ["dark"]
 
     def process(self, input):
 
@@ -25,15 +27,15 @@ class DarkCurrentStep(Step):
         with datamodels.open(input) as input_model:
 
             # Get the name of the dark reference file to use
-            self.dark_name = self.get_reference_file(input_model, 'dark')
-            self.log.info('Using DARK reference file %s', self.dark_name)
+            self.dark_name = self.get_reference_file(input_model, "dark")
+            self.log.info("Using DARK reference file %s", self.dark_name)
 
             # Check for a valid reference file
-            if self.dark_name == 'N/A':
-                self.log.warning('No DARK reference file found')
-                self.log.warning('Dark current step will be skipped')
+            if self.dark_name == "N/A":
+                self.log.warning("No DARK reference file found")
+                self.log.warning("Dark current step will be skipped")
                 result = input_model.copy()
-                result.meta.cal_step.dark = 'SKIPPED'
+                result.meta.cal_step.dark = "SKIPPED"
                 return result
 
             # Create name for the intermediate dark, if desired.
@@ -46,10 +48,10 @@ class DarkCurrentStep(Step):
             # Open the dark ref file data model - based on Instrument
             dark_model = TMTDarkModel(self.dark_name)
 
+            dark_model = get_subarray_model(input_model, dark_model)
+
             # Do the dark correction
-            result = dark_sub.do_correction(
-                input_model, dark_model, dark_output
-            )
+            result = dark_sub.do_correction(input_model, dark_model, dark_output)
             dark_model.close()
 
         return result
