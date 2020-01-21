@@ -1,5 +1,5 @@
 import logging
-from ..datamodels import TMTFlatModel, TMTDarkModel
+from ..datamodels import TMTFlatModel, TMTDarkModel, IRISImageModel
 
 log = logging.getLogger(__name__)
 log.setLevel(logging.DEBUG)
@@ -27,78 +27,88 @@ def get_subarray_model(sci_model, ref_model):
         subarray version of the reference file model
     """
 
-    # Get the science model subarray params
-    xstart_sci = sci_model.meta.subarray.xstart
-    xsize_sci = sci_model.meta.subarray.xsize
-    ystart_sci = sci_model.meta.subarray.ystart
-    ysize_sci = sci_model.meta.subarray.ysize
+    if sci_model.meta.subarray.name != "FULL":
 
-    # Get the reference model subarray params
-    xstart_ref = ref_model.meta.subarray.xstart
-    ystart_ref = ref_model.meta.subarray.ystart
-    xsize_ref = ref_model.meta.subarray.xsize
-    ysize_ref = ref_model.meta.subarray.ysize
+        # Get the science model subarray params
+        xstart_sci = sci_model.meta.subarray.xstart
+        xsize_sci = sci_model.meta.subarray.xsize
+        ystart_sci = sci_model.meta.subarray.ystart
+        ysize_sci = sci_model.meta.subarray.ysize
 
-    # Compute the slice indexes, in 0-indexed python frame
-    xstart = xstart_sci - xstart_ref
-    ystart = ystart_sci - ystart_ref
-    xstop = xstart + xsize_sci
-    ystop = ystart + ysize_sci
-    log.debug(
-        "slice xstart=%d, xstop=%d, ystart=%d, ystop=%d", xstart, xstop, ystart, ystop
-    )
+        # Get the reference model subarray params
+        xstart_ref = ref_model.meta.subarray.xstart or 0
+        ystart_ref = ref_model.meta.subarray.ystart or 0
+        xsize_ref = ref_model.meta.subarray.xsize or ref_model.data.shape[1]
+        ysize_ref = ref_model.meta.subarray.ysize or ref_model.data.shape[0]
 
-    # Make sure that the slice limits are within the bounds of
-    # the reference file data array
-    if (
-        xstart < 0
-        or ystart < 0
-        or xstop > ref_model.meta.subarray.xsize
-        or ystop > ref_model.meta.subarray.ysize
-    ):
-        log.error(
-            "Computed reference file slice indexes are incompatible with size of reference data array"
+        # Compute the slice indexes, in 0-indexed python frame
+        xstart = xstart_sci - xstart_ref
+        ystart = ystart_sci - ystart_ref
+        xstop = xstart + xsize_sci
+        ystop = ystart + ysize_sci
+        log.debug(
+            "slice xstart=%d, xstop=%d, ystart=%d, ystop=%d", xstart, xstop, ystart, ystop
         )
-        log.error(
-            "Science: SUBSTRT1=%d, SUBSTRT2=%d, SUBSIZE1=%d, SUBSIZE2=%d",
-            xstart_sci,
-            ystart_sci,
-            xsize_sci,
-            ysize_sci,
-        )
-        log.error(
-            "Reference: SUBSTRT1=%d, SUBSTRT2=%d, SUBSIZE1=%d, SUBSIZE2=%d",
-            xstart_ref,
-            ystart_ref,
-            xsize_ref,
-            ysize_ref,
-        )
-        log.error(
-            "Slice indexes: xstart=%d, xstop=%d, ystart=%d, ystop=%d",
-            xstart,
-            xstop,
-            ystart,
-            ystop,
-        )
-        raise ValueError("Bad reference file slice indexes")
 
-    # Extract subarrays from each data attribute in the particular
-    # type of reference file model and return a new copy of the
-    # data model
-    if isinstance(ref_model, TMTFlatModel):
-        sub_data = ref_model.data[ystart:ystop, xstart:xstop]
-        sub_err = ref_model.err[ystart:ystop, xstart:xstop]
-        sub_dq = ref_model.dq[ystart:ystop, xstart:xstop]
-        sub_model = TMTFlatModel(data=sub_data, err=sub_err, dq=sub_dq)
-        sub_model.update(ref_model)
-    elif isinstance(ref_model, TMTDarkModel):
-        sub_data = ref_model.data[ystart:ystop, xstart:xstop]
-        sub_err = ref_model.err[ystart:ystop, xstart:xstop]
-        sub_dq = ref_model.dq[ystart:ystop, xstart:xstop]
-        sub_model = TMTDarkModel(data=sub_data, err=sub_err, dq=sub_dq)
-        sub_model.update(ref_model)
+        # Make sure that the slice limits are within the bounds of
+        # the reference file data array
+        if (
+            xstart < 0
+            or ystart < 0
+            or xstop > xsize_ref
+            or ystop > ysize_ref
+        ):
+            log.error(
+                "Computed reference file slice indexes are incompatible with size of reference data array"
+            )
+            log.error(
+                "Science: SUBSTRT1=%d, SUBSTRT2=%d, SUBSIZE1=%d, SUBSIZE2=%d",
+                xstart_sci,
+                ystart_sci,
+                xsize_sci,
+                ysize_sci,
+            )
+            log.error(
+                "Reference: SUBSTRT1=%d, SUBSTRT2=%d, SUBSIZE1=%d, SUBSIZE2=%d",
+                xstart_ref,
+                ystart_ref,
+                xsize_ref,
+                ysize_ref,
+            )
+            log.error(
+                "Slice indexes: xstart=%d, xstop=%d, ystart=%d, ystop=%d",
+                xstart,
+                xstop,
+                ystart,
+                ystop,
+            )
+            raise ValueError("Bad reference file slice indexes")
+
+        # Extract subarrays from each data attribute in the particular
+        # type of reference file model and return a new copy of the
+        # data model
+        if isinstance(ref_model, TMTFlatModel):
+            sub_data = ref_model.data[ystart:ystop, xstart:xstop]
+            sub_err = ref_model.err[ystart:ystop, xstart:xstop]
+            sub_dq = ref_model.dq[ystart:ystop, xstart:xstop]
+            sub_model = TMTFlatModel(data=sub_data, err=sub_err, dq=sub_dq)
+            sub_model.update(ref_model)
+        elif isinstance(ref_model, TMTDarkModel):
+            sub_data = ref_model.data[ystart:ystop, xstart:xstop]
+            sub_err = ref_model.err[ystart:ystop, xstart:xstop]
+            sub_dq = ref_model.dq[ystart:ystop, xstart:xstop]
+            sub_model = TMTDarkModel(data=sub_data, err=sub_err, dq=sub_dq)
+            sub_model.update(ref_model)
+        elif isinstance(ref_model, IRISImageModel):
+            sub_data = ref_model.data[ystart:ystop, xstart:xstop]
+            sub_err = ref_model.err[ystart:ystop, xstart:xstop]
+            sub_dq = ref_model.dq[ystart:ystop, xstart:xstop]
+            sub_model = IRISImageModel(data=sub_data, err=sub_err, dq=sub_dq)
+            sub_model.update(ref_model)
+        else:
+            log.warning("Unsupported reference file model type")
+            sub_model = None
+
+        return sub_model
     else:
-        log.warning("Unsupported reference file model type")
-        sub_model = None
-
-    return sub_model
+        return ref_model

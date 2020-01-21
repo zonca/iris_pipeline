@@ -7,6 +7,8 @@ from . import subtract_images
 from jwst.assign_wcs.util import create_grism_bbox
 from astropy.stats import sigma_clip
 
+from ..utils.subarray import get_subarray_model
+
 import logging
 
 log = logging.getLogger(__name__)
@@ -39,6 +41,8 @@ def background_sub(input_model, bkg_list, sigma, maxiters):
     # Compute the average of the background images associated with
     # the target exposure
     bkg_model = average_background(bkg_list, sigma, maxiters)
+
+    bkg_model = get_subarray_model(input_model, bkg_model)
 
     # Subtract the average background from the member
     log.debug(" subtracting avg bkg from {}".format(input_model.meta.filename))
