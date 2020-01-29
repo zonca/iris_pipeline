@@ -36,8 +36,8 @@ def get_subarray_model(sci_model, ref_model):
         ysize_sci = sci_model.meta.subarray.ysize
 
         # Get the reference model subarray params
-        xstart_ref = ref_model.meta.subarray.xstart or 0
-        ystart_ref = ref_model.meta.subarray.ystart or 0
+        xstart_ref = ref_model.meta.subarray.xstart or 1
+        ystart_ref = ref_model.meta.subarray.ystart or 1
         xsize_ref = ref_model.meta.subarray.xsize or ref_model.data.shape[1]
         ysize_ref = ref_model.meta.subarray.ysize or ref_model.data.shape[0]
 

@@ -38,8 +38,8 @@ def test_image2_subarray(tmp_path):
     xsize = 50
     ysize = 60
     input_model.meta.subarray.name = "CUSTOM"
-    input_model.meta.subarray.xstart = xstart
-    input_model.meta.subarray.ystart = ystart
+    input_model.meta.subarray.xstart = xstart + 1
+    input_model.meta.subarray.ystart = ystart + 1
     input_model.meta.subarray.xsize = xsize
     input_model.meta.subarray.ysize = ysize
     subarray_slice = np.s_[ystart:ystart+ysize, xstart:xstart+xsize]
