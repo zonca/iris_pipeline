@@ -53,3 +53,12 @@ so you should do that manually::
   export PATH=$(pwd)/scripts/:$PATH
 
 or symlink the ``tmtrun`` script from the conda environment `bin/` folder.
+
+Run the unit tests
+------------------
+
+Some of the unit tests of ``iris_pipeline`` are Jupyter Notebooks and they need
+the `nbval py.test plugin<https://github.com/computationalmodelling/nbval>`_ to be executed.
+Once ``py.test`` and ``nbval`` are installed, execute from the root of the package::
+
+  bash run_tests.sh
