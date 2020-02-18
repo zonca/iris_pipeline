@@ -30,6 +30,13 @@ you can browse the content on `Github <https://github.com/oirlab/tmt-crds-cache>
 
 .. _rules: https://github.com/oirlab/tmt-crds-cache/blob/master/mappings/tmt/tmt_iris_flat_0001.rmap
 
+We need to set some environment variables so that ``CRDS`` will use the local
+cache instead of trying to connect to the JWST instance:
+
+.. code-block:: bash
+
+    source setup_local_crds.sh
+
 Finally, we need a custom version of the ``CRDS`` library that contains some modules specific to TMT::
 
     git clone https://github.com/oirlab/tmt-crds.git
