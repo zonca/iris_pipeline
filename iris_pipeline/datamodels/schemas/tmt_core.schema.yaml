@@ -347,7 +347,7 @@ properties:
           filter:
             title: Name of the filter element used
             type: string
-            enum: [ANY, N/A, K, MULTIPLE]
+            enum: [ANY, N/A, K, KN3, MULTIPLE]
             fits_keyword: FILTER
             blend_table: True
             blend_rule: multi
