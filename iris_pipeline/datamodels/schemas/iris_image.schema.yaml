@@ -13,6 +13,11 @@ allOf:
       fits_hdu: DQ
       default: 0
       datatype: uint32
+    subarrays:
+      title: Subarray mask
+      fits_hdu: SUBARRMASK
+      default: 0
+      datatype: uint16
     err:
       title: Error array
       fits_hdu: ERR
