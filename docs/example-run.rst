@@ -185,3 +185,14 @@ completion, the reduced science frame
 ``test_iris_subtract_bg_flat_cal.fits`` is written to disk, it includes
 all the metadata it had initially and additional details about the
 processing steps that were executed.
+
+Run on subarrays
+----------------
+
+The image processing pipeline also supports running on subarrays, i.e. rectangular subsets
+of the detector which can be readout at a higher rate.
+
+See:
+
+* an example `subarray raw science frame on Figshare<https://figshare.com/articles/TMT-IRIS_raw_science_frame_subarray/11953512>`_
+* a `notebook in the repository<https://github.com/oirlab/iris_pipeline/blob/master/iris_pipeline/tests/run_image2_subarray.ipynb>`_ which configures, runs and displays the results on the dataset above
