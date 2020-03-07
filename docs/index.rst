@@ -68,6 +68,14 @@ Available steps
 
    available-steps
 
+Subarrays
+=========
+
+.. toctree::
+   :maxdepth: 1
+
+   subarrays
+
 Reference/API
 =============
 

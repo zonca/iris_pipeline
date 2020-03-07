@@ -30,6 +30,13 @@ you can browse the content on `Github <https://github.com/oirlab/tmt-crds-cache>
 
 .. _rules: https://github.com/oirlab/tmt-crds-cache/blob/master/mappings/tmt/tmt_iris_flat_0001.rmap
 
+We need to set some environment variables so that ``CRDS`` will use the local
+cache instead of trying to connect to the JWST instance:
+
+.. code-block:: bash
+
+    source setup_local_crds.sh
+
 Finally, we need a custom version of the ``CRDS`` library that contains some modules specific to TMT::
 
     git clone https://github.com/oirlab/tmt-crds.git
@@ -53,3 +60,12 @@ so you should do that manually::
   export PATH=$(pwd)/scripts/:$PATH
 
 or symlink the ``tmtrun`` script from the conda environment `bin/` folder.
+
+Run the unit tests
+------------------
+
+Some of the unit tests of ``iris_pipeline`` are Jupyter Notebooks and they need
+the `nbval py.test plugin<https://github.com/computationalmodelling/nbval>`_ to be executed.
+Once ``py.test`` and ``nbval`` are installed, execute from the root of the package::
+
+  bash run_tests.sh

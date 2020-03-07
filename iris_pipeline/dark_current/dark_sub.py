@@ -46,10 +46,10 @@ def do_correction(input_model, dark_model, dark_output=None):
     # save the reference model as this file. This will
     # ensure consistency from the user's standpoint
     if dark_output is not None:
-        log.info('Writing dark current data to %s', dark_output)
+        log.info("Writing dark current data to %s", dark_output)
         dark_model.save(dark_output)
 
-    output_model.meta.cal_step.dark_sub = 'COMPLETE'
+    output_model.meta.cal_step.dark_sub = "COMPLETE"
 
     return output_model
 
@@ -78,8 +78,7 @@ def subtract_dark(input, dark):
     instrument = input.meta.instrument.name
     dark_nints = 1
 
-    log.debug("subtract_dark: size=%d,%d",
-              input.data.shape[0], input.data.shape[1])
+    log.debug("subtract_dark: size=%d,%d", input.data.shape[0], input.data.shape[1])
 
     # Create output as a copy of the input science data model
     output = input.copy()
@@ -94,7 +93,7 @@ def subtract_dark(input, dark):
 
     # combine the ERR arrays in quadrature
     # NOTE: currently stubbed out until ERR handling is decided
-    #output.err[i,j] = np.sqrt(
+    # output.err[i,j] = np.sqrt(
     #           output.err[i,j]**2 + dark.err[j]**2)
 
     return output
