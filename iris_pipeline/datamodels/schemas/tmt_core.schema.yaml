@@ -1971,6 +1971,24 @@ properties:
             type: string
             fits_keyword: S_WHTLIT
             blend_table: True
+      subarray_holes:
+        title: Subarray holes
+        type: array
+        items:
+          type: object
+          properties:
+            xstart:
+              title: Starting pixel in axis 1 direction
+              type: integer
+            ystart:
+              title: Starting pixel in axis 2 direction
+              type: integer
+            xsize:
+              title: Number of pixels in axis 1 direction
+              type: integer
+            ysize:
+              title: Number of pixels in axis 2 direction
+              type: integer
       background:
         title: Background information
         type: object
