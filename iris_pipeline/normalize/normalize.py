@@ -63,11 +63,17 @@ def apply_norm(input, method):
     # Create output as a copy of the input science data model
     output = input.copy()
 
-    if method == "mode":
-        import scipy.stats
-        norm_factor = scipy.stats.mode(input.data, axis=None)[0][0]
+    valid_data = input.dq == 0
+
+    if valid_data.sum() == 0:  # no valid data
+        norm_factor = 1
     else:
-        norm_factor = getattr(np, method)(input.data)
+        if method == "mode":
+            import scipy.stats
+
+            norm_factor = scipy.stats.mode(input.data[valid_data], axis=None)[0][0]
+        else:
+            norm_factor = getattr(np, method)(input.data[valid_data])
 
     log.info("running normalize with method %s", method)
     output.data /= norm_factor
