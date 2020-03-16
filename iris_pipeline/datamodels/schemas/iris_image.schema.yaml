@@ -13,9 +13,9 @@ allOf:
       fits_hdu: DQ
       default: 0
       datatype: uint32
-    subarrays:
-      title: Subarray mask
-      fits_hdu: SUBARRMASK
+    subarr_map:
+      title: Subarray map
+      fits_hdu: SUBARR_MAP
       default: 0
       datatype: uint16
     err:

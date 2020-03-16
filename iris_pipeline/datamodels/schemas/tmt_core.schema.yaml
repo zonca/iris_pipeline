@@ -1971,8 +1971,8 @@ properties:
             type: string
             fits_keyword: S_WHTLIT
             blend_table: True
-      subarray_mask:
-        title: Subarray mask
+      subarray_map:
+        title: Subarray map
         type: array
         items:
           type: object
