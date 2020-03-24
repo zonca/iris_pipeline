@@ -15,21 +15,23 @@ been imported into ``iris_pipeline`` and customized for IRIS.
 The other steps still call classes from ``jwst`` and have not been tested, they
 are still in the class to simplify the future porting process.
 
-+-----------------------------------------+
-| image2                                  |
-+=========================================+
-| :ref:`background <background_step>`     |
-+-----------------------------------------+
-| :ref:`assign_wcs <assign_wcs_step>`     |
-+-----------------------------------------+
-| :ref:`dark_current <dark_current_step>` |
-+-----------------------------------------+
-| :ref:`flat_field <flatfield_step>`      |
-+-----------------------------------------+
-| :ref:`photom <photom_step>`             |
-+-----------------------------------------+
-| :ref:`resample <resample_step>`         |
-+-----------------------------------------+
++----------------------------------------------------------------------+
+| image2                                                               |
++======================================================================+
+| :ref:`background <background_step>`                                  |
++----------------------------------------------------------------------+
+| :ref:`parse subarray map <parse_subarray_map_step>`                  |
++----------------------------------------------------------------------+
+| :ref:`assign_wcs <assign_wcs_step>`                                  |
++----------------------------------------------------------------------+
+| :ref:`dark_current <dark_current_step>`                              |
++----------------------------------------------------------------------+
+| :ref:`flat_field <flatfield_step>`                                   |
++----------------------------------------------------------------------+
+| :ref:`photom <photom_step>`                                          |
++----------------------------------------------------------------------+
+| :ref:`resample <resample_step>`                                      |
++----------------------------------------------------------------------+
 
 
 Arguments

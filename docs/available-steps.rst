@@ -10,3 +10,4 @@ Package Index
    normalize/index.rst
    pipeline/index.rst
    flatfield/index.rst
+   parse_subarray_map/index.rst
