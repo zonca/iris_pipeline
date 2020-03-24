@@ -37,6 +37,7 @@ class ParseSubarrayMapStep(Step):
         with datamodels.open(input) as input_model:
 
             if "subarr_map" in input_model:
+                self.log.info("Parsing the SUBARR_MAP extension")
                 result = input_model.copy()
                 for each in parse_subarray_map(result["subarr_map"]):
                     result.meta.subarray_map.append(each)
@@ -44,6 +45,7 @@ class ParseSubarrayMapStep(Step):
                     result.dq[result["subarr_map"] != 0], 2 ** SUBARRAY_DQ_BIT
                 )
             else:
+                self.log.info("No SUBARR_MAP extension found")
                 result = input_model
 
         return result
