@@ -11,6 +11,7 @@ from ..background import background_step
 from ..dark_current import dark_current_step
 from jwst.assign_wcs import assign_wcs_step
 from ..flatfield import flat_field_step
+from ..parse_subarray_map import parse_subarray_map_step
 from jwst.photom import photom_step
 from jwst.resample import resample_step
 
@@ -35,6 +36,7 @@ class Image2Pipeline(Pipeline):
     step_defs = {
         "bkg_subtract": background_step.BackgroundStep,
         "assign_wcs": assign_wcs_step.AssignWcsStep,
+        "parse_subarray_map": parse_subarray_map_step.ParseSubarrayMapStep,
         "dark_current": dark_current_step.DarkCurrentStep,
         "flat_field": flat_field_step.FlatFieldStep,
         "photom": photom_step.PhotomStep,
@@ -133,6 +135,7 @@ class Image2Pipeline(Pipeline):
 
         # work on slope images
         input = self.assign_wcs(input)
+        input = self.parse_subarray_map(input)
         input = self.dark_current(input)
         input = self.flat_field(input)
         input = self.photom(input)
