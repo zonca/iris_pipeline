@@ -194,5 +194,5 @@ of the detector which can be readout at a higher rate.
 
 See:
 
-* an example `subarray raw science frame on Figshare<https://figshare.com/articles/TMT-IRIS_raw_science_frame_subarray/11953512>`_
-* a `notebook in the repository<https://github.com/oirlab/iris_pipeline/blob/master/iris_pipeline/tests/run_image2_subarray.ipynb>`_ which configures, runs and displays the results on the dataset above
+* an example `subarray raw science frame on Figshare <https://figshare.com/articles/TMT-IRIS_raw_science_frame_subarray/11953512>`_
+* a `notebook in the repository <https://github.com/oirlab/iris_pipeline/blob/master/iris_pipeline/tests/run_image2_subarray.ipynb>`_ which configures, runs and displays the results on the dataset above
