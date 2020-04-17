@@ -75,6 +75,7 @@ Subarrays
    :maxdepth: 1
 
    subarrays
+   merge_subarrays
 
 Reference/API
 =============
