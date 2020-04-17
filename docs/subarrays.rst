@@ -33,3 +33,12 @@ Example usage
 
 As usage examples, check the notebooks or the ``test_image2.py`` script in the
 `unit tests folder in the repository <https://github.com/oirlab/iris_pipeline/tree/master/iris_pipeline/tests>`_
+
+Related steps
+=============
+
+.. toctree::
+   :maxdepth: 2
+
+   parse_subarray_map/index.rst
+   merge_subarrays/index.rst

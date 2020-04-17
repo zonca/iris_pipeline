@@ -11,3 +11,4 @@ Package Index
    pipeline/index.rst
    flatfield/index.rst
    parse_subarray_map/index.rst
+   merge_subarrays/index.rst

@@ -1,4 +1,4 @@
-.. _parse_subarray_map:
+.. _parse_subarray_map_step:
 
 ==================
 Parse Subarray Map
@@ -35,10 +35,5 @@ of the subarrays as a list of dictionaries::
 It also raises 1 bit of the data quality flag `dq` so that the algorithms which
 filter out bad data, e.g. when taking `mean` or `median`, automatically filters
 them out. The bit used for that is `SUBARRAY_DQ_BIT` in `parse_subarray_map_step.py`.
-
-.. toctree::
-   :maxdepth: 2
-
-   description.rst
 
 .. automodapi:: iris_pipeline.parse_subarray_map
