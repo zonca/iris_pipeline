@@ -717,6 +717,11 @@ properties:
                   [FULL, CUSTOM, GENERIC, N/A]
             fits_keyword: SUBARRAY
             blend_table: True
+          id:
+            title: Subarray ID, 0 is full
+            type: integer
+            fits_keyword: SUBARRID
+            blend_table: True
           xstart:
             title: Starting pixel in axis 1 direction
             type: integer
