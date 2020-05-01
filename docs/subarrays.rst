@@ -9,6 +9,7 @@ The keywords of :py:class:`IRISImageModel` which defines the parameters of the
 subarray are::
 
     model.meta.subarray.name = "CUSTOM"
+    model.meta.subarray.id = 1
     model.meta.subarray.xstart = xstart + 1
     model.meta.subarray.ystart = ystart + 1
     model.meta.subarray.xsize = xsize
@@ -17,6 +18,8 @@ subarray are::
 Consider that following the FITS conventions the `xstart` and `ystart` keywords
 are 1-based, therefore the default `xstart` is 1 and if you are slicing an
 array in Python, you should add 1 to the keyword before saving it into the metadata.
+`subarray.id` is saved into the FITS keyword `SUBARRID` and should be 0 for full
+frames, 1 for the first subarray and so on.
 
 The name of an entire frame is "FULL".
 
