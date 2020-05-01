@@ -24,10 +24,22 @@ class MergeSubarraysStep(Step):
         else:
             input_models = input
 
-        result = input_models[0].copy()
+        for model in input_models:
+            if model.meta.subarray.id == 0:
+                result = model.copy()
+                break
+        else:
+            raise ValueError("Cannot identify the full frame, it should have SUBARRID=0")
+
 
         # Assume subarrays are in order
-        for i_sub in range(1, len(input_models)):
+        for model in input_models:
+
+            i_sub = model.meta.subarray.id
+
+            if i_sub == 0:
+                # skip the full frame
+                continue
             
             subarray_mask = result.subarr_map == i_sub
 
