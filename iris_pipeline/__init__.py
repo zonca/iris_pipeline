@@ -35,5 +35,6 @@ from .pipeline import *
 from .dq_init import *
 from .normalize import *
 from .parse_subarray_map import *
+from .merge_subarrays import *
 
 from .datamodels import  monkeypatch_jwst_datamodels
