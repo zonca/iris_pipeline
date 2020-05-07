@@ -51,7 +51,7 @@ File format
 ===========
 
 All data will be stored in FITS file format, following as closest as possible
-the conventions by JWST, see https://jwst-docs.stsci.edu/display/JDAT/Working+with+FITS+Files.
+the conventions by JWST, see https://jwst-docs.stsci.edu/understanding-data-files.
 
 Example run
 ===========
