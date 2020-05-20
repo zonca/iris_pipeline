@@ -53,6 +53,30 @@ File format
 All data will be stored in FITS file format, following as closest as possible
 the conventions by JWST, see https://jwst-docs.stsci.edu/understanding-data-files.
 
+The file format of all the FITS files used by `iris_pipeline` are defined in the
+`iris_pipeline.datamodels` package and are encoded as schemas in YAML format.
+
+For example the FITS file format used for raw and reduced science frame is
+:py:class`IRISImageModel`, this is referenced in the FITS keyword `DATAMODL`::
+
+    DATAMODL= 'IRISImageModel'
+
+all the names and datatype of all the extensions is encoded in the `iris_image.schema.yaml`_
+file.
+Schema files can also reference other schema files, for example, `iris_image.schema.yaml`
+internally references `tmt_core.schema.yaml`_ which includes all the metadata available as
+FITS headers, e.g. acquisition time, pupil, detector name.
+
+The currently implemented datamodels are:
+
+  * :py:class`IRISImageModel`: raw and reduced frames from the imagers
+  * :py:class`TMTRampModel`: raw readouts
+  * :py:class`TMTFlatModel`: flats
+  * :py:class`TMTDarkModel`: darks
+
+All models are defined in `iris_pipeline.datamodels <https://github.com/oirlab/iris_pipeline/blob/master/iris_pipeline/datamodels/__init__.py>`_, and their schemas available `within the package itself <https://github.com/oirlab/iris_pipeline/tree/master/iris_pipeline/datamodels/schemas>`_, some of those models are just abstractions to group similar functionality but
+are never used in practice.
+
 Example run
 ===========
 
@@ -84,3 +108,6 @@ Engineering (ENG)    SLI-IDP, LEN-IDP                    Instrumental dispersion
 Science (SCI)        IMG1-SCI, LEN-SCI, SLI-SCI          Science
                      IMG1-SKY, LEN-SKY, SLI-SKY          Sky
 ===================  ==================================  ======================================
+
+.. _iris_image.schema.yaml: https://github.com/oirlab/iris_pipeline/blob/master/iris_pipeline/datamodels/schemas/iris_image.schema.yaml
+.. _tmt_core.schema.yaml: https://github.com/oirlab/iris_pipeline/blob/master/iris_pipeline/datamodels/schemas/tmt_core.schema.yaml
