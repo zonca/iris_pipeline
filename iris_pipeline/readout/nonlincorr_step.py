@@ -18,7 +18,7 @@ class NonlincorrStep(Step):
         sigma = float(default=3.0)  # Clipping threshold
         maxiters = integer(default=None)  # Number of clipping iterations
     """
-
+    reference_file_types = ["nonlincoeff"]
     def process(self, input):
 
         """
@@ -36,7 +36,8 @@ class NonlincorrStep(Step):
             
                         
                         
-                        
+            flat_filename = self.get_reference_file(input_model, "flat")   
+            print(flat_filename)     
             # Get the reference file names
             result = input_model.data[0,:,:,:].astype(np.int32)
             time_arr=np.array([0,1000,2000,3000],dtype=np.int32)
