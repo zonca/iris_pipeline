@@ -6,6 +6,7 @@ import os.path as op
 from jwst import datamodels
 from jwst.associations.load_as_asn import LoadAsLevel2Asn
 from jwst.stpipe import Pipeline
+from iris_pipeline import datamodels
 
 # step imports
 from ..readout import readoutsamp_step
@@ -37,7 +38,7 @@ class ROPPipeline(Pipeline):
     def process(self, input):
         log.info('Starting ROP Pipeline ...')
         # open the input as a RampModel
-        input = datamodels.RampModel(input)
+        input = datamodels.TMTRampModel(input)
         input = self.nonlincorr(input)
         input = self.readoutsamp(input)
         return input

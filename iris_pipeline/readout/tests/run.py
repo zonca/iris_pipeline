@@ -1,5 +1,6 @@
 import os
 import iris_pipeline
+import jwst.datamodels
 print(iris_pipeline.__file__)
 iris_pipeline.monkeypatch_jwst_datamodels()
 #from iris_pipeline.pipeline import ROPPipeline
