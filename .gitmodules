@@ -4,4 +4,4 @@
 	branch = refs/heads/v3.1
 [submodule "iris_pipeline/iris_readout"]
 	path = iris_pipeline/iris_readout
-	url = https://github.com/arunsurya77/iris_readout
+	url = https://github.com/oirlab/iris_readout
