@@ -1,3 +1,5 @@
+#cython: language_level=3
+
 cdef extern from "../iris_readout/src/drsrop.c":
     float* uptheramp (int* arr, int* time, int a, int b, int c)
     float* mcds (int* arr, int* time, int a, int b, int c, int num_coadd)
@@ -8,7 +10,7 @@ cimport numpy as np
 def uptheramp_c(int[:,:,:] arr_f, int[:] arr_time):
     cdef float[:,:] results = <float[:arr_f.shape[1],:arr_f.shape[2]]> uptheramp(&arr_f[0,0,0], &arr_time[0], arr_f.shape[0], arr_f.shape[1], arr_f.shape[2])
     return np.asarray(results)
-    
+
 def mcds_c(int[:,:,:] arr_f, int[:] arr_time, int num_coadd):
     cdef float[:,:] results = <float[:arr_f.shape[1],:arr_f.shape[2]]> mcds(&arr_f[0,0,0], &arr_time[0], arr_f.shape[0], arr_f.shape[1], arr_f.shape[2], num_coadd)
     return np.asarray(results)
