@@ -6,5 +6,5 @@ iris_pipeline.monkeypatch_jwst_datamodels()
 
 def test_rop1():
     iris_pipeline.pipeline.ROPPipeline.call(
-        "data/test_ramp.fits", config_file="data/drsrop.cfg"
+        "iris_pipeline/tests/data/test_ramp.fits", config_file="iris_pipeline/tests/data/drsrop.cfg"
     )
