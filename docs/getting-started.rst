@@ -87,4 +87,4 @@ Some of the unit tests of ``iris_pipeline`` are Jupyter Notebooks and they need
 the `nbval py.test plugin <https://github.com/computationalmodelling/nbval>`_ to be executed.
 Once ``py.test`` and ``nbval`` are installed, execute from the root of the package::
 
-  bash run_tests.sh
+    python setup.py test
