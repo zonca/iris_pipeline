@@ -10,12 +10,12 @@ from ..dark_current import dark_current_step
 from ..normalize import normalize_step
 
 
-__all__ = ["PreprocessFlatfield"]
+__all__ = ["ProcessFlatfieldL2"]
 
 
-class PreprocessFlatfield(Pipeline):
+class ProcessFlatfieldL2(Pipeline):
     """
-    PreprocessFlatfield: Remove dark and normalize exposure to create
+    ProcessFlatfieldL2: Remove dark and normalize exposure to create
     a flat field to be later added to the CRDS.
 
     Included steps are:

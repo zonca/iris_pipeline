@@ -27,34 +27,34 @@ First we need to remove the dark frame from the flat frame and normalize it.
 A dark frame is already available in the CRDS and the pipeline knows how to retrieve
 it based on the metadata in the FITS file headers.
 
-We can check in the package `documentation <https://iris-pipeline.readthedocs.io/en/latest/#module-iris_pipeline>` what are the available pipelines and check the configuration options of the :py:class:`pipeline.PreprocessFlatfield` class.
+We can check in the package `documentation <https://iris-pipeline.readthedocs.io/en/latest/#module-iris_pipeline>` what are the available pipelines and check the configuration options of the :py:class:`pipeline.ProcessFlatfieldL2` class.
 
 We do not need to customize it so we can directly call it from ``tmtrun`` and pass the input FITS file::
 
-    tmtrun iris_pipeline.pipeline.PreprocessFlatfield raw_flat_frame_cal.fits
+    tmtrun iris_pipeline.pipeline.ProcessFlatfieldL2 raw_flat_frame_cal.fits
 
 This will pickup the relevant dark frame from the CRDS and process the file:
 
 .. code:: bash
 
-    2019-10-04 17:59:48,057 - stpipe.PreprocessFlatfield - INFO - PreprocessFlatfield instance created.
-    2019-10-04 17:59:48,059 - stpipe.PreprocessFlatfield.dark_current - INFO - DarkCurrentStep instance created.
-    2019-10-04 17:59:48,060 - stpipe.PreprocessFlatfield.normalize - INFO - NormalizeStep instance created.
-    2019-10-04 17:59:48,099 - stpipe.PreprocessFlatfield - INFO - Step PreprocessFlatfield running with args ('raw_flat_frame_cal.fits',).
-    2019-10-04 17:59:48,554 - stpipe.PreprocessFlatfield - INFO - Prefetching reference files for dataset: 'raw_flat_frame_cal.fits' reftypes = ['dark']                                                                                                                      
-    2019-10-04 17:59:49,306 - stpipe.PreprocessFlatfield - INFO - Prefetch for DARK reference file is '/home/azonca/crds_cache/references/tmt/iris/tmt_iris_dark_0001.fits'.                                                                                                  
-    2019-10-04 17:59:49,307 - stpipe.PreprocessFlatfield - INFO - Starting preprocess flatfield ...
-    2019-10-04 17:59:53,490 - stpipe.PreprocessFlatfield - INFO - Processing product raw_flat_frame
-    2019-10-04 17:59:53,490 - stpipe.PreprocessFlatfield - INFO - Working on input raw_flat_frame_cal.fits ...
-    2019-10-04 17:59:53,641 - stpipe.PreprocessFlatfield.dark_current - INFO - Step dark_current running with args (<IRISImageModel(4096, 4096) from raw_flat_frame_cal.fits>,).
-    2019-10-04 17:59:53,658 - stpipe.PreprocessFlatfield.dark_current - INFO - Using DARK reference file /home/azonca/crds_cache/references/tmt/iris/tmt_iris_dark_0001.fits
-    2019-10-04 17:59:54,058 - stpipe.PreprocessFlatfield.dark_current - INFO - Step dark_current done
-    2019-10-04 17:59:54,101 - stpipe.PreprocessFlatfield.normalize - INFO - Step normalize running with args (<IRISImageModel(4096, 4096) from raw_flat_frame_cal.fits>,).
-    2019-10-04 17:59:54,472 - stpipe.PreprocessFlatfield.normalize - INFO - Step normalize done
-    2019-10-04 17:59:54,472 - stpipe.PreprocessFlatfield - INFO - Finished processing product raw_flat_frame
-    2019-10-04 17:59:54,473 - stpipe.PreprocessFlatfield - INFO - ... ending preprocess flatfield
-    2019-10-04 17:59:54,811 - stpipe.PreprocessFlatfield - INFO - Saved model in raw_flat_frame_flat.fits
-    2019-10-04 17:59:54,811 - stpipe.PreprocessFlatfield - INFO - Step PreprocessFlatfield done
+    2019-10-04 17:59:48,057 - stpipe.ProcessFlatfieldL2 - INFO - ProcessFlatfieldL2 instance created.
+    2019-10-04 17:59:48,059 - stpipe.ProcessFlatfieldL2.dark_current - INFO - DarkCurrentStep instance created.
+    2019-10-04 17:59:48,060 - stpipe.ProcessFlatfieldL2.normalize - INFO - NormalizeStep instance created.
+    2019-10-04 17:59:48,099 - stpipe.ProcessFlatfieldL2 - INFO - Step ProcessFlatfieldL2 running with args ('raw_flat_frame_cal.fits',).
+    2019-10-04 17:59:48,554 - stpipe.ProcessFlatfieldL2 - INFO - Prefetching reference files for dataset: 'raw_flat_frame_cal.fits' reftypes = ['dark']                                                                                                                      
+    2019-10-04 17:59:49,306 - stpipe.ProcessFlatfieldL2 - INFO - Prefetch for DARK reference file is '/home/azonca/crds_cache/references/tmt/iris/tmt_iris_dark_0001.fits'.                                                                                                  
+    2019-10-04 17:59:49,307 - stpipe.ProcessFlatfieldL2 - INFO - Starting preprocess flatfield ...
+    2019-10-04 17:59:53,490 - stpipe.ProcessFlatfieldL2 - INFO - Processing product raw_flat_frame
+    2019-10-04 17:59:53,490 - stpipe.ProcessFlatfieldL2 - INFO - Working on input raw_flat_frame_cal.fits ...
+    2019-10-04 17:59:53,641 - stpipe.ProcessFlatfieldL2.dark_current - INFO - Step dark_current running with args (<IRISImageModel(4096, 4096) from raw_flat_frame_cal.fits>,).
+    2019-10-04 17:59:53,658 - stpipe.ProcessFlatfieldL2.dark_current - INFO - Using DARK reference file /home/azonca/crds_cache/references/tmt/iris/tmt_iris_dark_0001.fits
+    2019-10-04 17:59:54,058 - stpipe.ProcessFlatfieldL2.dark_current - INFO - Step dark_current done
+    2019-10-04 17:59:54,101 - stpipe.ProcessFlatfieldL2.normalize - INFO - Step normalize running with args (<IRISImageModel(4096, 4096) from raw_flat_frame_cal.fits>,).
+    2019-10-04 17:59:54,472 - stpipe.ProcessFlatfieldL2.normalize - INFO - Step normalize done
+    2019-10-04 17:59:54,472 - stpipe.ProcessFlatfieldL2 - INFO - Finished processing product raw_flat_frame
+    2019-10-04 17:59:54,473 - stpipe.ProcessFlatfieldL2 - INFO - ... ending preprocess flatfield
+    2019-10-04 17:59:54,811 - stpipe.ProcessFlatfieldL2 - INFO - Saved model in raw_flat_frame_flat.fits
+    2019-10-04 17:59:54,811 - stpipe.ProcessFlatfieldL2 - INFO - Step ProcessFlatfieldL2 done
 
 We have an output file ``raw_flat_frame_flat.fits`` and we can rename it::
 

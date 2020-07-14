@@ -4,7 +4,7 @@ preprocess_flatfield: Preprocess Flat fields
 ============================================
 
 :Config: preprocess_flatfield.cfg
-:Class: `~iris_pipeline.pipeline.PreprocessFlatfield`
+:Class: `~iris_pipeline.pipeline.ProcessFlatfieldL2`
 
 Stage 2 imaging processing applies additional instrumental corrections and
 calibrations that result in a fully calibrated individual exposure. 
@@ -36,7 +36,7 @@ Inputs
 
 :Data model: `~iris_pipeline.datamodels.IRISImageModel`
 
-The input to ``PreprocessFlatfield`` is
+The input to ``ProcessFlatfieldL2`` is
 a raw exposure to be normalized in order to be used as a Flat field.
 
 Outputs
