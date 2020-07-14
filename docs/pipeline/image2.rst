@@ -4,12 +4,12 @@ image2: Stage 2 Imaging Processing
 ==================================
 
 :Config: image2.cfg
-:Class: `~iris_pipeline.pipeline.Image2Pipeline`
+:Class: `~iris_pipeline.pipeline.ProcessImagerL2Pipeline`
 
 Stage 2 imaging processing applies additional instrumental corrections and
 calibrations that result in a fully calibrated individual exposure. 
 
-The list of steps applied by the ``Image2Pipeline`` pipeline is shown in the table
+The list of steps applied by the ``ProcessImagerL2Pipeline`` pipeline is shown in the table
 below, currently only the ``background``, ``dark_current`` and ``flat_field`` have
 been imported into ``iris_pipeline`` and customized for IRIS.
 The other steps still call classes from ``jwst`` and have not been tested, they
@@ -55,7 +55,7 @@ Inputs
 :Data model: `~iris_pipeline.datamodels.IRISImageModel`
 :File suffix: _rate or _rateints
 
-The input to ``Image2Pipeline`` is
+The input to ``ProcessImagerL2Pipeline`` is
 a countrate exposure, in the form of either "_rate" or "_rateints"
 data. A single input file can be processed or an ASN file listing
 multiple inputs can be used, in which case the processing steps will be

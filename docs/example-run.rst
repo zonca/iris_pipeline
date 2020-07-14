@@ -63,13 +63,13 @@ We have an output file ``raw_flat_frame_flat.fits`` and we can rename it::
 Configure the image processing pipeline
 ---------------------------------------
 
-The :py:class:`Image2Pipeline` can be configured using a INI-style configuration file,
+The :py:class:`ProcessImagerL2Pipeline` can be configured using a INI-style configuration file,
 ``image2_iris.cfg``:
 
 .. code-block:: ini
 
-   name = "Image2Pipeline"
-   class = "iris_pipeline.pipeline.Image2Pipeline"
+   name = "ProcessImagerL2Pipeline"
+   class = "iris_pipeline.pipeline.ProcessImagerL2Pipeline"
    save_results = True
        [steps]
          [[bkg_subtract]]
@@ -83,7 +83,7 @@ The :py:class:`Image2Pipeline` can be configured using a INI-style configuration
            skip = True
 
 first we specify that we want to execute the pipeline defined in
-:py:class:`iris_pipeline.pipeline.Image2Pipeline`, then we can configure each of
+:py:class:`iris_pipeline.pipeline.ProcessImagerL2Pipeline`, then we can configure each of
 the steps, for example skip some of them. Also we can import the
 configuration of a step from another file, in this case
 ``flat_field.cfg``:
@@ -145,40 +145,40 @@ here is the output log:
 
 .. code:: bash
 
-    2019-10-04 18:13:46,453 - stpipe.Image2Pipeline - INFO - Image2Pipeline instance created.
-    2019-10-04 18:13:46,454 - stpipe.Image2Pipeline.bkg_subtract - INFO - BackgroundStep instance created.
-    2019-10-04 18:13:46,456 - stpipe.Image2Pipeline.assign_wcs - INFO - AssignWcsStep instance created.
-    2019-10-04 18:13:46,458 - stpipe.Image2Pipeline.dark_current - INFO - DarkCurrentStep instance created.
-    2019-10-04 18:13:46,460 - stpipe.Image2Pipeline.flat_field - INFO - FlatFieldStep instance created.
-    2019-10-04 18:13:46,461 - stpipe.Image2Pipeline.photom - INFO - PhotomStep instance created.
-    2019-10-04 18:13:46,463 - stpipe.Image2Pipeline.resample - INFO - ResampleStep instance created.
-    2019-10-04 18:13:46,500 - stpipe.Image2Pipeline - INFO - Step Image2Pipeline running with args ('asn_subtract_bg_flat.json',).
-    2019-10-04 18:13:47,130 - stpipe.Image2Pipeline - INFO - Prefetching reference files for dataset: 'raw_science_frame_sci.fits' reftypes = ['dark']
-    2019-10-04 18:13:47,645 - stpipe.Image2Pipeline - INFO - Prefetch for DARK reference file is '/home/azonca/crds_cache/references/tmt/iris/tmt_iris_dark_0001.fits'.
-    2019-10-04 18:13:47,645 - stpipe.Image2Pipeline - INFO - Override for FLAT reference file is '/home/azonca/p/software/iris_pipeline/iris_pipeline/tests/data/flat.fits'.
-    2019-10-04 18:13:47,645 - stpipe.Image2Pipeline - INFO - Prefetching reference files for dataset: 'raw_background_frame_cal.fits' reftypes = ['dark']
-    2019-10-04 18:13:47,651 - stpipe.Image2Pipeline - INFO - Prefetch for DARK reference file is '/home/azonca/crds_cache/references/tmt/iris/tmt_iris_dark_0001.fits'.
-    2019-10-04 18:13:47,651 - stpipe.Image2Pipeline - INFO - Override for FLAT reference file is '/home/azonca/p/software/iris_pipeline/iris_pipeline/tests/data/flat.fits'.
-    2019-10-04 18:13:47,651 - stpipe.Image2Pipeline - INFO - Starting calwebb_image2 ...
-    2019-10-04 18:13:47,659 - stpipe.Image2Pipeline - INFO - Processing product test_iris_subtract_bg_flat
-    2019-10-04 18:13:47,659 - stpipe.Image2Pipeline - INFO - Working on input raw_science_frame_sci.fits ...
-    2019-10-04 18:13:47,918 - stpipe.Image2Pipeline.bkg_subtract - INFO - Step bkg_subtract running with args (<IRISImageModel(4096, 4096) from raw_science_frame_sci.fits>, ['raw_background_frame_cal.fits']).
-    2019-10-04 18:13:53,796 - stpipe.Image2Pipeline.bkg_subtract - INFO - Step bkg_subtract done
-    2019-10-04 18:13:53,854 - stpipe.Image2Pipeline.assign_wcs - INFO - Step assign_wcs running with args (<IRISImageModel(4096, 4096) from raw_science_frame_sci.fits>,).
-    2019-10-04 18:13:53,855 - stpipe.Image2Pipeline.assign_wcs - INFO - Step skipped.
-    2019-10-04 18:13:53,856 - stpipe.Image2Pipeline.assign_wcs - INFO - Step assign_wcs done
-    2019-10-04 18:13:53,898 - stpipe.Image2Pipeline.dark_current - INFO - Step dark_current running with args (<IRISImageModel(4096, 4096) from raw_science_frame_sci.fits>,).
-    2019-10-04 18:13:53,945 - stpipe.Image2Pipeline.dark_current - INFO - Using DARK reference file /home/azonca/crds_cache/references/tmt/iris/tmt_iris_dark_0001.fits
-    2019-10-04 18:13:54,503 - stpipe.Image2Pipeline.dark_current - INFO - Step dark_current done
-    2019-10-04 18:13:54,566 - stpipe.Image2Pipeline.flat_field - INFO - Step flat_field running with args (<IRISImageModel(4096, 4096) from raw_science_frame_sci.fits>,).
-    2019-10-04 18:13:55,328 - stpipe.Image2Pipeline.flat_field - INFO - Step flat_field done
-    2019-10-04 18:13:55,369 - stpipe.Image2Pipeline.photom - INFO - Step photom running with args (<IRISImageModel(4096, 4096) from raw_science_frame_sci.fits>,).
-    2019-10-04 18:13:55,369 - stpipe.Image2Pipeline.photom - INFO - Step skipped.
-    2019-10-04 18:13:55,370 - stpipe.Image2Pipeline.photom - INFO - Step photom done
-    2019-10-04 18:13:55,370 - stpipe.Image2Pipeline - INFO - Finished processing product test_iris_subtract_bg_flat
-    2019-10-04 18:13:55,370 - stpipe.Image2Pipeline - INFO - ... ending calwebb_image2
-    2019-10-04 18:13:55,606 - stpipe.Image2Pipeline - INFO - Saved model in test_iris_subtract_bg_flat_cal.fits
-    2019-10-04 18:13:55,606 - stpipe.Image2Pipeline - INFO - Step Image2Pipeline done
+    2019-10-04 18:13:46,453 - stpipe.ProcessImagerL2Pipeline - INFO - ProcessImagerL2Pipeline instance created.
+    2019-10-04 18:13:46,454 - stpipe.ProcessImagerL2Pipeline.bkg_subtract - INFO - BackgroundStep instance created.
+    2019-10-04 18:13:46,456 - stpipe.ProcessImagerL2Pipeline.assign_wcs - INFO - AssignWcsStep instance created.
+    2019-10-04 18:13:46,458 - stpipe.ProcessImagerL2Pipeline.dark_current - INFO - DarkCurrentStep instance created.
+    2019-10-04 18:13:46,460 - stpipe.ProcessImagerL2Pipeline.flat_field - INFO - FlatFieldStep instance created.
+    2019-10-04 18:13:46,461 - stpipe.ProcessImagerL2Pipeline.photom - INFO - PhotomStep instance created.
+    2019-10-04 18:13:46,463 - stpipe.ProcessImagerL2Pipeline.resample - INFO - ResampleStep instance created.
+    2019-10-04 18:13:46,500 - stpipe.ProcessImagerL2Pipeline - INFO - Step ProcessImagerL2Pipeline running with args ('asn_subtract_bg_flat.json',).
+    2019-10-04 18:13:47,130 - stpipe.ProcessImagerL2Pipeline - INFO - Prefetching reference files for dataset: 'raw_science_frame_sci.fits' reftypes = ['dark']
+    2019-10-04 18:13:47,645 - stpipe.ProcessImagerL2Pipeline - INFO - Prefetch for DARK reference file is '/home/azonca/crds_cache/references/tmt/iris/tmt_iris_dark_0001.fits'.
+    2019-10-04 18:13:47,645 - stpipe.ProcessImagerL2Pipeline - INFO - Override for FLAT reference file is '/home/azonca/p/software/iris_pipeline/iris_pipeline/tests/data/flat.fits'.
+    2019-10-04 18:13:47,645 - stpipe.ProcessImagerL2Pipeline - INFO - Prefetching reference files for dataset: 'raw_background_frame_cal.fits' reftypes = ['dark']
+    2019-10-04 18:13:47,651 - stpipe.ProcessImagerL2Pipeline - INFO - Prefetch for DARK reference file is '/home/azonca/crds_cache/references/tmt/iris/tmt_iris_dark_0001.fits'.
+    2019-10-04 18:13:47,651 - stpipe.ProcessImagerL2Pipeline - INFO - Override for FLAT reference file is '/home/azonca/p/software/iris_pipeline/iris_pipeline/tests/data/flat.fits'.
+    2019-10-04 18:13:47,651 - stpipe.ProcessImagerL2Pipeline - INFO - Starting calwebb_image2 ...
+    2019-10-04 18:13:47,659 - stpipe.ProcessImagerL2Pipeline - INFO - Processing product test_iris_subtract_bg_flat
+    2019-10-04 18:13:47,659 - stpipe.ProcessImagerL2Pipeline - INFO - Working on input raw_science_frame_sci.fits ...
+    2019-10-04 18:13:47,918 - stpipe.ProcessImagerL2Pipeline.bkg_subtract - INFO - Step bkg_subtract running with args (<IRISImageModel(4096, 4096) from raw_science_frame_sci.fits>, ['raw_background_frame_cal.fits']).
+    2019-10-04 18:13:53,796 - stpipe.ProcessImagerL2Pipeline.bkg_subtract - INFO - Step bkg_subtract done
+    2019-10-04 18:13:53,854 - stpipe.ProcessImagerL2Pipeline.assign_wcs - INFO - Step assign_wcs running with args (<IRISImageModel(4096, 4096) from raw_science_frame_sci.fits>,).
+    2019-10-04 18:13:53,855 - stpipe.ProcessImagerL2Pipeline.assign_wcs - INFO - Step skipped.
+    2019-10-04 18:13:53,856 - stpipe.ProcessImagerL2Pipeline.assign_wcs - INFO - Step assign_wcs done
+    2019-10-04 18:13:53,898 - stpipe.ProcessImagerL2Pipeline.dark_current - INFO - Step dark_current running with args (<IRISImageModel(4096, 4096) from raw_science_frame_sci.fits>,).
+    2019-10-04 18:13:53,945 - stpipe.ProcessImagerL2Pipeline.dark_current - INFO - Using DARK reference file /home/azonca/crds_cache/references/tmt/iris/tmt_iris_dark_0001.fits
+    2019-10-04 18:13:54,503 - stpipe.ProcessImagerL2Pipeline.dark_current - INFO - Step dark_current done
+    2019-10-04 18:13:54,566 - stpipe.ProcessImagerL2Pipeline.flat_field - INFO - Step flat_field running with args (<IRISImageModel(4096, 4096) from raw_science_frame_sci.fits>,).
+    2019-10-04 18:13:55,328 - stpipe.ProcessImagerL2Pipeline.flat_field - INFO - Step flat_field done
+    2019-10-04 18:13:55,369 - stpipe.ProcessImagerL2Pipeline.photom - INFO - Step photom running with args (<IRISImageModel(4096, 4096) from raw_science_frame_sci.fits>,).
+    2019-10-04 18:13:55,369 - stpipe.ProcessImagerL2Pipeline.photom - INFO - Step skipped.
+    2019-10-04 18:13:55,370 - stpipe.ProcessImagerL2Pipeline.photom - INFO - Step photom done
+    2019-10-04 18:13:55,370 - stpipe.ProcessImagerL2Pipeline - INFO - Finished processing product test_iris_subtract_bg_flat
+    2019-10-04 18:13:55,370 - stpipe.ProcessImagerL2Pipeline - INFO - ... ending calwebb_image2
+    2019-10-04 18:13:55,606 - stpipe.ProcessImagerL2Pipeline - INFO - Saved model in test_iris_subtract_bg_flat_cal.fits
+    2019-10-04 18:13:55,606 - stpipe.ProcessImagerL2Pipeline - INFO - Step ProcessImagerL2Pipeline done
 
 After
 completion, the reduced science frame

@@ -54,7 +54,7 @@ pipeline modules that are referenced by more than one configuration file.
 +------------------------------------------+---------------------------+------------------------------+
 | Pipeline Class                           | Configuration File        | Used For                     |
 +==========================================+===========================+==============================+
-| `~iris_pipeline.pipeline.Image2Pipeline` | image2.cfg                | Stage 2: imaging modes       |
+| `~iris_pipeline.pipeline.ProcessImagerL2Pipeline` | image2.cfg                | Stage 2: imaging modes       |
 +------------------------------------------+---------------------------+------------------------------+
 
 Pipelines vs. Exposure Type

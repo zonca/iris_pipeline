@@ -9,7 +9,7 @@ preprocess_flatfield: Preprocess Flat fields
 Stage 2 imaging processing applies additional instrumental corrections and
 calibrations that result in a fully calibrated individual exposure. 
 
-The list of steps applied by the ``Image2Pipeline`` pipeline is shown in the table
+The list of steps applied by the ``ProcessImagerL2Pipeline`` pipeline is shown in the table
 below, currently only the ``background``, ``dark_current`` and ``flat_field`` have
 been imported into ``iris_pipeline`` and customized for IRIS.
 The other steps still call classes from ``jwst`` and have not been tested, they

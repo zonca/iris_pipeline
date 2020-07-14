@@ -16,12 +16,12 @@ from jwst.photom import photom_step
 from jwst.resample import resample_step
 
 
-__all__ = ["Image2Pipeline"]
+__all__ = ["ProcessImagerL2Pipeline"]
 
 
-class Image2Pipeline(Pipeline):
+class ProcessImagerL2Pipeline(Pipeline):
     """
-    Image2Pipeline: Processes JWST imaging-mode slope data from Level-2a to
+    ProcessImagerL2Pipeline: Processes JWST imaging-mode slope data from Level-2a to
     Level-2b.
 
     Included steps are:
