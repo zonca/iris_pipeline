@@ -20,6 +20,7 @@ addons:
             - graphviz
             - texlive-latex-extra
             - dvipng
+            - libcfitsio-dev
 
 env:
     global:
@@ -121,7 +122,7 @@ install:
     - source setup_local_crds.sh
 
 script:
-   - python setup.py install && bash run_tests.sh
+    - python setup.py build_ext -i && python setup.py install && bash run_tests.sh
 
 after_success:
     # If coveralls.io is set up for this package, uncomment the line below.

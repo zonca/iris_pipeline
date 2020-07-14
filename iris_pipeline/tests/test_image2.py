@@ -13,7 +13,7 @@ iris_pipeline.monkeypatch_jwst_datamodels()
 from iris_pipeline.tests.test_utils import get_data_from_url
 
 def test_image2():
-    with open("data/asn_subtract_bg_flat.json") as fp:
+    with open("iris_pipeline/tests/data/asn_subtract_bg_flat.json") as fp:
         asn = load_asn(fp)
     raw_science_filename = get_data_from_url("17903858")
     raw_background_filename = get_data_from_url("17903855")
@@ -21,14 +21,14 @@ def test_image2():
     asn["products"][0]["members"][1]["expname"] = raw_background_filename
     with open("test_asn.json", "w") as out_asn:
         json.dump(asn, out_asn)
-    iris_pipeline.pipeline.Image2Pipeline.call("test_asn.json", config_file="data/image2_iris.cfg")
+    iris_pipeline.pipeline.Image2Pipeline.call("test_asn.json", config_file="iris_pipeline/tests/data/image2_iris.cfg")
     ref_filename = get_data_from_url("17905553")
     with iris_pipeline.datamodels.IRISImageModel("test_iris_subtract_bg_flat_cal.fits") as out, \
          iris_pipeline.datamodels.IRISImageModel(ref_filename) as ref:
         np.testing.assert_allclose(out.data, ref.data, rtol=1e-6)
 
 def test_image2_subarray(tmp_path):
-    with open("data/asn_subtract_bg_flat.json") as fp:
+    with open("iris_pipeline/tests/data/asn_subtract_bg_flat.json") as fp:
         asn = load_asn(fp)
     raw_science_filename = get_data_from_url("17903858")
     input_model = iris_pipeline.datamodels.IRISImageModel(raw_science_filename)
@@ -56,7 +56,7 @@ def test_image2_subarray(tmp_path):
     asn["products"][0]["members"][1]["expname"] = raw_background_filename
     with open("test_asn.json", "w") as out_asn:
         json.dump(asn, out_asn)
-    iris_pipeline.pipeline.Image2Pipeline.call("test_asn.json", config_file="data/image2_iris.cfg")
+    iris_pipeline.pipeline.Image2Pipeline.call("test_asn.json", config_file="iris_pipeline/tests/data/image2_iris.cfg")
     ref_filename = get_data_from_url("17905553")
     with iris_pipeline.datamodels.IRISImageModel("test_iris_subtract_bg_flat_cal.fits") as out, \
          iris_pipeline.datamodels.IRISImageModel(ref_filename) as ref:

@@ -25,14 +25,4 @@ allOf:
       fits_hdu: ERR
       default: 0.0
       datatype: float32
-    zeroframe:
-      title: Zeroframe array
-      fits_hdu: ZEROFRAME
-      default: 0.0
-      ndim: 3
-      datatype: float32
-    group:
-      $ref: http://jwst.stsci.edu/schemas/group.schema.yaml
-    int_times:
-      $ref: http://jwst.stsci.edu/schemas/int_times.schema.yaml
 $schema: http://stsci.edu/schemas/fits-schema/fits-schema

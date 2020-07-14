@@ -2,3 +2,6 @@
 	url = https://github.com/astropy/astropy-helpers.git
 	path = astropy_helpers
 	branch = refs/heads/v3.1
+[submodule "iris_pipeline/iris_readout"]
+	path = iris_pipeline/iris_readout
+	url = https://github.com/oirlab/iris_readout
