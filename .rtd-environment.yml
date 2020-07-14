@@ -6,6 +6,8 @@ channels:
 dependencies:
     - python
     - astropy
+    - cfitsio
+    - cython
     - pip
     - pip:
       - sphinx-astropy
