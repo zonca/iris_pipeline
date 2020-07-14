@@ -43,11 +43,28 @@ Finally, we need a custom version of the ``CRDS`` library that contains some mod
     cd tmt-crds
     pip install .
 
+Compilation requirements
+========================
+
+`iris_pipeline` also includes the `iris_readout` C library wrapped with `cython`,
+therefore we require GCC, `autotools` and `libcfitsio` to compile the Python
+extension.
+
+In Debian/Ubuntu, the `cfitsio` headers are installed under a prefix, so we need
+to include that folder in the search path::
+
+    export C_INCLUDE_PATH=/usr/include/cfitsio/
+
 Development install
 ===================
 
 First fork the repository under your account on Github,
 then clone your fork on your machine.
+
+Initialize the `git` submodule for the `iris_readout` C library::
+
+    git submodule init
+    git submodule update
 
 Then enter the root folder and create a development install
 with::
