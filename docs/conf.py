@@ -206,8 +206,8 @@ templates_path = [
             "_templates",
             ]
 
-html_sidebars = {'**':  [
-            "versioning.html",
-            ]}
+#html_sidebars = {'**':  [
+#            "versioning.html",
+#            ]}
 
 smv_branch_whitelist = r'^master$'
