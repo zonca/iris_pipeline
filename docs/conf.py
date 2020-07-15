@@ -211,4 +211,4 @@ html_sidebars = {'**':  [
             ]}
 
 smv_branch_whitelist = r'^master$'
-
+smv_remote_whitelist = r'origin'
