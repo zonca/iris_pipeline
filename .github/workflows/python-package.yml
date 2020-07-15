@@ -39,9 +39,9 @@ jobs:
       run: python setup.py build_ext -i && python setup.py install
       env:
           C_INCLUDE_PATH: /usr/include/cfitsio/
-    #- name: Test
-    #  run: |  
-    #    source setup_local_crds.sh && python setup.py test
+    - name: Test
+      run: |  
+        source setup_local_crds.sh && python setup.py test
     - name: Build docs
       if: ${{ matrix.python-version==3.6 }}
       run: |  
