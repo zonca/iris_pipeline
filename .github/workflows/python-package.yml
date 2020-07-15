@@ -40,11 +40,11 @@ jobs:
           python -m pip install git+https://github.com/oirlab/tmt-crds.git https://github.com/spacetelescope/jwst/archive/0.13.7.zip nbval pytest-astropy
     - name: Setup CRDS
       run: |
-        git clone --depth 1 https://github.com/oirlab/tmt-crds-cache $HOME/crds_cache && source setup_local_crds.sh
+        git clone --depth 1 https://github.com/oirlab/tmt-crds-cache $HOME/crds_cache
     - name: Build
       run: python setup.py build_ext -i && python setup.py install
       env:
           C_INCLUDE_PATH: /usr/include/cfitsio/
     - name: Test
-      run: |
-        python setup.py test
+      run: |  
+        source setup_local_crds.sh && python setup.py test
