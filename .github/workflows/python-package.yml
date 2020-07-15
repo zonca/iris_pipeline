@@ -52,3 +52,4 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         BRANCH: master
         FOLDER: html
+        REPOSITORY_NAME: oirlab/iris-pipeline
