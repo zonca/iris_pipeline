@@ -40,3 +40,8 @@ jobs:
     - name: Test
       run: |  
         source setup_local_crds.sh && python setup.py test
+    - name: Build docs
+      if: ${{ matrix.python-version }} == "3.6"
+      uses: ammaraskar/sphinx-action@master
+      with:
+        docs-folder: "docs/"
