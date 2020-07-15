@@ -46,6 +46,11 @@ jobs:
       if: ${{ matrix.python-version==3.6 }}
       run: |  
         python -m pip install -r docs/requirements.txt && sphinx-multiversion docs html
+    - name: Install SSH Client 🔑
+      if: ${{ matrix.python-version==3.6 }}
+      uses: webfactory/ssh-agent@v0.2.0
+      with:
+        ssh-private-key: ${{ secrets.DEPLOY_KEY }}
     - name: Deploy 🚀
       if: ${{ matrix.python-version==3.6 }}
       uses: JamesIves/github-pages-deploy-action@3.5.7
@@ -54,3 +59,4 @@ jobs:
         BRANCH: master
         FOLDER: html
         REPOSITORY_NAME: oirlab/iris-pipeline
+        SSH: true
