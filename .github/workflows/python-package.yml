@@ -27,17 +27,9 @@ jobs:
         python-version: ${{ matrix.python-version }}
     - name: Install libcfitsio
       run: sudo apt-get install libcfitsio-dev
-    - uses: goanpeca/setup-miniconda@v1
-      with:
-        auto-update-conda: true
-        python-version: ${{ matrix.python-version }}
-        channels: astropy
-    - name: Install conda dependencies
-      run: |
-        conda install pip jupyter_client nbformat ipykernel matplotlib pytest
     - name: Install pip dependencies
       run: |
-          python -m pip install git+https://github.com/oirlab/tmt-crds.git https://github.com/spacetelescope/jwst/archive/0.13.7.zip nbval pytest-astropy
+          python -m pip install -r requirements.txt -r test-requirements.txt
     - name: Setup CRDS
       run: |
         git clone --depth 1 https://github.com/oirlab/tmt-crds-cache $HOME/crds_cache
