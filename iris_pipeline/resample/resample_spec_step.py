@@ -1,10 +1,12 @@
 __all__ = ["ResampleSpecStep"]
 
-from .. import datamodels
-from ..datamodels import MultiSlitModel, ModelContainer
+# try first importing everything from JWST
+from jwst import datamodels
+from jwst.datamodels import MultiSlitModel, ModelContainer
+
 from . import resample_spec, ResampleStep
-from ..exp_to_source import multislit_to_container
-from ..assign_wcs.util import update_s_region_spectral
+from jwst.exp_to_source import multislit_to_container
+from jwst.assign_wcs.util import update_s_region_spectral
 
 
 class ResampleSpecStep(ResampleStep):

@@ -8,7 +8,7 @@ from gwcs import WCS, wcstools
 
 from astropy.nddata.bitmask import interpret_bit_flags
 
-from ..assign_wcs.util import wcs_from_footprints, wcs_bbox_from_shape
+from jwst.assign_wcs.util import wcs_from_footprints, wcs_bbox_from_shape
 
 import logging
 log = logging.getLogger(__name__)

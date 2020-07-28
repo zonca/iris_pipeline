@@ -2,12 +2,12 @@ import logging
 
 import numpy as np
 
-from ..stpipe import Step
-from ..extern.configobj.validate import Validator
-from ..extern.configobj.configobj import ConfigObj
-from .. import datamodels
+from jwst.stpipe import Step
+from jwst.extern.configobj.validate import Validator
+from jwst.extern.configobj.configobj import ConfigObj
+from jwst import datamodels
 from . import resample
-from ..assign_wcs import util
+from jwst.assign_wcs import util
 
 log = logging.getLogger(__name__)
 log.setLevel(logging.DEBUG)

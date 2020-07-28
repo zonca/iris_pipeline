@@ -2,11 +2,12 @@ import logging
 from collections import OrderedDict
 import numpy as np
 
-from .. import datamodels
+# try first importing everything from JWST
+from jwst import datamodels
 
 from . import gwcs_drizzle
 from . import resample_utils
-from ..model_blender import blendmeta
+from jwst.model_blender import blendmeta
 
 log = logging.getLogger(__name__)
 log.setLevel(logging.DEBUG)

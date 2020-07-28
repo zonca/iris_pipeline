@@ -11,7 +11,8 @@ from astropy.modeling.fitting import LinearLSQFitter
 from gwcs import wcstools, WCS
 from gwcs import coordinate_frames as cf
 
-from .. import datamodels
+# try first importing everything from JWST
+from jwst import datamodels
 from . import gwcs_drizzle
 from . import resample_utils
 
