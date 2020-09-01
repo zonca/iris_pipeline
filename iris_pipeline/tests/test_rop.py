@@ -61,7 +61,7 @@ def setup_inputs(
 
 def test_rop1():
     iris_pipeline.pipeline.ROPPipeline.call(
-        "data/test_ramp.fits", config_file="data/drsrop.cfg"
+        "iris_pipeline/tests/data/test_ramp.fits", config_file="iris_pipeline/tests/data/drsrop.cfg"
     )
     return 1
 
@@ -69,6 +69,6 @@ def test_rop1():
 def test_rop2():
     model_ramp = setup_inputs()
     image_model = iris_pipeline.pipeline.ROPPipeline.call(
-        model_ramp, config_file="data/drsrop.cfg"
+        model_ramp, config_file="iris_pipeline/tests/data/drsrop.cfg"
     )
     assert np.mean(image_model.data) == 8048.5
