@@ -4,6 +4,7 @@ Package Index
 .. toctree::
    :maxdepth: 2
 
+   drsrop_pipeline.rst
    dq_init/index.rst
    background/index.rst
    dark_current/index.rst
