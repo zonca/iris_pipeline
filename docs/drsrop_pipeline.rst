@@ -1,5 +1,5 @@
 DRS-ROP Pipeline
-==========================
+================
 
 The DRS_ROP Pipeline works on detector level readouts. The current steps implemented in the pipeline are
 - Non-linearity Correction
@@ -11,8 +11,8 @@ Non-linearity Correction
 Non-linearity correction step corrects for the non-linear response of the detector to incoming flux. This step is executed before sampling algorithms.
 
 
-Detector Readout Sampling 
-------------------------
+Detector Readout Sampling
+-------------------------
 The H4RG detecors are readout in non-destructive reads and sampling algorithms are used to estimate the accumulated electrons in the detector for an integration time. The sampling algorithms currently implemented in the pipeline are
 - Correlated Double Sampling
 - Multi Correlated Double Sampling
@@ -24,7 +24,7 @@ The sampling algorithms use the drsrop_clib module.
 https://github.com/arunsurya77/drsrop_clib
 
 Running the Examples
----------------------
+--------------------
 There is a example run in the iris_pipeline/readout/tests directory. The sample ramp is given in the sample_ramp.fits. 
 sampling.cfg gives the configurations for the pipeline
 
@@ -35,12 +35,10 @@ sampling.cfg gives the configurations for the pipeline
 name = "rop"
 class = "iris_pipeline.pipeline.ROPPipeline"
 save_results = True
-
     [steps]
       [[nonlincorr]]
       [[readoutsamp]]
        mode='mcds'
-        
 
 The sampling mode is set by the ``mode`` keyword which can be ``mcds`` or ``utr``. MCDS algorithm also requires the group number, the number of reads to be co-added. This is currently hardcoded in this version.
 
