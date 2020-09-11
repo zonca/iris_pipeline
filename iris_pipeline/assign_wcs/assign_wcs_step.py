@@ -33,7 +33,7 @@ class AssignWcsStep(Step):
 
     """
 
-    reference_file_types = [] # 'distortion' , 'specwcs', 'wavelengthrange']
+    reference_file_types = []  # 'distortion' , 'specwcs', 'wavelengthrange']
 
     def process(self, input, *args, **kwargs):
         reference_file_names = {}
@@ -44,15 +44,14 @@ class AssignWcsStep(Step):
                 log.warning("assign_wcs expects IRISImageModel as input.")
                 log.warning("Skipping assign_wcs step.")
                 result = input_model.copy()
-                result.meta.cal_step.assign_wcs = 'SKIPPED'
+                result.meta.cal_step.assign_wcs = "SKIPPED"
                 return result
 
             for reftype in self.reference_file_types:
                 reffile = self.get_reference_file(input_model, reftype)
                 reference_file_names[reftype] = reffile if reffile else ""
-            log.debug(f'reference files used in assign_wcs: {reference_file_names}')
+            log.debug(f"reference files used in assign_wcs: {reference_file_names}")
 
             result = load_wcs(input_model, reference_file_names)
-
 
         return result
