@@ -28,14 +28,8 @@ log.setLevel(logging.DEBUG)
 
 
 __all__ = ["reproject", "wcs_from_footprints", "velocity_correction",
-           "MSAFileError", "NoDataOnDetectorError", "compute_scale",
+           "NoDataOnDetectorError", "compute_scale",
            "calc_rotation_matrix"]
-
-
-class MSAFileError(Exception):
-
-    def __init__(self, message):
-        super(MSAFileError, self).__init__(message)
 
 
 class NoDataOnDetectorError(Exception):

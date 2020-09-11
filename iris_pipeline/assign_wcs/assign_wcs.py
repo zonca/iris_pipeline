@@ -48,10 +48,7 @@ def load_wcs(input_model, reference_files={}, nrs_slit_y_range=None):
                                 input_model.meta.instrument.filter,
                                 input_model.meta.instrument.pupil)
 
-    if instrument.lower() == 'nirspec':
-        pipeline = mod.create_pipeline(input_model, reference_files, slit_y_range=nrs_slit_y_range)
-    else:
-        pipeline = mod.create_pipeline(input_model, reference_files)
+    pipeline = mod.create_pipeline(input_model, reference_files)
     # Initialize the output model as a copy of the input
     # Make the copy after the WCS pipeline is created in order to pass updates to the model.
     if pipeline is None:
