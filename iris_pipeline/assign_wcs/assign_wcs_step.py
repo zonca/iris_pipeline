@@ -27,12 +27,6 @@ class AssignWcsStep(Step):
         Input exposure.
     """
 
-    spec = """
-        slit_y_low = float(default=-.55)  # The lower edge of a slit.
-        slit_y_high = float(default=.55)  # The upper edge of a slit.
-
-    """
-
     reference_file_types = []  # 'distortion' , 'specwcs', 'wavelengthrange']
 
     def process(self, input, *args, **kwargs):
