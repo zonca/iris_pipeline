@@ -1,6 +1,7 @@
 #! /usr/bin/env python
 from jwst.stpipe import Step
-from .. import datamodels
+from jwst import datamodels
+from ..datamodels import IRISImageModel
 import logging
 from .assign_wcs import load_wcs
 
@@ -32,13 +33,13 @@ class AssignWcsStep(Step):
 
     """
 
-    reference_file_types = [] # ['distortion', 'specwcs', 'wavelengthrange']
+    reference_file_types = [] # 'distortion' , 'specwcs', 'wavelengthrange']
 
     def process(self, input, *args, **kwargs):
         reference_file_names = {}
         with datamodels.open(input) as input_model:
             # If input type is not supported, log warning, set to 'skipped', exit
-            if not (isinstance(input_model, datamodels.IRISImageModel)):
+            if not (isinstance(input_model, IRISImageModel)):
                 log.warning("Input dataset type is not supported.")
                 log.warning("assign_wcs expects IRISImageModel as input.")
                 log.warning("Skipping assign_wcs step.")
@@ -51,8 +52,7 @@ class AssignWcsStep(Step):
                 reference_file_names[reftype] = reffile if reffile else ""
             log.debug(f'reference files used in assign_wcs: {reference_file_names}')
 
-            slit_y_range = [self.slit_y_low, self.slit_y_high]
-            result = load_wcs(input_model, reference_file_names, slit_y_range)
+            result = load_wcs(input_model, reference_file_names)
 
 
         return result
