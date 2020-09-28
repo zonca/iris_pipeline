@@ -58,15 +58,8 @@ Algorithms
 .. toctree::
    :maxdepth: 1
 
-   algorithms
-
-Available steps
-===============
-
-.. toctree::
-   :maxdepth: 1
-
    available-steps
+   algorithms
 
 Subarrays
 =========

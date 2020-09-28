@@ -1,6 +1,6 @@
-=============
-Package Index
-=============
+====================
+Available algorithms
+====================
 .. toctree::
    :maxdepth: 2
 
