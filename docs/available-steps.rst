@@ -13,3 +13,4 @@ Package Index
    flatfield/index.rst
    parse_subarray_map/index.rst
    merge_subarrays/index.rst
+   assign_wcs/index.rst
