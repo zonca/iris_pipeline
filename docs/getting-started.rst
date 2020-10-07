@@ -10,13 +10,13 @@ see `the JWST instructions
 <https://github.com/spacetelescope/jwst/>`_,
 reported here for convenience::
 
-    conda create -n jwst_dev python=3.6 astropy
+    conda create -n jwst_dev python=3.7 astropy
     source activate jwst_dev
 
 then we need to install the ``jwst`` package, currently ``iris_pipeline``
-is being tested with ``jwst`` 0.13.7::
+is being tested with ``jwst`` 0.17.0::
 
-    pip install https://github.com/spacetelescope/jwst/archive/0.13.7.zip
+    pip install jwst==0.17.0
 
 Then you need to download the ``CRDS`` cache:
 
