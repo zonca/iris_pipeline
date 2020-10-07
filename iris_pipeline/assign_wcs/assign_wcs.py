@@ -1,8 +1,6 @@
 import logging
 import importlib
 from gwcs.wcs import WCS
-from jwst.lib.exposure_types import IMAGING_TYPES, SPEC_TYPES, NRS_LAMP_MODE_SPEC_TYPES
-from jwst.lib.dispaxis import get_dispersion_direction
 from astropy.modeling import models
 from astropy import coordinates as coord
 from astropy import units as u
