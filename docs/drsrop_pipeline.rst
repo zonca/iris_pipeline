@@ -17,7 +17,7 @@ The H4RG detecors are readout in non-destructive reads and sampling algorithms a
 - Correlated Double Sampling
 - Multi Correlated Double Sampling
 - Up-the-Ramp Sampling
- 
+
 Requirements
 ------------
 The sampling algorithms use the drsrop_clib module.
@@ -25,20 +25,20 @@ https://github.com/arunsurya77/drsrop_clib
 
 Running the Examples
 --------------------
-There is a example run in the iris_pipeline/readout/tests directory. The sample ramp is given in the sample_ramp.fits. 
+There is a example run in the iris_pipeline/readout/tests directory. The sample ramp is given in the sample_ramp.fits.
 sampling.cfg gives the configurations for the pipeline
 
 ``sampling.cfg``:
 
 .. code-block:: ini
 
-name = "rop"
-class = "iris_pipeline.pipeline.ROPPipeline"
-save_results = True
-    [steps]
-      [[nonlincorr]]
-      [[readoutsamp]]
-       mode='mcds'
+    name = "rop"
+    class = "iris_pipeline.pipeline.ROPPipeline"
+    save_results = True
+        [steps]
+          [[nonlincorr]]
+          [[readoutsamp]]
+           mode='mcds'
 
 The sampling mode is set by the ``mode`` keyword which can be ``mcds`` or ``utr``. MCDS algorithm also requires the group number, the number of reads to be co-added. This is currently hardcoded in this version.
 
@@ -73,4 +73,4 @@ here is the output log:
 	2019-04-26 10:09:21,665 - stpipe.rop - INFO - Step rop done
 
 
-This creates a sample_rop.fits file in the working directory that is the processed 
+This creates a sample_rop.fits file in the working directory that is the processed
