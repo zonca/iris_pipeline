@@ -70,7 +70,7 @@ rst_epilog += """
 # -- Project information ------------------------------------------------------
 
 # This does not *have* to match the package name, but typically does
-project = setup_cfg["name"]
+project = "IRISpipeline"
 author = setup_cfg["author"]
 copyright = "{0}, {1}".format(datetime.datetime.now().year, setup_cfg["author"])
 
@@ -227,3 +227,12 @@ smv_outputdir_format = '{ref.name}'
 
 # Determines whether remote or local git branches/tags are preferred if their output dirs conflict
 smv_prefer_remote_refs = False
+
+latex_elements = {
+    # Additional stuff for the LaTeX preamble.
+    'preamble': "".join((
+        '\DeclareUnicodeCharacter{00A0}{ }',  # NO-BREAK SPACE
+        '\DeclareUnicodeCharacter{251C}{+}',  # BOX DRAWINGS LIGHT VERTICAL AND RIGHT
+        '\DeclareUnicodeCharacter{2514}{+}',  # BOX DRAWINGS LIGHT UP AND RIGHT
+    )),
+}
