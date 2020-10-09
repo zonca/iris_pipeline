@@ -1,33 +1,17 @@
 #!/usr/bin/env python
 
-# Licensed under a 3-clause BSD style license - see LICENSE.rst
+from setuptools import Extension, setup
+from Cython.Build import cythonize
+import numpy
 
-import builtins
+sourcefiles = [
+    "iris_pipeline/drsrop_clib/_drsrop_clib.pyx",
+#    "iris_pipeline/drsrop_clib/_drsrop_clib.c",
+]
 
-# Ensure that astropy-helpers is available
-import ah_bootstrap  # noqa
+extensions = [Extension("iris_pipeline.drsrop_clib._drsrop_clib", sourcefiles,         include_dirs=[numpy.get_include()],
+        define_macros=[("NPY_NO_DEPRECATED_API", "NPY_1_7_API_VERSION")],
 
-from setuptools import setup
-from setuptools.config import read_configuration
+    )]
 
-from astropy_helpers.setup_helpers import register_commands, get_package_info
-from astropy_helpers.version_helpers import generate_version_py
-
-# Store the package name in a built-in variable so it's easy
-# to get from other parts of the setup infrastructure
-builtins._ASTROPY_PACKAGE_NAME_ = read_configuration('setup.cfg')['metadata']['name']
-
-# Create a dictionary with setup command overrides. Note that this gets
-# information about the package (name and version) from the setup.cfg file.
-cmdclass = register_commands()
-
-# Freeze build information in version.py. Note that this gets information
-# about the package (name and version) from the setup.cfg file.
-version = generate_version_py()
-
-# Get configuration information from all of the various subpackages.
-# See the docstring for setup_helpers.update_package_files for more
-# details.
-package_info = get_package_info()
-
-setup(version=version, cmdclass=cmdclass, **package_info, include_package_data=True)
+setup(scripts=["scripts/tmtrun"], ext_modules=cythonize(extensions))
