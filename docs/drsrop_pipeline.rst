@@ -21,7 +21,7 @@ The H4RG detecors are readout in non-destructive reads and sampling algorithms a
 Requirements
 ------------
 The sampling algorithms use the drsrop_clib module.
-https://github.com/arunsurya77/drsrop_clib
+https://github.com/oirlab/iris_readout
 
 Running the Examples
 --------------------
@@ -50,7 +50,7 @@ We can use ``strun`` from a terminal to execute the pipeline:
 
 ::
 
-   strun sampling.cfg sample_ramp.fits
+   tmtrun sampling.cfg sample_ramp.fits
 
 here is the output log:
 
