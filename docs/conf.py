@@ -245,3 +245,4 @@ extensions += [
 ]
 nbsphinx_kernel_name = "python3"
 nbsphinx_timeout = 600
+nbsphinx_allow_errors = True
