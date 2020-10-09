@@ -57,7 +57,7 @@ The file format of all the FITS files used by `iris_pipeline` are defined in the
 `iris_pipeline.datamodels` package and are encoded as schemas in YAML format.
 
 For example the FITS file format used for raw and reduced science frame is
-:py:class`IRISImageModel`, this is referenced in the FITS keyword `DATAMODL`::
+:py:class:`IRISImageModel`, this is referenced in the FITS keyword `DATAMODL`::
 
     DATAMODL= 'IRISImageModel'
 
@@ -69,10 +69,10 @@ FITS headers, e.g. acquisition time, pupil, detector name.
 
 The currently implemented datamodels are:
 
-  * :py:class`IRISImageModel`: raw and reduced frames from the imagers
-  * :py:class`TMTRampModel`: raw readouts
-  * :py:class`TMTFlatModel`: flats
-  * :py:class`TMTDarkModel`: darks
+  * :py:class:`IRISImageModel`: raw and reduced frames from the imagers
+  * :py:class:`TMTRampModel`: raw readouts
+  * :py:class:`TMTFlatModel`: flats
+  * :py:class:`TMTDarkModel`: darks
 
 All models are defined in `iris_pipeline.datamodels <https://github.com/oirlab/iris_pipeline/blob/master/iris_pipeline/datamodels/__init__.py>`_, and their schemas available `within the package itself <https://github.com/oirlab/iris_pipeline/tree/master/iris_pipeline/datamodels/schemas>`_, some of those models are just abstractions to group similar functionality but
 are never used in practice.
