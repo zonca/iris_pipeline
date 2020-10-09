@@ -21,13 +21,16 @@ if sys.version_info < tuple(
         "iris_pipeline does not support Python < {}".format(__minimum_python_version__)
     )
 
-from .flatfield import *
-from .background import *
-from .pipeline import *
-from .dq_init import *
-from .normalize import *
-from .parse_subarray_map import *
-from .merge_subarrays import *
-from .assign_wcs import *
+try:
+    from .flatfield import *
+    from .background import *
+    from .pipeline import *
+    from .dq_init import *
+    from .normalize import *
+    from .parse_subarray_map import *
+    from .merge_subarrays import *
+    from .assign_wcs import *
 
-from .datamodels import  monkeypatch_jwst_datamodels
+    from .datamodels import  monkeypatch_jwst_datamodels
+except ImportError:
+    print("Failed to import modules")
