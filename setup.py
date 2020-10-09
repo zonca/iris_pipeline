@@ -18,4 +18,4 @@ extensions = [
     )
 ]
 
-setup(scripts=["scripts/tmtrun"], ext_modules=cythonize(extensions))
+setup(ext_modules=cythonize(extensions))

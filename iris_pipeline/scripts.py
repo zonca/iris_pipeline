@@ -9,10 +9,9 @@ import iris_pipeline
 iris_pipeline.monkeypatch_jwst_datamodels()
 
 from jwst.assign_wcs.util import NoDataOnDetectorError
-import jwst.stpipe as stpipe
 from jwst.stpipe import Step
 
-if __name__ == '__main__':
+def tmtrun():
 
     if '--version' in sys.argv:
         sys.stdout.write("%s\n" % iris_pipeline.__version__)
