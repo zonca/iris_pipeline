@@ -1,5 +1,6 @@
 from astropy.io import registry
 
+from .cube import IRISCubeModel
 from .iris import IRISImageModel
 from .tmt_ramp import TMTRampModel
 from .tmt_mask import TMTMaskModel
@@ -14,6 +15,7 @@ from .tmt_reference import (
 
 
 __all__ = [
+    "IRISCubeModel",
     "IRISImageModel",
     "TMTRampModel",
     "TMTMaskModel",
