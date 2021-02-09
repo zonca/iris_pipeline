@@ -1,3 +1,4 @@
 astropy
+Cython
 git+https://github.com/oirlab/tmt-crds.git
 git+https://github.com/spacetelescope/jwst@0.17.0
