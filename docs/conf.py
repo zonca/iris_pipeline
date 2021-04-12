@@ -207,7 +207,7 @@ templates_path = [
 #            ]}
 
 # Whitelist pattern for tags (set to None to ignore all tags)
-smv_tag_whitelist = r"^\d+\.([4-9]|\d{2,})\.\d+$"
+smv_tag_whitelist = r"^\d+\.([5-9]|\d{2,})\.\d+$"
 
 # Whitelist pattern for branches (set to None to ignore all branches)
 smv_branch_whitelist = r"^master$"
