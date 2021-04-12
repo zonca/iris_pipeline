@@ -194,36 +194,6 @@ github_issues_url = "https://github.com/{0}/issues/".format(setup_cfg["github_pr
 
 intersphinx_mapping = {"jwst": ("https://jwst-pipeline.readthedocs.io/en/latest", None)}
 
-# Sphinx multiversion configuration
-
-extensions += ["sphinx_multiversion"]
-
-templates_path = [
-    "_templates",
-]
-
-# html_sidebars = {'**':  [
-#            "versioning.html",
-#            ]}
-
-# Whitelist pattern for tags (set to None to ignore all tags)
-smv_tag_whitelist = r"^\d+\.([4-9]|\d{2,})\.\d+$"
-
-# Whitelist pattern for branches (set to None to ignore all branches)
-smv_branch_whitelist = r"^master$"
-
-# Whitelist pattern for remotes (set to None to use local branches only)
-smv_remote_whitelist = None
-
-# Pattern for released versions
-smv_released_pattern = r"^.*tags.*$"
-
-# Format for versioned output directories inside the build directory
-smv_outputdir_format = "{ref.name}"
-
-# Determines whether remote or local git branches/tags are preferred if their output dirs conflict
-smv_prefer_remote_refs = False
-
 latex_elements = {
     # Additional stuff for the LaTeX preamble.
     "preamble": "".join(
