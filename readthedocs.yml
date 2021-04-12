@@ -1,0 +1,16 @@
+conda:
+  environment: .rtd-environment.yml
+
+version: 2
+
+formats:
+   - pdf
+
+python:
+    version: 3.6
+    install:
+      - method: pip
+        path: .
+
+submodules:
+    include: all
