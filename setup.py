@@ -13,7 +13,7 @@ extensions = [
     Extension(
         "iris_pipeline.drsrop_clib._drsrop_clib",
         sourcefiles,
-        include_dirs=[numpy.get_include()],
+        include_dirs=[numpy.get_include(), "/usr/include/cfitsio"],
         define_macros=[("NPY_NO_DEPRECATED_API", "NPY_1_7_API_VERSION")],
     )
 ]
