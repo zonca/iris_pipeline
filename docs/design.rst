@@ -47,6 +47,19 @@ We leverage this effort by:
    and publishing them on the ``iris_pipeline``
    repository https://github.com/oirlab/iris_pipeline.
 
+Processing levels and data product stages
+=========================================
+
+Similar to how `JWST has organized their pipeline <https://jwst-pipeline.readthedocs.io/en/latest/jwst/data_products/stages.html>`_, we also organize pipelines and data products in stages.
+
+* Level 0 data products are the FITS files containing the individual raw readouts
+* Level 1 pipelines, backed by ``iris_readout``, combine the raw readouts and apply data quality checks and cuts. In production at the Observatory, this will be performed directly by the detector C software (HCD).
+* The Level 1 pipelines produce level 1 data products, the "raw science frames", still uncalibrated.
+* Level 2 pipelines apply calibration, flat-fielding and more to raw science frames
+* The output are the Level 2 data products "reduced science frames"
+* Multiple "reduced science frames" can be combined together by a Level 3 pipeline, for example for mosaicking.
+* The outputs of Level 3 pipelines are Level 3 data products.
+
 File format
 ===========
 
