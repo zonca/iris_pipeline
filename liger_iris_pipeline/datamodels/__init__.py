@@ -1,30 +1,30 @@
 from astropy.io import registry
 
-from .cube import IRISCubeModel
-from .iris import IRISImageModel
-from .tmt_ramp import TMTRampModel
-from .tmt_mask import TMTMaskModel
-from .flat import TMTFlatModel
-from .dark import TMTDarkModel
-from .tmt_reference import (
-    TMTReferenceImageModel,
-    TMTReferenceCubeModel,
-    TMTReferenceQuadModel,
-    TMTReferenceFileModel,
+from .cube import CubeModel
+from .liger_iris_image import LigerIrisImageModel
+from .ramp import RampModel
+from .mask import MaskModel
+from .flat import FlatModel
+from .dark import DarkModel
+from .reference import (
+    ReferenceImageModel,
+    ReferenceCubeModel,
+    ReferenceQuadModel,
+    ReferenceFileModel,
 )
 
 
 __all__ = [
-    "IRISCubeModel",
-    "IRISImageModel",
-    "TMTRampModel",
-    "TMTMaskModel",
-    "TMTReferenceImageModel",
-    "TMTFlatModel",
-    "TMTDarkModel",
-    "TMTReferenceCubeModel",
-    "TMTReferenceQuadModel",
-    "TMTReferenceFileModel",
+    "CubeModel",
+    "LigerIrisImageModel",
+    "RampModel",
+    "MaskModel",
+    "ReferenceImageModel",
+    "FlatModel",
+    "DarkModel",
+    "ReferenceCubeModel",
+    "ReferenceQuadModel",
+    "ReferenceFileModel",
 ]
 
 _all_models = __all__

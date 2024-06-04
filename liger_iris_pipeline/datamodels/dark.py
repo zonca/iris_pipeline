@@ -1,10 +1,12 @@
-from .tmt_reference import TMTReferenceFileModel
-from jwst.datamodels.dynamicdq import dynamic_mask
+from stdatamodels.dynamicdq import dynamic_mask
+from .dqflags import pixel
+from .reference import ReferenceFileModel
 
-__all__ = ['TMTDarkModel']
+
+__all__ = ['DarkModel']
 
 
-class TMTDarkModel(TMTReferenceFileModel):
+class DarkModel(ReferenceFileModel):
     """
     A data model for dark reference files.
 
@@ -13,7 +15,7 @@ class TMTDarkModel(TMTReferenceFileModel):
     data : numpy float32 array
          Dark current array
 
-    dq : numpy uint16 array
+    dq : numpy uint32 array
          2-D data quality array for all planes
 
     err : numpy float32 array
@@ -22,12 +24,12 @@ class TMTDarkModel(TMTReferenceFileModel):
     dq_def : numpy table
          DQ flag definitions
     """
-    schema_url = "dark.schema.yaml"
+    schema_url = "https://oirlab.github.io/liger-iris-pipeline/schemas/liger_iris_datamodel/dark.schema"
 
     def __init__(self, init=None, **kwargs):
-        super().__init__(init=init, **kwargs)
+        super(DarkModel, self).__init__(init=init, **kwargs)
 
-        self.dq = dynamic_mask(self)
+        self.dq = dynamic_mask(self, pixel)
 
         # Implicitly create arrays
         self.dq = self.dq

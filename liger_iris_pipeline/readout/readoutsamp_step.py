@@ -2,9 +2,12 @@
 
 from jwst.stpipe import Step
 from jwst import datamodels
-import iris_pipeline
+import liger_iris_pipeline
 from ..drsrop_clib import uptheramp_c,mcds_c,nonlin_c
 import numpy as np
+
+def utr(a):
+     return a
 
 __all__ = ["ReadoutsampStep"]
 
@@ -49,7 +52,7 @@ class ReadoutsampStep(Step):
                 im_list.append(result)
             result=np.sum(im_list,axis=0) 
             print(result.shape)
-            result = iris_pipeline.datamodels.IRISImageModel(data=result)
+            result = liger_iris_pipeline.datamodels.LigerIrisImageModel(data=result)
             result.update(input_model)
                 
 

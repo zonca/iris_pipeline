@@ -1,10 +1,10 @@
-from .model_base import TMTDataModel
+from .model_base import LigerIrisDataModel
 
 
-__all__ = ["TMTRampModel"]
+__all__ = ['RampModel']
 
 
-class TMTRampModel(TMTDataModel):
+class RampModel(LigerIrisDataModel):
     """
     A data model for 4D ramps.
 
@@ -32,11 +32,10 @@ class TMTRampModel(TMTDataModel):
          table of times for each integration
 
     """
-
-    schema_url = "tmt_ramp.schema.yaml"
+    schema_url = "https://oirlab.github.io/liger-iris-pipeline/schemas/liger_iris_datamodel/ramp.schema"
 
     def __init__(self, init=None, **kwargs):
-        super().__init__(init=init, **kwargs)
+        super(RampModel, self).__init__(init=init, **kwargs)
 
         # Implicitly create arrays
         self.pixeldq = self.pixeldq

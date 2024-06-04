@@ -1,10 +1,11 @@
-from .tmt_reference import TMTReferenceFileModel
-from jwst.datamodels.dynamicdq import dynamic_mask
+from .reference import ReferenceFileModel
+from stdatamodels.dynamicdq import dynamic_mask
+from .dqflags import pixel
 
-__all__ = ["TMTMaskModel"]
+__all__ = ['MaskModel']
 
 
-class TMTMaskModel(TMTReferenceFileModel):
+class MaskModel(ReferenceFileModel):
     """
     A data model for 2D masks.
 
@@ -16,14 +17,13 @@ class TMTMaskModel(TMTReferenceFileModel):
     dq_def : numpy table
          DQ flag definitions
     """
-
-    schema_url = "tmt_mask.schema.yaml"
+    schema_url = "https://oirlab.github.io/liger-iris-pipeline/schemas/liger_iris_datamodel/mask.schema"
 
     def __init__(self, init=None, **kwargs):
-        super().__init__(init=init, **kwargs)
+        super(MaskModel, self).__init__(init=init, **kwargs)
 
         if self.dq is not None or self.dq_def is not None:
-            self.dq = dynamic_mask(self)
+            self.dq = dynamic_mask(self, pixel)
 
         # Implicitly create arrays
         self.dq = self.dq
@@ -35,4 +35,4 @@ class TMTMaskModel(TMTReferenceFileModel):
         This is intended to be overridden in the subclasses if the
         primary array's name is not "data".
         """
-        return "dq"
+        return 'dq'

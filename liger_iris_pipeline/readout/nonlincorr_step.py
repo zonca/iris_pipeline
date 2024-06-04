@@ -4,7 +4,7 @@ from jwst.stpipe import Step
 from jwst import datamodels
 from ..drsrop_clib import uptheramp_c,mcds_c,nonlin_c
 import numpy as np
-import iris_pipeline
+import liger_iris_pipeline
 from astropy.io import fits
 
 __all__ = ["NonlincorrStep"]
@@ -47,7 +47,7 @@ class NonlincorrStep(Step):
                 ramp_list.append(result)            
             #result = uptheramp_c(result,time_arr)
             output_data=np.array(ramp_list).astype(np.int32)
-            result = iris_pipeline.datamodels.TMTRampModel(data=output_data)
+            result = liger_iris_pipeline.datamodels.RampModel(data=output_data)
             result.update(input_model)
                 
 

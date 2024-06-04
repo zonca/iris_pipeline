@@ -1,9 +1,10 @@
-from .model_base import TMTDataModel
-
-__all__ = ['IRISCubeModel']
+from .model_base import LigerIrisDataModel
 
 
-class IRISCubeModel(TMTDataModel):
+__all__ = ['CubeModel']
+
+
+class CubeModel(LigerIrisDataModel):
     """
     A data model for 3D image cubes.
 
@@ -36,36 +37,13 @@ class IRISCubeModel(TMTDataModel):
     var_rnoise : numpy float32 array
          Integration-specific variances of slope due to read noise
     """
-    schema_url = "iris_cube.schema.yaml"
+
+    schema_url = "https://oirlab.github.io/liger-iris-pipeline/schemas/liger_iris_datamodel/cube.schema"
 
     def __init__(self, init=None, **kwargs):
 
-        super().__init__(init=init, **kwargs)
+        super(CubeModel, self).__init__(init=init, **kwargs)
 
         # Implicitly create arrays
         self.dq = self.dq
         self.err = self.err
-
-    def to_container(self):
-        """Convert to a ModelContainer of ImageModels for each plane"""
-        from .datamodels import IRISImageModel, ModelContainer
-        from jwst.datamodels import ModelContainer
-
-        container = ModelContainer()
-        for plane in range(self.shape[0]):
-            image = IRISImageModel()
-            for attribute in [
-                    'data', 'dq', 'err', 'zeroframe', 'area',
-                    'var_poisson', 'var_rnoise', 'var_flat'
-            ]:
-                try:
-                    setattr(image, attribute, self.getarray_noinit(attribute)[plane])
-                except AttributeError:
-                    pass
-            image.update(self)
-            try:
-                image.meta.wcs = self.meta.wcs
-            except AttributeError:
-                pass
-            container.append(image)
-        return container

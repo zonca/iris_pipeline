@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 from jwst.stpipe import Step
 from jwst import datamodels
-from ..datamodels import IRISImageModel
+from ..datamodels import LigerIrisImageModel
 import logging
 from .assign_wcs import load_wcs
 
@@ -33,7 +33,7 @@ class AssignWcsStep(Step):
         reference_file_names = {}
         with datamodels.open(input) as input_model:
             # If input type is not supported, log warning, set to 'skipped', exit
-            if not (isinstance(input_model, IRISImageModel)):
+            if not (isinstance(input_model, LigerIrisImageModel)):
                 log.warning("Input dataset type is not supported.")
                 log.warning("assign_wcs expects IRISImageModel as input.")
                 log.warning("Skipping assign_wcs step.")

@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 
-import iris_pipeline
+import liger_iris_pipeline
 from jwst.stpipe import Step
 from jwst import datamodels
 from . import flat_field
@@ -53,7 +53,7 @@ class FlatFieldStep(Step):
             return self.skip_step(input_model)
 
         self.log.debug("Opening flat as FlatModel")
-        flat_model = iris_pipeline.datamodels.TMTFlatModel(self.flat_filename)
+        flat_model = liger_iris_pipeline.datamodels.FlatModel(self.flat_filename)
 
         # Do the flat-field correction
         output_model = flat_field.do_correction(

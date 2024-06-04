@@ -1,6 +1,6 @@
 from jwst.stpipe import Step
 from jwst import datamodels
-from ..datamodels import TMTDarkModel
+from ..datamodels import DarkModel
 from . import dark_sub
 
 from ..utils.subarray import get_subarray_model
@@ -46,7 +46,7 @@ class DarkCurrentStep(Step):
                 )
 
             # Open the dark ref file data model - based on Instrument
-            dark_model = TMTDarkModel(self.dark_name)
+            dark_model = DarkModel(self.dark_name)
 
             dark_model = get_subarray_model(input_model, dark_model)
 
