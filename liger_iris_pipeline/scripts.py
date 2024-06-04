@@ -5,16 +5,16 @@ JWST strun monkeypatched for TMT
 """
 
 import sys
-import iris_pipeline
-iris_pipeline.monkeypatch_jwst_datamodels()
+import liger_iris_pipeline
+liger_iris_pipeline.monkeypatch_jwst_datamodels()
 
 from jwst.assign_wcs.util import NoDataOnDetectorError
 from jwst.stpipe import Step
 
-def tmtrun():
+def lirun():
 
     if '--version' in sys.argv:
-        sys.stdout.write("%s\n" % iris_pipeline.__version__)
+        sys.stdout.write("%s\n" % liger_iris_pipeline.__version__)
         sys.exit(0)
 
     try:
