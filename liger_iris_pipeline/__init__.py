@@ -23,6 +23,7 @@ if sys.version_info < tuple(
 
 from .flatfield import *
 from .background import *
+from .dark_current import *
 from .pipeline import *
 from .dq_init import *
 from .normalize import *
