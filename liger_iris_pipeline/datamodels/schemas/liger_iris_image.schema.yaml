@@ -1,7 +1,7 @@
 %YAML 1.1
 ---
 $schema: "http://stsci.edu/schemas/fits-schema/fits-schema"
-id: "https://github.com/oirlab/liger_iris_pipeline/raw/liger_iris/liger_iris_pipeline/datamodels/schemas/liger_iris_image.schema.yaml"
+id: "https://oirlab.github.io/schemas/liger_iris_image.schema"
 allOf:
 - $ref: liger_iris_core.schema.yaml
 - $ref: wcsinfo.schema.yaml

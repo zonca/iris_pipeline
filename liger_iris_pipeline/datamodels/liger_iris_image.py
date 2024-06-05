@@ -37,4 +37,4 @@ class LigerIrisImageModel(LigerIrisDataModel):
     pathloss_uniform : numpy float32 array
          Pathloss correction for uniform source
     """
-    schema_url = "https://github.com/oirlab/liger_iris_pipeline/raw/liger_iris/liger_iris_pipeline/datamodels/schemas/liger_iris_image.schema.yaml"
+    schema_url = "https://oirlab.github.io/schemas/liger_iris_image.schema"
