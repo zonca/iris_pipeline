@@ -1,5 +1,5 @@
 allOf:
-- $ref: tmt_core.schema.yaml
+- $ref: liger_iris_core.schema.yaml
 - $ref: referencefile.schema.yaml
 #- $ref: subarray.schema.yaml
 #- $ref: keyword_filter.schema.yaml

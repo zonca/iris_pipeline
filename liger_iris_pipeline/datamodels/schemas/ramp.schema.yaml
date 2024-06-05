@@ -3,7 +3,7 @@
 $schema: "http://stsci.edu/schemas/fits-schema/fits-schema"
 id: "https://oirlab.github.io/schemas/ramp.schema"
 allOf:
-- $ref: core.schema
+- $ref: liger_iris_core.schema
 - $ref: wcsinfo.schema
 - type: object
   properties:

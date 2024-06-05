@@ -1,5 +1,5 @@
 allOf:
-- $ref: tmt_core.schema.yaml
+- $ref: liger_iris_core.schema.yaml
 - $ref: wcsinfo.schema.yaml
 - type: object
   properties:

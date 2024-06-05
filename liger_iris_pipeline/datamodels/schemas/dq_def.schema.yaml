@@ -1,3 +1,7 @@
+%YAML 1.1
+---
+$schema: "http://stsci.edu/schemas/fits-schema/fits-schema"
+id: "https://oirlab.github.io/schemas/dq_def.schema"
 title: DQ flag definitions
 fits_hdu: DQ_DEF
 datatype:
@@ -9,4 +13,3 @@ datatype:
   datatype: [ascii, 40]
 - name: DESCRIPTION
   datatype: [ascii, 80]
-$schema: http://stsci.edu/schemas/fits-schema/fits-schema

@@ -1,7 +1,11 @@
+%YAML 1.1
+---
+$schema: "http://stsci.edu/schemas/fits-schema/fits-schema"
+id: "https://oirlab.github.io/schemas/dark.schema"
 title: Dark current data model
 allOf:
-- $ref: tmt_core.schema.yaml
-- $ref: referencefile.schema.yaml
+- $ref: liger_iris_core.schema
+- $ref: referencefile.schema
 - type: object
   properties:
     data:
@@ -21,5 +25,4 @@ allOf:
       default: 0.0
       datatype: float32
     dq_def:
-      $ref: dq_def.schema.yaml
-$schema: http://stsci.edu/schemas/fits-schema/fits-schema
+      $ref: dq_def.schema

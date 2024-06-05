@@ -71,5 +71,3 @@ properties:
             enum: [IRIS1, N/A]
             description: Detector name.
             fits_keyword: DETECTOR
-
-$schema: http://stsci.edu/schemas/fits-schema/fits-schema
