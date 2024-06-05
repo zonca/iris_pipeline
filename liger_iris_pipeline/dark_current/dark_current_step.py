@@ -1,5 +1,5 @@
-from jwst.stpipe import Step
-from jwst import datamodels
+from stpipe import Step
+from .. import datamodels
 from ..datamodels import DarkModel
 from . import dark_sub
 
@@ -24,7 +24,7 @@ class DarkCurrentStep(Step):
     def process(self, input):
 
         # Open the input data model
-        with datamodels.open(input) as input_model:
+        with datamodels.LigerIrisDataModel(input) as input_model:
 
             # Get the name of the dark reference file to use
             self.dark_name = self.get_reference_file(input_model, "dark")
