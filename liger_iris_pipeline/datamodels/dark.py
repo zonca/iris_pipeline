@@ -24,7 +24,7 @@ class DarkModel(ReferenceFileModel):
     dq_def : numpy table
          DQ flag definitions
     """
-    schema_url = "https://oirlab.github.io/liger-iris-pipeline/schemas/liger_iris_datamodel/dark.schema"
+    schema_url = "https://oirlab.github.io/schemas/dark.schema"
 
     def __init__(self, init=None, **kwargs):
         super(DarkModel, self).__init__(init=init, **kwargs)

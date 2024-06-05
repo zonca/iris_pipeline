@@ -16,7 +16,7 @@ class ReferenceFileModel(LigerIrisDataModel):
     A data model for reference tables
 
     """
-    schema_url = "https://oirlab.github.io/iris-pipeline/schemas/liger_iris_datamodel/referencefile.schema"
+    schema_url = "https://oirlab.github.io/schemas/referencefile.schema"
 
     def __init__(self, init=None, **kwargs):
         super(ReferenceFileModel, self).__init__(init=init, **kwargs)

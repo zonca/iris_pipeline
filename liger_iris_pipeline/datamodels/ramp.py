@@ -32,7 +32,7 @@ class RampModel(LigerIrisDataModel):
          table of times for each integration
 
     """
-    schema_url = "https://oirlab.github.io/liger-iris-pipeline/schemas/liger_iris_datamodel/ramp.schema"
+    schema_url = "https://oirlab.github.io/schemas/ramp.schema"
 
     def __init__(self, init=None, **kwargs):
         super(RampModel, self).__init__(init=init, **kwargs)

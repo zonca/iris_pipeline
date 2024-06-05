@@ -8,8 +8,7 @@ __all__ = ["LigerIrisDataModel"]
 
 class LigerIrisDataModel(_DataModel):
 
-    # not valid URL, but we could make it if needed
-    schema_url = "https://oirlab.github.io/iris-pipeline/schemas/liger_iris_datamodel/liger_iris_core.schema"
+    schema_url = "https://oirlab.github.io/schemas/liger_iris_core.schema"
 
     @property
     def crds_observatory(self):

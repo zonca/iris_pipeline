@@ -1,7 +1,7 @@
 %YAML 1.1
 ---
 $schema: "http://stsci.edu/schemas/fits-schema/fits-schema"
-id: "https://oirlab.github.io/liger-iris-pipeline/schemas/liger_iris_datamodel/ramp.schema"
+id: "https://oirlab.github.io/schemas/ramp.schema"
 allOf:
 - $ref: core.schema
 - $ref: wcsinfo.schema

@@ -3,8 +3,8 @@
 $schema: "http://stsci.edu/schemas/fits-schema/fits-schema"
 id: "https://oirlab.github.io/schemas/liger_iris_image.schema"
 allOf:
-- $ref: liger_iris_core.schema.yaml
-- $ref: wcsinfo.schema.yaml
+- $ref: liger_iris_core.schema
+- $ref: wcsinfo.schema
 - type: object
   properties:
     data:

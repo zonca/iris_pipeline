@@ -38,7 +38,7 @@ class CubeModel(LigerIrisDataModel):
          Integration-specific variances of slope due to read noise
     """
 
-    schema_url = "https://oirlab.github.io/liger-iris-pipeline/schemas/liger_iris_datamodel/cube.schema"
+    schema_url = "https://oirlab.github.io/schemas/cube.schema"
 
     def __init__(self, init=None, **kwargs):
 
