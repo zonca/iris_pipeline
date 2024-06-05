@@ -24,7 +24,7 @@ from liger_iris_pipeline.dark_current.dark_sub import do_correction
 # * `do_correction`
 
 # %%
-raw_science_filename = "raw.fits"
+raw_science_filename = get_data_from_url("17903858")
 
 # %%
 input_model = datamodels.open(raw_science_filename)
