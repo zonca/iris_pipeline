@@ -32,4 +32,4 @@ Output
 A single reduced full-frame.
 
 
-.. automodapi:: iris_pipeline.merge_subarrays
+.. automodapi:: liger_iris_pipeline.merge_subarrays

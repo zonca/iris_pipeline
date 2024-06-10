@@ -1,4 +1,6 @@
-astropy
-Cython
-git+https://github.com/oirlab/tmt-crds.git
-git+https://github.com/spacetelescope/jwst@0.17.0
+astropy>=6.1.0
+Cython>=3.0.10
+numpy>=1.26.4
+jwst>=1.14.0
+stpipe>=0.5.2
+stdatamodels>=1.10.1

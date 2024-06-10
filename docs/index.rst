@@ -1,13 +1,13 @@
-***************************
-iris_pipeline Documentation
-***************************
+*********************************
+liger_iris_pipeline Documentation
+*********************************
 
-The IRIS Data Reduction System is based on the ``stpipe`` package released by Space Telescope
-for the James Webb Space Telescope.
+The Liger-IRIS Data Reduction System is based on the suite of packages from Space Telescope Science Institute
+used to process data from JWST and NGRST.
 
-With ``stpipe`` we can configure each step of a pipeline through one or more text based .INI style files,
+With ``stpipe`` and ``stdatamodels`` we can configure each step of a pipeline through one or more text based .INI style files,
 then we provide one input FITS file or a set of multiple inputs defined in JSON (named `Associations <https://jwst-pipeline.readthedocs.io/en/latest/jwst/associations/overview.html>`_).
-Custom analysis steps and pipelines for IRIS are defined as classes in the current repository ``iris_pipeline``
+Custom analysis steps and pipelines for IRIS are defined as classes in the current repository ``liger_iris_pipeline``
 
 Then execute the pipeline from the command line using the ``tmtrun`` executable or using
 directly the Python library.
@@ -72,4 +72,4 @@ Subarrays
 Reference/API
 =============
 
-.. automodapi:: iris_pipeline
+.. automodapi:: liger_iris_pipeline

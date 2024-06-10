@@ -4,14 +4,14 @@ image2: Stage 2 Imaging Processing
 ==================================
 
 :Config: image2.cfg
-:Class: `~iris_pipeline.pipeline.ProcessImagerL2Pipeline`
+:Class: `~liger_iris_pipeline.pipeline.ProcessImagerL2Pipeline`
 
 Stage 2 imaging processing applies additional instrumental corrections and
 calibrations that result in a fully calibrated individual exposure. 
 
 The list of steps applied by the ``ProcessImagerL2Pipeline`` pipeline is shown in the table
 below, currently only the ``background``, ``dark_current`` and ``flat_field`` have
-been imported into ``iris_pipeline`` and customized for IRIS.
+been imported into ``liger_iris_pipeline`` and customized for IRIS.
 The other steps still call classes from ``jwst`` and have not been tested, they
 are still in the class to simplify the future porting process.
 
@@ -52,7 +52,7 @@ Inputs
 2D or 3D countrate data
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-:Data model: `~iris_pipeline.datamodels.IRISImageModel`
+:Data model: `~liger_iris_pipeline.datamodels.IRISImageModel`
 :File suffix: _rate or _rateints
 
 The input to ``ProcessImagerL2Pipeline`` is
@@ -69,7 +69,7 @@ Outputs
 2D or 3D background-subtracted data
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-:Data model: `~iris_pipeline.datamodels.IRISImageModel`
+:Data model: `~liger_iris_pipeline.datamodels.IRISImageModel`
 :File suffix: _bsub or _bsubints
 
 This is an intermediate product that is only created if "--save_bsub" is set
@@ -81,7 +81,7 @@ If the input is a "_rate" product, this will be a "_bsub" product, while
 2D or 3D calibrated data
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-:Data model: `~iris_pipeline.datamodels.IRISImageModel`
+:Data model: `~liger_iris_pipeline.datamodels.IRISImageModel`
 :File suffix: _cal or _calints
 
 The output is a fully calibrated, but unrectified, exposure, using

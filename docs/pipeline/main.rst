@@ -12,7 +12,7 @@ adapt to TMT:
   processing is a countrate image per exposure, or per integration for
   some modes. Details of this pipeline can be found at:
 
-  - `detector1` (`work in progress <https://github.com/oirlab/iris_pipeline/pull/7>`_)
+  - `detector1` (`work in progress <https://github.com/oirlab/liger_iris_pipeline/pull/7>`_)
 
 - Stage 2 processing consists of additional instrument-level and
   observing-mode corrections and calibrations to produce fully calibrated
@@ -51,11 +51,11 @@ the observing modes for which they are intended. Note that there are some
 pipeline modules that are referenced by more than one configuration file.
 
 
-+---------------------------------------------------+---------------------------+------------------------------+
-| Pipeline Class                                    | Configuration File        | Used For                     |
-+===================================================+===========================+==============================+
-| `~iris_pipeline.pipeline.ProcessImagerL2Pipeline` | image2.cfg                | Stage 2: imaging modes       |
-+---------------------------------------------------+---------------------------+------------------------------+
++---------------------------------------------------------+---------------------------+------------------------------+
+| Pipeline Class                                          | Configuration File        | Used For                     |
++=========================================================+===========================+==============================+
+| `~liger_iris_pipeline.pipeline.ProcessImagerL2Pipeline` | image2.cfg                | Stage 2: imaging modes       |
++---------------------------------------------------------+---------------------------+------------------------------+
 
 Pipelines vs. Exposure Type
 ===========================

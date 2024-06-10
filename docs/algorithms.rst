@@ -3,7 +3,7 @@ Algorithms
 
 Algorithms to be implemented for the IRIS imager and Integral Field
 Spectrograph. Once the actual classes are implemented in
-:py:mod:`iris_pipeline`, we will just link their implementations.
+:py:mod:`liger_iris_pipeline`, we will just link their implementations.
 
 Generate master dark
 --------------------

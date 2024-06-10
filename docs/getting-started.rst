@@ -1,90 +1,80 @@
-***************************
-Getting started
-***************************
+***************
+Getting Started
+***************
 
-Requirements
-============
 
-First we need to install the requirements of the ``jwst`` package,
-see `the JWST instructions
-<https://github.com/spacetelescope/jwst/>`_,
-reported here for convenience::
+Python Environment
+==================
 
-    conda create -n jwst_dev python=3.7 astropy
-    source activate jwst_dev
+It is highly recommended users create a new Python environment with either `venv <https://docs.python.org/3/library/venv.html>`_ or `Anaconda <https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html>`_. The pipeline supports Python versions 3.11 or newer; older versions of Python may work but have not been tested. Once configured, activate the new Python environment.
 
-then we need to install the ``jwst`` package, currently ``iris_pipeline``
-is being tested with ``jwst`` 0.17.0::
 
-    pip install jwst==0.17.0
+CRDS
+====
 
-Then you need to download the ``CRDS`` cache:
+For now, we rely on the `Calibration Reference Data System <https://hst-crds.stsci.edu/static/users_guide/index.html>`_ (CRDS) API used by Space Telescope Science Intitute (STScI) to retrieve calibration data products necessary for data reduction. The CRDS defines a set of `rules <https://github.com/oirlab/liger-iris-crds-cache/blob/master/mappings/ligeriri/liger_iris_iris_flat_0001.rmap>`_ on how to choose the right calibraiton file(s) given an observation's metadata. The CRDS will eventually be replaced with the appropriate interfaces to Keck and TMT, but we aim to maintain a minimal interface common to both facilities. Below we download and install the CRDS and cache tailored for Liger & IRIS:
 
 .. code-block:: bash
 
-    git clone https://github.com/oirlab/tmt-crds-cache $HOME/crds_cache
+    git clone https://github.com/oirlab/liger_iris_crds
+    git clone https://github.com/oirlab/liger-iris-crds-cache $HOME/crds_cache
+    cd liger_iris_crds
+    pip install .
 
-the ``CRDS`` cache contains metadata for IRIS, the calibration files, flat fields,
-and a set of rules_ on how to choose the right calibration file given a set of metadata,
-you can browse the content on `Github <https://github.com/oirlab/tmt-crds-cache>`_.
-
-.. _rules: https://github.com/oirlab/tmt-crds-cache/blob/master/mappings/tmt/tmt_iris_flat_0001.rmap
-
-We need to set some environment variables so that ``CRDS`` will use the local
-cache instead of trying to connect to the JWST instance:
+We then must define several environment variables so that ``CRDS`` will use the local cache instead of trying to connect to the JWST instance:
 
 .. code-block:: bash
 
     source setup_local_crds.sh
 
-Finally, we need a custom version of the ``CRDS`` library that contains some modules specific to TMT::
 
-    git clone https://github.com/oirlab/tmt-crds.git
-    cd tmt-crds
-    pip install .
+Compilation of Readout Code
+===========================
 
-Compilation requirements
-========================
+`liger_iris_pipeline` also includes the `liger_iris_readout` C library wrapped with `Cython`. Therefore we require `GCC`, `autotools` and `libcfitsio` to compile the Python extension.
 
-`iris_pipeline` also includes the `iris_readout` C library wrapped with `cython`,
-therefore we require GCC, `autotools` and `libcfitsio` to compile the Python
-extension.
-
-In Debian/Ubuntu, the `cfitsio` headers are installed under a prefix, so we need
-to include that folder in the search path::
-
-    export C_INCLUDE_PATH=/usr/include/cfitsio/
-
-Development install
-===================
-
-First fork the repository under your account on Github,
-then clone your fork on your machine.
-
-Initialize the `git` submodule for the `iris_readout` C library::
-
-    git submodule init
-    git submodule update
-
-Then enter the root folder and create a development install
-with::
-
-  pip install -e .
-  
-The development install doesn't add the ``tmtrun`` script to the path,
-so you should do that manually:
+In Debian/Ubuntu, the `cfitsio` headers are installed under a prefix, so we need to include that folder in the search path:
 
 .. code-block:: bash
 
-  export PATH=$(pwd)/scripts/:$PATH
+    export C_INCLUDE_PATH=/usr/include/cfitsio/
 
-or symlink the ``tmtrun`` script from the conda environment `bin/` folder.
+In macOS, `cfitsio` can be installed with a package manager such as `HomeBrew <https://brew.sh/>`_. Once installed, the path to `cfitsio` can be found with ``brew info cfitsio``.
+
+
+Development Install
+===================
+
+**Recommended**: Fork the repository `liger_iris_pipeline <https://github.com/oirlab/liger_iris_pipeline>`_ under your account on GitHub, then clone your fork on your machine.
+
+Initialize the `git` submodule for the `liger_iris_readout` C library:
+
+.. code-block:: bash
+
+    cd liger_iris_pipeline
+    git submodule init
+    git submodule update
+
+Then enter the root folder and create a development install with:
+
+.. code-block:: bash
+
+  pip install -e .
+
+The option `-e` will use the cloned repo's code directly as the source code (i.e. it will **not** be installed to site-packages/).
+
+Lastly, we manually add the scripts to the path:
+
+.. code-block:: bash
+
+    export PATH=$(pwd)/scripts/:$PATH
+
 
 Run the unit tests
-------------------
+==================
 
-Some of the unit tests of ``iris_pipeline`` are Jupyter Notebooks and they need
-the `nbval py.test plugin <https://github.com/computationalmodelling/nbval>`_ to be executed.
-Once ``py.test`` and ``nbval`` are installed, execute from the root of the package::
+Some of the unit tests of ``liger_iris_pipeline`` are Jupyter Notebooks and they need the `nbval py.test plugin <https://github.com/computationalmodelling/nbval>`_ to be executed. Once ``py.test`` and ``nbval`` are installed, execute from the root of the package:
+
+.. code-block:: bash
 
     python setup.py test

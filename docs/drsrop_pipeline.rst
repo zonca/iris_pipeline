@@ -25,7 +25,7 @@ https://github.com/oirlab/iris_readout
 
 Running the Examples
 --------------------
-There is a example run in the iris_pipeline/readout/tests directory. The sample ramp is given in the sample_ramp.fits.
+There is a example run in the liger_iris_pipeline/readout/tests directory. The sample ramp is given in the sample_ramp.fits.
 sampling.cfg gives the configurations for the pipeline
 
 ``sampling.cfg``:
@@ -33,7 +33,7 @@ sampling.cfg gives the configurations for the pipeline
 .. code-block:: ini
 
     name = "rop"
-    class = "iris_pipeline.pipeline.ROPPipeline"
+    class = "liger_iris_pipeline.pipeline.ROPPipeline"
     save_results = True
         [steps]
           [[nonlincorr]]

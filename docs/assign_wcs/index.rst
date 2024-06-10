@@ -12,5 +12,5 @@ Assign WCS
    asdf-howto.rst
    exp_types.rst
 
-.. automodapi:: iris_pipeline.assign_wcs
+.. automodapi:: liger_iris_pipeline.assign_wcs
 

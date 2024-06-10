@@ -17,7 +17,7 @@ COMPLETE in the output science data.
 
 Subarrays
 ---------
-*Untested in iris_pipeline*
+*Untested in liger_iris_pipeline*
 This step handles input science exposures that were taken in subarray modes in
 a flexible way. If the reference data arrays are the same size as the science
 data, they will be applied directly. If there is a mismatch, the routine will
