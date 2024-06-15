@@ -22,7 +22,7 @@ output = do_correction(input_model, dark_model)
 np.testing.assert_allclose(output.data, expected_output_data)
 
 # Test DarkCurrentStep class
-step = liger_iris_pipeline.dark_current.DarkCurrentStep()
+step = liger_iris_pipeline.dark_current.DarkCurrentStep(output_ext=".fits")
 step_output = step.run(raw_science_filename)
 step_dark_model = datamodels.open(step.dark_name)
 
