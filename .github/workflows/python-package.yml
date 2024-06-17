@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.6, 3.7]
+        python-version: [3.11]
 
     steps:
     - uses: actions/checkout@v2
@@ -43,11 +43,11 @@ jobs:
       run: |
         source setup_local_crds.sh && pytest
     - name: Build docs
-      if: ${{ matrix.python-version==3.7 }}
+      if: ${{ matrix.python-version==3.11 }}
       run: |
         python -m pip install -r docs/requirements.txt && cd docs && make html
     - name: Deploy
-      if: ${{ matrix.python-version==3.7 && contains(github.ref, 'master') }}
+      if: ${{ matrix.python-version==3.11 && contains(github.ref, 'master') }}
       uses: JamesIves/github-pages-deploy-action@4.1.1
       with:
         branch: master
