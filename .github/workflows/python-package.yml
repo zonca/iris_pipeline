@@ -34,7 +34,7 @@ jobs:
           python -m pip install -r requirements.txt -r test-requirements.txt
     - name: Setup CRDS
       run: |
-        git clone --depth 1 https://github.com/oirlab/tmt-crds-cache $HOME/crds_cache
+        git clone --depth 1 https://github.com/oirlab/liger-iris-crds-cache $HOME/crds_cache
     - name: Build
       run: python setup.py build_ext -i && python setup.py install
       env:
