@@ -1,5 +1,5 @@
 from jwst.stpipe import Step
-from jwst import datamodels
+from .. import datamodels
 from . import normalize
 
 
@@ -18,8 +18,10 @@ class NormalizeStep(Step):
 
     def process(self, input):
 
-        with datamodels.open(input) as input_model:
-
-            result = normalize.do_correction(input_model, method=self.method)
+        if isinstance(input, str):
+            with datamodels.open(input) as input_model:
+                result = normalize.do_correction(input_model, method=self.method)
+        else:
+            result = normalize.do_correction(input, method=self.method)
 
         return result

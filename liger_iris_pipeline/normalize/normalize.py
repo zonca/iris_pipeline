@@ -1,6 +1,6 @@
 import numpy as np
 import logging
-from jwst import datamodels
+import scipy.stats
 
 log = logging.getLogger(__name__)
 log.setLevel(logging.DEBUG)
@@ -38,7 +38,7 @@ def do_correction(input_model, method="median"):
 
 def apply_norm(input, method):
     """
-    Divides the input frame by its own median or mean,
+    Divides the input frame by its own median, mean, or mode
     based on the method string.
 
     Parameters
@@ -63,19 +63,23 @@ def apply_norm(input, method):
     # Create output as a copy of the input science data model
     output = input.copy()
 
+    # Only consider valid data
     valid_data = input.dq == 0
 
     if valid_data.sum() == 0:  # no valid data
         norm_factor = 1
     else:
-        if method == "mode":
-            import scipy.stats
-
-            norm_factor = scipy.stats.mode(input.data[valid_data], axis=None)[0][0]
-        else:
-            norm_factor = getattr(np, method)(input.data[valid_data])
+        if method is None:
+            norm_factor = 1
+        elif method == "mean":
+            norm_factor = np.mean(input.data)
+        elif method == "median":
+            norm_factor = np.median(input.data)
+        elif method == "mode":
+            norm_factor = scipy.stats.mode(input.data, axis=None).mode
 
     log.info("running normalize with method %s", method)
     output.data /= norm_factor
+    output.err /= norm_factor
 
     return output
