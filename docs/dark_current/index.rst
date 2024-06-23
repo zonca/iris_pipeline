@@ -12,4 +12,4 @@ Dark Current Subtraction
    arguments.rst
 
 
-.. automodapi:: iris_pipeline.dark_current
+.. automodapi:: liger_iris_pipeline.dark_current

@@ -35,7 +35,7 @@ Example usage
 =============
 
 As usage examples, check the notebooks or the ``test_image2.py`` script in the
-`unit tests folder in the repository <https://github.com/oirlab/iris_pipeline/tree/master/iris_pipeline/tests>`_
+`unit tests folder in the repository <https://github.com/oirlab/liger_iris_pipeline/tree/master/liger_iris_pipeline/tests>`_
 
 Related steps
 =============

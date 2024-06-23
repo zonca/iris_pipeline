@@ -25,11 +25,11 @@ Example
 
 See an example script to process a file with FITS WCS keywords in the header::
 
-    import iris_pipeline
+    import liger_iris_pipeline
     import astropy.units as u
 
-    iris_pipeline.monkeypatch_jwst_datamodels()
+    liger_iris_pipeline.monkeypatch_jwst_datamodels()
 
     input_filename ="iris_sim_gc_filterKN3_fix.fits"
-    output = iris_pipeline.assign_wcs.AssignWcsStep.call(input_filename)
+    output = liger_iris_pipeline.assign_wcs.AssignWcsStep.call(input_filename)
     print(output.meta.wcs([0,4096]*u.pix,[0,4096]*u.pix))

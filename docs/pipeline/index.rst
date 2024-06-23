@@ -10,4 +10,4 @@ Pipeline Modules
    image2.rst
    preprocess_flatfield.rst
 
-.. automodapi:: iris_pipeline.pipeline
+.. automodapi:: liger_iris_pipeline.pipeline

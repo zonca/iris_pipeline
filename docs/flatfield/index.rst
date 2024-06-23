@@ -10,4 +10,4 @@ Flatfield Correction
    reference_files.rst
    arguments.rst
    
-.. automodapi:: iris_pipeline.flatfield
+.. automodapi:: liger_iris_pipeline.flatfield

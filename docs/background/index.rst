@@ -11,4 +11,4 @@ Background Image Subtraction
    arguments.rst
    reference_files.rst
 
-.. automodapi:: iris_pipeline.background
+.. automodapi:: liger_iris_pipeline.background

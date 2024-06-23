@@ -70,7 +70,7 @@ rst_epilog += """
 # -- Project information ------------------------------------------------------
 
 # This does not *have* to match the package name, but typically does
-project = "IRISpipeline"
+project = "liger_iris_pipeline"
 author = setup_cfg["author"]
 copyright = "{0}, {1}".format(datetime.datetime.now().year, setup_cfg["author"])
 
@@ -107,7 +107,7 @@ release = package.__version__
 # html_theme = None
 
 html_theme_options = {
-    "logotext1": "iris_pipeline",  # white,  semi-bold
+    "logotext1": "liger_iris_pipeline",  # white,  semi-bold
     "logotext2": "",  # orange, light
     "logotext3": ":docs",  # white,  light
 }
@@ -205,6 +205,9 @@ latex_elements = {
     ),
 }
 
+# Static files
+html_static_path = ['_static']
+
 extensions += [
     "nbsphinx",
     "sphinx.ext.mathjax",
@@ -212,3 +215,4 @@ extensions += [
 nbsphinx_kernel_name = "python3"
 nbsphinx_timeout = 600
 nbsphinx_allow_errors = False
+nbsphinx_execute = 'never'

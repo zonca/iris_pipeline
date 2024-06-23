@@ -12,4 +12,4 @@ Normalize
    arguments.rst
 
 
-.. automodapi:: iris_pipeline.normalize
+.. automodapi:: liger_iris_pipeline.normalize

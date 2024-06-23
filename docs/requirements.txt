@@ -2,3 +2,4 @@ sphinx
 nbsphinx
 sphinx-astropy
 https://github.com/Holzhaus/sphinx-multiversion/archive/master.zip
+pandoc
