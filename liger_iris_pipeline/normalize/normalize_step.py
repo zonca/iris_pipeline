@@ -17,7 +17,6 @@ class NormalizeStep(Step):
     """
 
     def process(self, input):
-
         if isinstance(input, str):
             with datamodels.open(input) as input_model:
                 result = normalize.do_correction(input_model, method=self.method)
