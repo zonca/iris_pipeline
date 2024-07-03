@@ -24,8 +24,10 @@ def load_wcs(input_model, reference_files={}):
         A dict {reftype: reference_file_name} containing all
         reference files that apply to this exposure.
     """
-
-    if "wcsinfo" not in input_model.meta:
+    # NOTE: input_model.meta has the attr "wcsinfo" but
+    # `"wcsinfo" not in input_model.meta` is still False due to how `ObjectNode.__contain__` works(?)
+    # if "wcsinfo" not in input_model.meta:
+    if not input_model.meta.hasattr("wcsinfo"):
         input_model.meta.cal_step.assign_wcs = "SKIPPED"
         log.warning("assign_wcs: SKIPPED")
         return input_model
