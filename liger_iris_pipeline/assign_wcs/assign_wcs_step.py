@@ -23,7 +23,7 @@ class AssignWcsStep(Step):
 
     Parameters
     ----------
-    input : `~IRISImageModel` or `IRISImageModel`
+    input : `LigerIrisImageModel`
         Input model.
     """
 
