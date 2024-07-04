@@ -1,7 +1,8 @@
 import numpy as np
 
 from jwst.stpipe import Step
-from jwst import datamodels
+from .. import datamodels
+import stdatamodels
 
 __all__ = ["ParseSubarrayMapStep"]
 
@@ -34,18 +35,26 @@ class ParseSubarrayMapStep(Step):
 
     def process(self, input):
 
-        with datamodels.open(input) as input_model:
+        if isinstance(input, str):
+            input_model = datamodels.open(input)
+        else:
+            input_model = input
 
-            if "subarr_map" in input_model:
-                self.log.info("Parsing the SUBARR_MAP extension")
-                result = input_model.copy()
-                for each in parse_subarray_map(result["subarr_map"]):
-                    result.meta.subarray_map.append(each)
-                result.dq[result["subarr_map"] != 0] = np.bitwise_or(
-                    result.dq[result["subarr_map"] != 0], 2 ** SUBARRAY_DQ_BIT
-                )
-            else:
-                self.log.info("No SUBARR_MAP extension found")
-                result = input_model
+        if "subarr_map" in input_model:
+            
+            self.log.info("Parsing the SUBARR_MAP extension")
+            
+            result = input_model.copy()
+
+            for each in parse_subarray_map(result["subarr_map"]):
+                result.meta.subarray_map.append(each)
+
+            result.dq[result["subarr_map"] != 0] = np.bitwise_or(
+                result.dq[result["subarr_map"] != 0],
+                2 ** SUBARRAY_DQ_BIT
+            )
+        else:
+            self.log.info("No SUBARR_MAP extension found")
+            result = input_model
 
         return result
