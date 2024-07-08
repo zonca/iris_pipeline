@@ -8,7 +8,7 @@ __all__ = ["ParseSubarrayMapStep"]
 
 SUBARRAY_DQ_BIT = 4
 
-
+# NOTE: xstart/ystart use 1-based indexing
 def parse_subarray_map(subarray_map):
     subarray_metadata = []
     for subarray_id in range(1, 10 + 1):
@@ -46,9 +46,11 @@ class ParseSubarrayMapStep(Step):
             
             result = input_model.copy()
 
+            # Create metadata from image ID map
             for each in parse_subarray_map(result["subarr_map"]):
                 result.meta.subarray_map.append(each)
 
+            # Indicate subarrays in dq flags
             result.dq[result["subarr_map"] != 0] = np.bitwise_or(
                 result.dq[result["subarr_map"] != 0],
                 2 ** SUBARRAY_DQ_BIT
