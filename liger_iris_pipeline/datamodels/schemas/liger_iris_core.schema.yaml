@@ -678,3 +678,21 @@ properties:
             type: integer
             fits_keyword: DETYSIZ
             blend_table: True
+      subarray_map:
+        title: Subarray map
+        type: array
+        items:
+          type: object
+          properties:
+            xstart:
+              title: Starting pixel in axis 1 direction
+              type: integer
+            ystart:
+              title: Starting pixel in axis 2 direction
+              type: integer
+            xsize:
+              title: Number of pixels in axis 1 direction
+              type: integer
+            ysize:
+              title: Number of pixels in axis 2 direction
+              type: integer
