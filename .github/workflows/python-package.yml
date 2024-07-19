@@ -41,7 +41,7 @@ jobs:
           C_INCLUDE_PATH: /usr/include/cfitsio/
     - name: Test
       run: |
-        source setup_local_crds.sh && pytest liger_iris_pipeline/tests/test_dark.py
+        source setup_local_crds.sh && pytest -v
         #- name: Build docs
         #  if: ${{ matrix.python-version==3.11 }}
         #  run: |
