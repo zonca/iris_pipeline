@@ -38,7 +38,7 @@ class ROPPipeline(Pipeline):
     def process(self, input):
         log.info('Starting ROP Pipeline ...')
         # open the input as a RampModel
-        input = datamodels.TMTRampModel(input)
+        input = datamodels.RampModel(input)
         input = self.nonlincorr(input)
         input = self.readoutsamp(input)
         return input
