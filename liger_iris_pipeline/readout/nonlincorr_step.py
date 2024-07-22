@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 
-from jwst.stpipe import Step
-from jwst import datamodels
+from ..stpipe import Step
+from ..datamodels import RampModel
 from ..drsrop_clib import uptheramp_c,mcds_c,nonlin_c
 import numpy as np
 import liger_iris_pipeline
@@ -27,7 +27,7 @@ class NonlincorrStep(Step):
         """
 
         # Load the input data model
-        with datamodels.open(input) as input_model:
+        with RampModel(input) as input_model:
             nonlin_coeff_file=self.get_reference_file(input_model, "nonlincoeff")
             nonlin_coeff_data=fits.getdata(nonlin_coeff_file).astype(np.float32)                      
             c0= nonlin_coeff_data[0]
@@ -47,7 +47,7 @@ class NonlincorrStep(Step):
                 ramp_list.append(result)            
             #result = uptheramp_c(result,time_arr)
             output_data=np.array(ramp_list).astype(np.int32)
-            result = liger_iris_pipeline.datamodels.RampModel(data=output_data)
+            result = RampModel(data=output_data)
             result.update(input_model)
                 
 

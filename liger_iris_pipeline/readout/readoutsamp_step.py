@@ -1,8 +1,8 @@
 #! /usr/bin/env python
 
-from jwst.stpipe import Step
+from ..stpipe import Step
 from jwst import datamodels
-import liger_iris_pipeline
+from liger_iris_pipeline.datamodels import LigerIrisImageModel, RampModel
 from ..drsrop_clib import uptheramp_c,mcds_c,nonlin_c
 import numpy as np
 
@@ -34,7 +34,7 @@ class ReadoutsampStep(Step):
         """
 
         # Load the input data model
-        with datamodels.open(input) as input_model:
+        with RampModel(input) as input_model:
 
             # Get the reference file names
             input_data = input_model.data[:,:,:,:].astype(np.int32)
@@ -52,7 +52,7 @@ class ReadoutsampStep(Step):
                 im_list.append(result)
             result=np.sum(im_list,axis=0) 
             print(result.shape)
-            result = liger_iris_pipeline.datamodels.LigerIrisImageModel(data=result)
+            result = LigerIrisImageModel(data=result)
             result.update(input_model)
                 
 
