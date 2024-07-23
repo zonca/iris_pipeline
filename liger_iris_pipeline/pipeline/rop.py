@@ -5,7 +5,7 @@ import os.path as op
 
 from jwst import datamodels
 from jwst.associations.load_as_asn import LoadAsLevel2Asn
-from ..stpipe import Pipeline
+from jwst.stpipe import Pipeline
 from liger_iris_pipeline import datamodels
 
 # step imports
