@@ -1,7 +1,7 @@
 import os
-import iris_pipeline
+import liger_iris_pipeline
 
-iris_pipeline.monkeypatch_jwst_datamodels()
+liger_iris_pipeline.monkeypatch_jwst_datamodels()
 import numpy as np
 
 
@@ -33,7 +33,7 @@ def setup_inputs(
     data = arr
     pixdq = np.zeros(shape=(nrows, ncols), dtype=np.float64)
     gdq = np.zeros(shape=(nints, ngroups, nrows, ncols), dtype=np.int32)
-    model_ramp = iris_pipeline.datamodels.TMTRampModel(
+    model_ramp = liger_iris_pipeline.datamodels.RampModel(
         data=data, err=err, pixeldq=pixdq, groupdq=gdq, times=times
     )
     model_ramp.meta.telescope = "TMT"
@@ -60,15 +60,15 @@ def setup_inputs(
 
 
 def test_rop1():
-    iris_pipeline.pipeline.ROPPipeline.call(
-        "iris_pipeline/tests/data/test_ramp.fits", config_file="iris_pipeline/tests/data/drsrop.cfg"
+    liger_iris_pipeline.pipeline.ROPPipeline.call(
+        "liger_iris_pipeline/tests/data/test_ramp.fits", config_file="liger_iris_pipeline/tests/data/drsrop.cfg"
     )
     return 1
 
 
 def test_rop2():
     model_ramp = setup_inputs()
-    image_model = iris_pipeline.pipeline.ROPPipeline.call(
-        model_ramp, config_file="iris_pipeline/tests/data/drsrop.cfg"
+    image_model = liger_iris_pipeline.pipeline.ROPPipeline.call(
+        model_ramp, config_file="liger_iris_pipeline/tests/data/drsrop.cfg"
     )
     assert np.mean(image_model.data) == 8048.5
