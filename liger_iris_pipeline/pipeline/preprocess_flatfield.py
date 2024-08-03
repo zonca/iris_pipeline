@@ -101,7 +101,6 @@ class ProcessFlatfieldL2(Pipeline):
         # Record ASN pool and table names in output
         input.meta.asn.pool_name = pool_name
         input.meta.asn.table_name = asn_file
-
         input = self.dark_current(input)
         input = self.normalize(input)
 
