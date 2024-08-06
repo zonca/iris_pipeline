@@ -93,7 +93,7 @@ class ProcessFlatfieldL2(Pipeline):
         science = science[0]
 
         self.log.info("Working on input %s ...", science)
-        if isinstance(science, datamodels.DataModel):
+        if isinstance(science, datamodels.JwstDataModel):
             input = science
         else:
             input = datamodels.open(science)
