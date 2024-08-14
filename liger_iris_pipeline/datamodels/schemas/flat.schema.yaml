@@ -1,6 +1,11 @@
+%YAML 1.1
+---
+$schema: "http://stsci.edu/schemas/fits-schema/fits-schema"
+id: "https://oirlab.github.io/schemas/flat.schema"
+title: Dark current data model
 allOf:
-- $ref: liger_iris_core.schema.yaml
-- $ref: referencefile.schema.yaml
+- $ref: liger_iris_core.schema
+- $ref: referencefile.schema
 #- $ref: subarray.schema.yaml
 #- $ref: keyword_filter.schema.yaml
 #- $ref: keyword_pfilter.schema.yaml
@@ -10,7 +15,7 @@ allOf:
 - type: object
   properties:
     data:
-      title: The science data
+      title: Dark current array
       fits_hdu: SCI
       default: 0.0
       ndim: 2
@@ -26,5 +31,4 @@ allOf:
       default: 0.0
       datatype: float32
     dq_def:
-      $ref: dq_def.schema.yaml
-$schema: http://stsci.edu/schemas/fits-schema/fits-schema
+      $ref: dq_def.schema

@@ -20,7 +20,6 @@ class FlatFieldStep(Step):
     reference_file_types = ["flat"]
 
     def process(self, input):
-
         input_model = datamodels.open(input)
         exposure_type = input_model.meta.exposure.type.upper()
 
