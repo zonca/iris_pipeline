@@ -37,3 +37,7 @@ def monkeypatch_jwst_datamodels():
     import stdatamodels.jwst.datamodels
 
     stdatamodels.jwst.datamodels._defined_models.update(_defined_models)
+
+    # Current ModelContainer is hardcoded to "jwst"
+    from jwst.datamodels import ModelContainer
+    ModelContainer.crds_observatory = property(lambda self : self[0].crds_observatory if len(self) > 0 else "ligeriri")
