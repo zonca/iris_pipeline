@@ -109,7 +109,7 @@ class ProcessImagerL2Pipeline(Pipeline):
         science = members_by_type["science"]
         if len(science) != 1:
             self.log.warning(
-                f"Wrong number of science files found in {exp_product["name"]}"
+                f"Wrong number of science files found in {exp_product['name']}"
             )
             self.log.warning("Using only first member.")
         science = science[0]
