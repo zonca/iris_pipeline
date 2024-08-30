@@ -6,9 +6,6 @@ from liger_iris_pipeline.tests.test_utils import get_data_from_url
 import json
 from jwst.associations import load_asn
 
-
-######################
-
 def test_image2():
 
     # Load the association file
