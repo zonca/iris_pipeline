@@ -1,6 +1,9 @@
 import os
 import liger_iris_pipeline
+
+# See README.md for notes on testing data
 from liger_iris_pipeline.tests.test_utils import get_data_from_url
+
 liger_iris_pipeline.monkeypatch_jwst_datamodels()
 import numpy as np
 

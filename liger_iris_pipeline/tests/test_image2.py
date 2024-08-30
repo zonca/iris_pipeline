@@ -2,7 +2,10 @@
 import liger_iris_pipeline
 liger_iris_pipeline.monkeypatch_jwst_datamodels()
 import numpy as np
+
+# See README.md for notes on testing data
 from liger_iris_pipeline.tests.test_utils import get_data_from_url
+
 import json
 from jwst.associations import load_asn
 
