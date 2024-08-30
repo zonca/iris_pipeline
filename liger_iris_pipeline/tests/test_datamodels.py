@@ -1,5 +1,8 @@
 import liger_iris_pipeline
-from .test_utils import get_data_from_url
+
+# See README.md for notes on testing data
+from liger_iris_pipeline.tests.test_utils import get_data_from_url
+
 from liger_iris_pipeline.datamodels import LigerIrisImageModel
 
 

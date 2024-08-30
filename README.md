@@ -21,3 +21,32 @@ This project is Copyright (c) Andrea Zonca, Arun Surya and licensed under
 the terms of the BSD 3-Clause license. This package is based upon
 the `Astropy package template <https://github.com/astropy/package-template>`_
 which is licensed under the BSD 3-clause licence.
+
+Testing Data
+------------
+
+### Imager
+
+#### raw_frame_flat_20240805.fits
+- Raw flat field image
+- https://figshare.com/articles/dataset/IRIS_Liger_DRS_Test_Data/26492029?file=48191521
+
+#### raw_frame_dark_20240805.fits
+- Raw dark image
+- https://figshare.com/articles/dataset/IRIS_Liger_DRS_Test_Data/26492029?file=48191518
+
+#### raw_readout_20240805.fits
+- Raw readouts (4D array)
+- https://figshare.com/articles/dataset/IRIS_Liger_DRS_Test_Data/26492029?file=48191977
+
+#### raw_frame_sci_20240805.fits
+- Raw science frame of a few stars
+- https://figshare.com/articles/dataset/IRIS_Liger_DRS_Test_Data/26492029?file=48191524
+
+#### raw_background_20240829.fits
+- Raw (sky) background frame
+- https://figshare.com/articles/dataset/IRIS_Liger_DRS_Test_Data/26492029?file=48903439
+
+#### test_iris_subtract_bg_flat_cal_20240822.fits
+- Processed Level 2 image data
+- https://figshare.com/articles/dataset/IRIS_Liger_DRS_Test_Data/26492029?file=48737014
