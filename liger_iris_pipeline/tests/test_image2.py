@@ -9,7 +9,7 @@ from liger_iris_pipeline.tests.test_utils import get_data_from_url
 import json
 from jwst.associations import load_asn
 
-def test_image2():
+def test_image2(tmp_path):
 
     # Load the association file
     # Contains a science and sky exposure to process
@@ -30,19 +30,20 @@ def test_image2():
     asn["products"][0]["members"][1]["expname"] = background_filename
 
     # Save the modified ASN
-    with open(f"test_asn.json", "w") as f:
+    asn_temp_filename = tmp_path / "test_asn.json"
+    with open(asn_temp_filename, "w") as f:
         json.dump(asn, f)
 
     # Create and call the pipeline object
     # Pipeline saves L2 file: test_iris_imageL2_cal.fits
-    liger_iris_pipeline.ProcessImagerL2Pipeline.call("test_asn.json", config_file="liger_iris_pipeline/tests/data/image2_iris.cfg")
+    liger_iris_pipeline.ProcessImagerL2Pipeline.call(asn_temp_filename, config_file="liger_iris_pipeline/tests/data/image2_iris.cfg")
 
     # Compare the output file we just created with an established result
     with liger_iris_pipeline.datamodels.LigerIrisImageModel('test_iris_subtract_bg_flat_cal.fits') as out, \
         liger_iris_pipeline.datamodels.LigerIrisImageModel(ref_filename) as ref:
         np.testing.assert_allclose(out.data, ref.data, rtol=1e-6)
 
-def test_image2_subarray():
+def test_image2_subarray(tmp_path):
     
     # Load the association
     with open("liger_iris_pipeline/tests/data/asn_subtract_bg_flat.json") as f:
@@ -73,22 +74,23 @@ def test_image2_subarray():
     input_model.dq = np.array(input_model.dq[subarray_slice])
 
     # Save the subarray science frame
-    raw_science_subarray_filename = "temp_subarray_science.fits"
+    raw_science_subarray_filename = tmp_path / "temp_subarray_science.fits"
     input_model.write(raw_science_subarray_filename)
 
     # Download sky background frame
     background_filename = get_data_from_url("48903439")
 
     # Store in ASN
-    asn["products"][0]["members"][0]["expname"] = raw_science_subarray_filename
+    asn["products"][0]["members"][0]["expname"] = str(raw_science_subarray_filename)
     asn["products"][0]["members"][1]["expname"] = background_filename
 
-    # Write ASN for pipeline to use
-    with open("test_asn.json", "w") as f:
+    # Save the modified ASN
+    asn_temp_filename = tmp_path / "test_asn.json"
+    with open(asn_temp_filename, "w") as f:
         json.dump(asn, f)
 
     # Call pipeline with test ASN
-    liger_iris_pipeline.pipeline.ProcessImagerL2Pipeline.call("test_asn.json", config_file="liger_iris_pipeline/tests/data/image2_iris.cfg")
+    liger_iris_pipeline.pipeline.ProcessImagerL2Pipeline.call(asn_temp_filename, config_file="liger_iris_pipeline/tests/data/image2_iris.cfg")
 
     # Compare L2 output below to this file
     ref_filename = get_data_from_url("48737014")

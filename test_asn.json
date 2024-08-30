@@ -1,1 +1,0 @@
-{"asn_rule": "Asn_Lv2Image", "asn_pool": "pool", "asn_type": "image2", "products": [{"name": "test_iris_subtract_bg_flat", "members": [{"expname": "temp_subarray_science.fits", "exptype": "science"}, {"expname": "/Users/cale/.astropy/cache/download/url/0b1ed4c136b7ef7db4e8202954e18fea/contents.fits", "exptype": "background"}]}]}
