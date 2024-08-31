@@ -43,7 +43,7 @@ Testing Data
 - Raw science frame of a few stars
 - https://figshare.com/articles/dataset/IRIS_Liger_DRS_Test_Data/26492029?file=48191524
 
-#### raw_background_20240829.fitsg
+#### raw_background_20240829.fits
 - Raw (sky) background frame
 - https://figshare.com/articles/dataset/IRIS_Liger_DRS_Test_Data/26492029?file=48903439
 
